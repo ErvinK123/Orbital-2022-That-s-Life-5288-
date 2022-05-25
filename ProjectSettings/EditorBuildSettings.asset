@@ -18,26 +18,53 @@ EditorBuildSettings:
     path: Assets/Scenes/Scenario1.unity
     guid: ae6141572c43169419176bda822f4e8b
   - enabled: 1
+    path: Assets/Scenes/Explanation11.unity
+    guid: 35002afd07ddee54389ac03f9b0682e7
+  - enabled: 1
+    path: Assets/Scenes/Explanation12.unity
+    guid: 3e45367dbb49239479c055611a043f56
+  - enabled: 1
     path: Assets/Scenes/Scenario2.unity
     guid: 2726321d23305d3488e10704409d13c1
+  - enabled: 1
+    path: Assets/Scenes/Explanation21.unity
+    guid: 8c8a2907b1141904a99c4c0ca43a4204
   - enabled: 1
     path: Assets/Scenes/Scenario3.unity
     guid: a4a361ad7f21fc84caa918f97018e4f2
   - enabled: 1
-    path: Assets/Scenes/Scenario8.unity
-    guid: 1d1ed9e25816c2048ad289e4028f475b
+    path: Assets/Scenes/Explanation31.unity
+    guid: b982822f9b1a4074c9c8e0f3859ceb12
+  - enabled: 1
+    path: Assets/Scenes/Scenario4.unity
+    guid: e449b0765af849443974262b0fd355ec
+  - enabled: 1
+    path: Assets/Scenes/Explanation41.unity
+    guid: fdc7faed4923b394c9906d72e65b0b6b
   - enabled: 1
     path: Assets/Scenes/Scenario5.unity
     guid: dbd0aad1678f3bd4d84f737e191df781
   - enabled: 1
+    path: Assets/Scenes/Explanation51.unity
+    guid: 42db9b545c9b95f42adf9ee2306fdac7
+  - enabled: 1
     path: Assets/Scenes/Scenario6.unity
     guid: 127bafc23a7a4694f99a83ec21ceaaba
+  - enabled: 1
+    path: Assets/Scenes/Explanation61.unity
+    guid: e7cd8704bb1a17d4392598d49bcdd0b6
   - enabled: 1
     path: Assets/Scenes/Scenario7.unity
     guid: 6b8725ae369554140a2baf771cee1f09
   - enabled: 1
-    path: Assets/Scenes/Scenario4.unity
-    guid: e449b0765af849443974262b0fd355ec
+    path: Assets/Scenes/Explanation71.unity
+    guid: ee69e1a4ff636e44ea1745ea308db22d
+  - enabled: 1
+    path: Assets/Scenes/Scenario8.unity
+    guid: 1d1ed9e25816c2048ad289e4028f475b
+  - enabled: 1
+    path: Assets/Scenes/Explanation81.unity
+    guid: 4bfcefff69ab4a24881bc11b9f2419f4
   - enabled: 1
     path: Assets/Scenes/End.unity
     guid: e31445a6bc719734c8f2e21cdbe81dc6
