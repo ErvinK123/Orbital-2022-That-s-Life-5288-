@@ -132,7 +132,7 @@ On creation of a character, the queued scenario will be extracted one by one and
 
 Upon making a choice, a page with a short summary of your choice and text that hints at what attributes were increased will be shown , before proceeding to the next scenario.
 
-![](RackMultipart20220525-1-y4ehis_html_ffd1a240e66b35e8.png)
+![Explanation Page](https://user-images.githubusercontent.com/88079008/170195089-a72423a8-076c-4f15-9cb8-66a9dca6fa13.png)
 
 **Image 2: Sample summary text after each scenario**
 
@@ -150,7 +150,7 @@ The creation of a new character will also have an associated attribute page with
 
 This tracker runs in the background with the game and will be used to make the final ending screen, in which the achievement title and the final attributes of the character is displayed.
 
-![](RackMultipart20220525-1-y4ehis_html_7aeaf38030d815d6.png)
+![Summary Page](https://user-images.githubusercontent.com/88079008/170195372-ec0e04f9-bd54-47b7-9f6e-bd9c79a04ca8.png)
 
 **Image 3: Sample game summary page**
 
@@ -166,7 +166,7 @@ For the proof of concept, we have set the length of each phase of life to be 2 s
 
 The Achievement badge collection page can be accessed from the Main menu. It provides a storage / &quot;Hall of Fame&quot; concept where the badges that the player has collected will be showcased.
 
-![](RackMultipart20220525-1-y4ehis_html_6cf7c37c22a71a94.png) ![](RackMultipart20220525-1-y4ehis_html_2f1be05ef810f1fc.png)
+![Badges Page (Hidden)](https://user-images.githubusercontent.com/88079008/170195505-91e82ad3-105b-4924-b64e-5decb557f927.png) ![Badges Page](https://user-images.githubusercontent.com/88079008/170195610-ff07c06e-8a82-456f-a48a-50cf7227dcbe.png)
 
 **Image 4: Sample Achievement badges page**
 
@@ -212,51 +212,8 @@ We have implemented the Start new game button that brings you to the character n
 
 **Timeline and Development plan**
 
-| **MS** | **Tasks** | **Description** | **Date** |
-| --- | --- | --- | --- |
-| 1 | User Interface and Game Elements design | Plan and design the layouts of the different pages (Main Menu, Scenarios, Achievements) | 12 - 17 May |
-| Acquiring relevant knowledge for implementation | Looking into and deciding on features of Unity to use for implementation / data structures to support the scenario | 18 - 24 May |
-| Button Mechanics | Implementing the various buttons needed in-game and transitioning to the appropriate pages when clicking the buttons | 25 - 28 May |
-| Attribute Tracker | Keeping track of changes to the various attributes to tally up at the end of the game |
-| Queue system for Scenarios | Unity Event management system for allocating scenarios to a player |
-| Integration | Looking into scaling up for next milestone and simple testing | 28 - 30 May |
-| **Evaluation Milestone 1:**
-- Ideation
-- Proof-of-concept
-  - Start screen with start new game feature
-  - 1 game route consisting of 1 scenario from each of the age periods
-  - End screen created with stats from attribute tracker
- | 30 May |
-| 2 | User Interface | Implement the button for the Achievement Badges page on the Main Menu | 31 May - 13 June |
-| Achievement Badges page |
-| Scenarios | Design and ideation for different scenarios | 31 May - 15 June |
-| Scenario pools | Implementation of pools to separate different scenarios and look into randomization algorithms (Fisher-Yates shuffle) to allocate events | 13 - 24 June |
-| Testing and Debugging | Preparation for submission of working prototype with testing and debugging | 25 - 27 June |
-| Look into next milestone |
-| **Evaluation Milestone 2: Prototype**
-- Completion of the base game
-  - Achievement system is put into place
-  - Fully fleshed out pools of scenarios for each of the different age periods
- | 27 June |
-| 3 | User Interface | Settings button | 28 June - 5 July |
-| Save / Load game option |
-| Sound options |
-| Sound | In-game music and sound effects |
-| History page | Shows the different runs by a player and the achievements in each run | 6 - 11 July |
-| Scenario refinements and balancing | Rebalancing of attribute changes attached to each scenario if needed | 12 - 24 July |
-| Look into possibility of chance scenarios to expand storyline |
-| Keeping track of friends in each run to personalise scenarios |
-| **Evaluation Milestone 3: Quality of Life Improvements**
-- Save / Load game system
-- Sounds effects and game music
-- Tracking of game history
-- Fine tuning and balancing the game
- | 25 July |
-|
-4 | Refinement and Bug-Testing | Ensure that all scenarios are balanced with reasonable difficulty to attain each achievement badge | 26 July - 14 August |
-| Ensure that gameplay runs smoothly |
-| Publishing | Look into publishing the game onto the Google Play Store | 15 - 23 August |
-| **Splashdown: Refinement and Publishing** | 24 August |
+![Timeline1](https://user-images.githubusercontent.com/88079008/170195712-2d4a4129-b983-4242-890b-36ea02d15a1d.png)
+![Timeline2](https://user-images.githubusercontent.com/88079008/170195818-8201698f-7f07-4035-be7c-fb35f1740588.png)
 
 **Proof of Concept**
 
