@@ -3,13 +3,19 @@
 
 **MILESTONE 1 SUBMISSION**
 
+<br />
+
 **Team Name**
 
 That&#39;s life
 
+<br />
+
 **Proposed Level of Achievement**
 
 Apollo 11
+
+<br />
 
 **Motivation**
 
@@ -19,6 +25,8 @@ We would also like to use this as an opportunity to utilise data structures such
 
 Once the game skeleton has been implemented, the theme can be changed easily and events altered to more specific roles, such as to raise awareness or provide deeper insights into certain pathways, such as a teacher/artist/engineer simulator etc.
 
+<br />
+
 **Aim**
 
 That&#39;s life will be a life simulator game, with users encountering randomly generated events that force them to make choices, with each of these choices affecting certain attributes such as charisma, fame, health and so on. At the end of the game, the total scores for each attribute are tallied and certain titles are awarded to the player based on their final scores. That&#39;s life is inspired by the mobile game Bitlife Simulator.
@@ -26,6 +34,8 @@ That&#39;s life will be a life simulator game, with users encountering randomly 
 The user interface is planned to be done up in a style reminiscent of sketchbook doodles, with a mainly black and white colour scheme and illustrations portrayed using stick figures. There will be simple buttons for each choice available to the player to make to progress through the game, and the game&#39;s layout will be done in a portrait orientation. The individual game features will be described in greater detail in the other sections below.
 
 The ultimate aim for That&#39;s life is for it to be a game that has many different possible outcomes in your game &quot;life&quot;, and we hope players will be driven to replay the game many times to achieve all the possible titles. We want it to be something you can play in your spare time anywhere, with each new game run not taking up a large time investment. We want to release That&#39;s life on the Google Play Store at the end of our project once all the features are included at a satisfactory standard, so that we can experience what the process is like to release an application on the Android platform. Since this experience is our main goal and we lack the resources for advertising, we are setting our goal to be 50 downloads.
+
+<br />
 
 **User Stories**
 
@@ -36,6 +46,8 @@ The ultimate aim for That&#39;s life is for it to be a game that has many differ
 5. As a speedrunner, I want to try attaining all the possible titles in the shortest time possible.
 6. As a mobile gamer, I want something that is free-to-play, and has all its features available without being locked behind in-app transactions.
 7. As a youth, I want to be able to see how some choices we make in life can have different types of impacts on our future.
+
+<br />
 
 **User Profiling**
 
@@ -51,6 +63,10 @@ Focus Areas
 1. A user interface that can be played with one hand.
 2. Short gameplay with save functionality.
 3. A wide range of events with each of the choices made impacting the different attributes.
+
+<br />
+
+<br />
 
 **Storyline**
 
@@ -75,15 +91,21 @@ Each new game starts from the child stage and each scenario encountered will &qu
 
 The user will be able to customise the name of the character and the character will start with a standardised 50 score for all attributes. The maximum attribute score is 100. Throughout the game, the attribute scores will be hidden from the player and will be revealed at the end along with the achievement that the player has.
 
+<br />
+
 **Scenarios**
 
 Scenarios will be pulled randomly from a pool of events associated with a &quot;phase&quot; in life. Each event presents 2 - 4 options to the player. Each option will increase/decrease the attributes, but it is unknown to the player.
+
+<br />
 
 **Achievements**
 
 Achievement title and badges are awarded from the final attribute tallies for that run. Eligibility for an achievement is decided by a predetermined cut-off for the attribute.
 
 E.g. If a player achieved \&gt;80 for Life Skills, he would receive the title of (HandyMan) and have a handyman badge in his badge collection page.
+
+<br />
 
 **Child**
 
@@ -116,6 +138,10 @@ Focus for the scenarios
 - Attitude towards what you achieved over your life (being satisfied / bitter)
 - Interactions with others now that you have plenty of free time and lesser commitments
 
+<br />
+
+<br />
+
 **Features**
 
 **Choice based advancement system**
@@ -130,17 +156,23 @@ On creation of a character, the queued scenario will be extracted one by one and
 
 **Image 1: Sample scenario for teenager phase**
 
+<br />
+
 Upon making a choice, a page with a short summary of your choice and text that hints at what attributes were increased will be shown , before proceeding to the next scenario.
 
 ![Explanation Page](https://user-images.githubusercontent.com/88079008/170195089-a72423a8-076c-4f15-9cb8-66a9dca6fa13.png)
 
 **Image 2: Sample summary text after each scenario**
 
+<br />
+
 When all the queued scenarios are exhausted the game is over and the attribute tally, achievement title and badge for that game run will be revealed to the player.
 
 **[Current Progress]**
 
 We have implemented a deterministic set of scenarios and explanations that automatically transitions to the next scene using Unity&#39;s Scene Management system. The events are triggered by the click of the corresponding button.
+
+<br />
 
 **Background attributes tracker**
 
@@ -154,11 +186,15 @@ This tracker runs in the background with the game and will be used to make the f
 
 **Image 3: Sample game summary page**
 
+<br />
+
 **[Current Progress]**
 
 We have implemented a Player class that has corresponding attributes to keep track of the scores. We have also added a &quot;phase of life&quot; field that changes depending on how many scenarios the player has experienced.
 
 For the proof of concept, we have set the length of each phase of life to be 2 scenarios. The statistics in the summary page are also automatically generated based on the current state of the player at the end of the run.
+
+<br />
 
 **Achievement badge collection page**
 
@@ -170,6 +206,8 @@ The Achievement badge collection page can be accessed from the Main menu. It pro
 
 **Image 4: Sample Achievement badges page**
 
+<br />
+
 For each of the 5 attributes, we have 2 badges that indicate either exceedingly high / low achievement in a run. For example, for the Morals attribute, we have a Saint and a Villain badge. On top of that, there will be 2 badges (Jack of All Trades / Master of None) that are given out in a run where all attributes are exceedingly high / low.
 
 This promotes replayability and encourages the user to play with the different choices in order to collect all the badges.
@@ -177,6 +215,8 @@ This promotes replayability and encourages the user to play with the different c
 **[Current Progress]**
 
 To be done in Milestone 2.
+
+<br />
 
 **User Interface, music**
 
@@ -210,9 +250,13 @@ The game will contain royalty-free music and in-game sound effects.
 
 We have implemented the Start new game button that brings you to the character naming page.
 
+<br />
+
+<br />
+
 **Timeline and Development plan**
 
-![Timeline1](https://user-images.githubusercontent.com/88079008/170195712-2d4a4129-b983-4242-890b-36ea02d15a1d.png)
+![Timeline1](https://user-images.githubusercontent.com/88079008/170196529-fee8d529-0dbb-421c-ace0-2ce821a103bb.png)
 ![Timeline2](https://user-images.githubusercontent.com/88079008/170195818-8201698f-7f07-4035-be7c-fb35f1740588.png)
 
 **Proof of Concept**
