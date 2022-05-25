@@ -14,10 +14,10 @@ public class ShowStatistics : MonoBehaviour
         Player.calculate();
 
         title.text = "Jack Of All Trades";
-        string temp = "" + Player.Career + "\n"
-            + Player.Popularity + "\n"
-            + Player.Health + "\n"
-            + Player.LifeSkills + "\n"
+        string temp = "" + Player.Career + "\n" + "\n"
+            + Player.Popularity + "\n" + "\n"
+            + Player.Health + "\n" + "\n"
+            + Player.LifeSkills + "\n" + "\n"
             + Player.Morals;
         statistics.text = temp;
     }
