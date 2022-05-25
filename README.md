@@ -126,7 +126,7 @@ Our proposed game advancement system queues a set of scenarios that are pulled f
 
 On creation of a character, the queued scenario will be extracted one by one and presented to the user. Each scenario presents several choices that increase different attributes, unknown to the user.
 
-![](RackMultipart20220525-1-y4ehis_html_9d2662f258f003e1.png)
+![Scenario Page](https://user-images.githubusercontent.com/88079008/170193727-e40caa47-378b-4b3e-b2ad-e0a729416482.png)
 
 **Image 1: Sample scenario for teenager phase**
 
