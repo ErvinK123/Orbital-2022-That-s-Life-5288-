@@ -71,9 +71,9 @@ public class Player : MonoBehaviour
 
     public static void calculate()
     {
-        for (int i=0; i < 8; i++)
+        for (int i=0; i < 8; i++) 
         {
-            for (int j = 0; j < 5; j++)
+            for (int j = 0; j < 5; j++) 
             {
                 if (j == 0)
                 {

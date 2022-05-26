@@ -782,9 +782,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "The year is 1973. \n\nIn the quiet town of \nTesting in Testland, \n                                    
-    \nwas born to Mary and George Cooper. He has 1 brother, Aladdin, who is 3 years
-    old."
+  m_text: "The year is 1973. \n\nIn the quiet town of \nScribbleton in Doodleworld,
+    \n                                     \nwas born to Mary and George Stick. He
+    has 1 brother, Aladdin, who is 3 years old."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 612491e3f7c61114fadbda59f70c5e52, type: 2}
   m_sharedMaterial: {fileID: -6632078951794378098, guid: 612491e3f7c61114fadbda59f70c5e52, type: 2}
