@@ -131,7 +131,7 @@ public class Player : MonoBehaviour
                 Player.title = "Work Junkie";
             } else if (best == "Popularity") 
             {
-                Player.title = "Smooth Brain"; 
+                Player.title = "Social Butterfly"; 
             } else if (best == "Health")
             {
                 Player.title = "Peak Human";
@@ -157,7 +157,7 @@ public class Player : MonoBehaviour
             }
             else if (worst == "Health")
             {
-                Player.title = "Zomebie";
+                Player.title = "Zombie";
             }
             else if (worst == "LifeSkills")
             {
