@@ -341,8 +341,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: NextScenario, Assembly-CSharp
+      - m_Target: {fileID: 495839962}
+        m_TargetAssemblyTypeName: NextExplanation, Assembly-CSharp
         m_MethodName: choice2
         m_Mode: 1
         m_Arguments:
