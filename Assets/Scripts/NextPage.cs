@@ -6,8 +6,21 @@ using UnityEngine.SceneManagement;
 public class NextPage : MonoBehaviour
 {
     public void next()
-    {   
-        SceneManager.LoadScene("Introduction");
+    {
+        if (Player.name == null || Player.name == "") 
+        {
+            Player.nameReset();
+            SceneManager.LoadScene("NameErrorEmpty");
+        } else if (Player.name.Length > 10)
+        {
+            Player.nameReset(); 
+            SceneManager.LoadScene("NameErrorLong");
+            
+        } else
+        {
+            Debug.Log(Player.name);
+            SceneManager.LoadScene("Introduction");
+        }
     }
 }
 
