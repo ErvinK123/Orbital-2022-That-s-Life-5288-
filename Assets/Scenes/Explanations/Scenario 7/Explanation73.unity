@@ -514,8 +514,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "You blamed your cat for the mishap. \nYour parents gave you a suspicious
-    glare but did not pursue the matter. \nThat was a close call..."
+  m_text: You're in the mood for some drinks, and since you are on such a fancy ship,
+    you want to liven it up and talk to some people at the bar.
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 612491e3f7c61114fadbda59f70c5e52, type: 2}
   m_sharedMaterial: {fileID: -6632078951794378098, guid: 612491e3f7c61114fadbda59f70c5e52, type: 2}
@@ -627,8 +627,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -5.0087, y: 8.02}
-  m_SizeDelta: {x: 1070, y: 1936.05}
+  m_AnchoredPosition: {x: -5.0087, y: -0.0037537}
+  m_SizeDelta: {x: 1070, y: 1920}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1969741462
 MonoBehaviour:
