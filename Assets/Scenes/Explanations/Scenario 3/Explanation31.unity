@@ -514,7 +514,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Explanation71
+  m_text: "You joined your friends and partied through the night! \nYou made many
+    new friends and formed memories for a lifetime. \nHowever, tomorrow is a new
+    day and you feel drained..."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 612491e3f7c61114fadbda59f70c5e52, type: 2}
   m_sharedMaterial: {fileID: -6632078951794378098, guid: 612491e3f7c61114fadbda59f70c5e52, type: 2}
@@ -549,7 +551,7 @@ MonoBehaviour:
   m_fontSizeMax: 72
   m_fontStyle: 0
   m_HorizontalAlignment: 2
-  m_VerticalAlignment: 256
+  m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0
@@ -626,8 +628,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -5.0087, y: 8.02}
-  m_SizeDelta: {x: 1070, y: 1936.05}
+  m_AnchoredPosition: {x: -5.0087, y: -0.0037537}
+  m_SizeDelta: {x: 1070, y: 1920}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1969741462
 MonoBehaviour:

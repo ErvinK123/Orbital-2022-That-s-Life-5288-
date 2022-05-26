@@ -514,9 +514,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'You told your friend that you knew about it but kept it a secret. Your
-    friend thanks you and invites you to his next birthday party. You had a blast,
-    and it seems you made a friend for life. '
+  m_text: You chug down an alarming number of energy drinks to power through the
+    night. Driven by sheer motivation and caffeine, you manage to finish up all your
+    work, but you feel dead on the inside.
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 612491e3f7c61114fadbda59f70c5e52, type: 2}
   m_sharedMaterial: {fileID: -6632078951794378098, guid: 612491e3f7c61114fadbda59f70c5e52, type: 2}
@@ -628,8 +628,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -5.0087, y: 8.02}
-  m_SizeDelta: {x: 1070, y: 1936.05}
+  m_AnchoredPosition: {x: -5.0087, y: -0.0037537}
+  m_SizeDelta: {x: 1070, y: 1920}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1969741462
 MonoBehaviour:
