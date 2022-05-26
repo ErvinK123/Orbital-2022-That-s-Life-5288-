@@ -74,9 +74,8 @@ Stages in life
 
 1. Child
 2. Teen
-3. Young Adult
-4. Adult
-5. Elderly
+3. Adult
+4. Elderly
 
 | **Attributes** | **Achievement badges** |
 | --- | --- |
@@ -103,7 +102,7 @@ Scenarios will be pulled randomly from a pool of events associated with a &quot;
 
 Achievement title and badges are awarded from the final attribute tallies for that run. Eligibility for an achievement is decided by a predetermined cut-off for the attribute.
 
-E.g. If a player achieved \&gt;80 for Life Skills, he would receive the title of (HandyMan) and have a handyman badge in his badge collection page.
+E.g. If a player achieved &gt;80 for Life Skills, he would receive the title of (HandyMan) and have a handyman badge in his badge collection page.
 
 <br />
 
