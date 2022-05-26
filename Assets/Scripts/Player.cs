@@ -18,6 +18,7 @@ public class Player : MonoBehaviour
 {   
     public static string name;
     public static string age = "Child";
+    public static string title = "Jack Of All Trades";
 
     public static int scenarios = 1;
 
@@ -76,7 +77,7 @@ public class Player : MonoBehaviour
             for (int j = 0; j < 5; j++)
             {
                 if (j == 0)
-                {
+                {   
                     Player.Career += ChoiceValues.arr[i, choiceArr[i].choice - 1, j];
                 } else if (j == 1)
                 {
@@ -92,6 +93,113 @@ public class Player : MonoBehaviour
                     Player.Morals += ChoiceValues.arr[i, choiceArr[i].choice - 1, j];
                 }
             }
+            int temp = i + 1;
+            string de = "Scenario " + temp + ": " + ChoiceValues.arr[i, choiceArr[i].choice - 1, 0]
+                         + ChoiceValues.arr[i, choiceArr[i].choice - 1, 1]
+                         + ChoiceValues.arr[i, choiceArr[i].choice - 1, 2]
+                         + ChoiceValues.arr[i, choiceArr[i].choice - 1, 3]
+                         + ChoiceValues.arr[i, choiceArr[i].choice - 1, 4];
+            Debug.Log(de);
+        }
+
+        
+        int[] tempArr = new int[] { Player.Career, Player.Popularity, Player.Health, Player.LifeSkills, Player.Morals };
+        string best = "Career";
+        string worst = "Career";
+        int highestvalue = Player.Career;
+        int lowestvalue = Player.Career;
+
+        for (int r = 1; r < 5; r++)
+        {
+            if (tempArr[r]> highestvalue)
+            {
+                highestvalue = tempArr[r];
+                best = Player.getattributeName(r); 
+            } else if (tempArr[r] < lowestvalue)
+            {
+                lowestvalue = tempArr[r];
+                worst = Player.getattributeName(r); 
+            }
+        }
+
+        Player.title = "Jack Of All Trades"; 
+
+        if (highestvalue > 70)
+        {
+            if (best == "Career")
+            {
+                Player.title = "Work Junkie";
+            } else if (best == "Popularity") 
+            {
+                Player.title = "Smooth Brain"; 
+            } else if (best == "Health")
+            {
+                Player.title = "Peak Human";
+            } else if (best == "LifeSKills") 
+            {
+                Player.title = "Handyman";
+            } else
+            {
+                Player.title = "Saint"; 
+            }
+            
+        }
+
+        if (lowestvalue < 40)
+        {
+            if (worst == "Career")
+            {
+                Player.title = "Smooth Brain";
+            }
+            else if (worst == "Popularity")
+            {
+                Player.title = "Shut-In";
+            }
+            else if (worst == "Health")
+            {
+                Player.title = "Zomebie";
+            }
+            else if (worst == "LifeSkills")
+            {
+                Player.title = "Hopelessly Inept";
+            }
+            else
+            {
+                Player.title = "Villain";
+            }
+
+        }
+
+
+    }
+    
+    //work junkie/smooth brain 
+    //social butterfly/ shut-in
+    //peak human / zombie
+    //handyman / hopelessly inept
+    //saint / villain 
+    // jack of all trades/ master of none 
+
+    public static string getattributeName(int id)
+    {
+        if (id == 0)
+        {
+            return "Career";
+        }
+        else if (id == 1)
+        {
+            return "Popularity";
+        }
+        else if (id == 2)
+        {
+            return "Health";
+        }
+        else if (id == 3)
+        {
+            return "LifeSkills";
+        } else
+        {
+            return "Morals";
         }
     }
 }

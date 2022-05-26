@@ -18,7 +18,6 @@ public class NextPage : MonoBehaviour
             
         } else
         {
-            Debug.Log(Player.name);
             SceneManager.LoadScene("Introduction");
         }
     }
