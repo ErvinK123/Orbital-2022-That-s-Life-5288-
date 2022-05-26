@@ -65,9 +65,27 @@ public class Player : MonoBehaviour
 
     public static void calculate()
     {
-        if (Player.choiceArr[0].choice == 1)
+        for (int i=0; i < 8; i++)
         {
-            Player.Morals -= 5; 
+            for (int j = 0; j < 5; j++)
+            {
+                if (j == 0)
+                {
+                    Player.Career += ChoiceValues.arr[i, choiceArr[i].choice - 1, j];
+                } else if (j == 1)
+                {
+                    Player.Popularity += ChoiceValues.arr[i, choiceArr[i].choice - 1, j];
+                } else if (j == 2)
+                {
+                    Player.Health += ChoiceValues.arr[i, choiceArr[i].choice - 1, j];
+                } else if (j == 3)
+                {
+                    Player.LifeSkills += ChoiceValues.arr[i, choiceArr[i].choice - 1, j];
+                } else
+                {
+                    Player.Morals += ChoiceValues.arr[i, choiceArr[i].choice - 1, j];
+                }
+            }
         }
     }
 }

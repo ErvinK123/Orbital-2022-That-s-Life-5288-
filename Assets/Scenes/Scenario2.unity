@@ -341,8 +341,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: NextScenario, Assembly-CSharp
+      - m_Target: {fileID: 495839962}
+        m_TargetAssemblyTypeName: NextExplanation, Assembly-CSharp
         m_MethodName: choice2
         m_Mode: 1
         m_Arguments:
@@ -449,7 +449,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Own up and apoologise to parents
+  m_text: Own up and apologise to parents
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 612491e3f7c61114fadbda59f70c5e52, type: 2}
   m_sharedMaterial: {fileID: -6632078951794378098, guid: 612491e3f7c61114fadbda59f70c5e52, type: 2}
@@ -1155,8 +1155,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: NextScenario, Assembly-CSharp
+      - m_Target: {fileID: 495839962}
+        m_TargetAssemblyTypeName: NextExplanation, Assembly-CSharp
         m_MethodName: choice3
         m_Mode: 1
         m_Arguments:
