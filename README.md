@@ -79,7 +79,7 @@ Stages in life
 
 | **Attributes** | **Achievement badges** |
 | --- | --- |
-| Career / Education | Word Junkie / Smooth Brain |
+| Career / Education | Work Junkie / Smooth Brain |
 | Popularity | Social butterfly / Shut-In |
 | Health | Peak Human / Zombie |
 | Life Skills | Handyman / Hopelessly Inept |
