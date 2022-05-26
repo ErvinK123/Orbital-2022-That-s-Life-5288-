@@ -59,8 +59,14 @@ public class Player : MonoBehaviour
         Player.LifeSkills = 50;
         Player.Morals = 50;
         Player.scenarios = 1;
+        Player.name = "";
 
         Player.choiceArr = new Choice[8]; 
+    }
+
+    public static void nameReset()
+    {
+        Player.name = ""; 
     }
 
     public static void calculate()
