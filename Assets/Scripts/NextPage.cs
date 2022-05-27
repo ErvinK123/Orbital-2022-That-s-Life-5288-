@@ -21,5 +21,10 @@ public class NextPage : MonoBehaviour
             SceneManager.LoadScene("Introduction");
         }
     }
+
+    public void back()
+    {
+        SceneManager.LoadScene("StartPage");
+    }
 }
 
