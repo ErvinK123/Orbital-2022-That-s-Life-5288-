@@ -1,5 +1,4 @@
 # Orbital-2022-That-s-Life-5288-
-![](RackMultipart20220525-1-y4ehis_html_19bc63fa24c5880f.png)
 
 **MILESTONE 1 SUBMISSION**
 
