@@ -7,6 +7,6 @@ public class BeginScenario : MonoBehaviour
 {
     public void begin()
     {
-        SceneManager.LoadScene("Scenario1"); 
+        SceneManager.LoadScene(Player.alottedRound[0].name); 
     }
 }

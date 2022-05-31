@@ -4,10 +4,10 @@ using UnityEngine;
 
 public struct Choice
 {
-    public int scenario;
+    public Scenario scenario;
     public int choice; 
 
-    public Choice(int s, int c)
+    public Choice(Scenario s, int c)
     {
         scenario = s;
         choice = c; 
@@ -28,7 +28,9 @@ public class Player : MonoBehaviour
     public static int Popularity = 50;
     public static int Health = 50;
     public static int LifeSkills = 50;
-    public static int Morals = 50; 
+    public static int Morals = 50;
+
+    public static Scenario[] alottedRound; 
     
     public static void ageUp()
     {
@@ -38,13 +40,13 @@ public class Player : MonoBehaviour
         {
             Player.age = "Child";
         } else if (Player.scenarios <= 4) {
-            Player.age = "Teenager"; 
+            Player.age = "Teen"; 
         } else if (Player.scenarios <= 6)
         {
             Player.age = "Adult";
         } else if (Player.scenarios <= 8) 
         {
-            Player.age = "Elderly";
+            Player.age = "Elder";
         } else
         {
             Player.age = "Dead"; 
@@ -76,30 +78,21 @@ public class Player : MonoBehaviour
         {
             for (int j = 0; j < 5; j++) 
             {
-                if (j == 0)
-                {   
-                    Player.Career += ChoiceValues.arr[i, choiceArr[i].choice - 1, j];
-                } else if (j == 1)
+                if (i < 2)
                 {
-                    Player.Popularity += ChoiceValues.arr[i, choiceArr[i].choice - 1, j];
-                } else if (j == 2)
+                    Player.calculateHelper(ChoiceValues.childResult, i, j);
+                } else if (i < 4)
                 {
-                    Player.Health += ChoiceValues.arr[i, choiceArr[i].choice - 1, j];
-                } else if (j == 3)
+                    Player.calculateHelper(ChoiceValues.teenResult, i, j);
+                } else if (i < 6)
                 {
-                    Player.LifeSkills += ChoiceValues.arr[i, choiceArr[i].choice - 1, j];
+                    Player.calculateHelper(ChoiceValues.adultResult, i, j);
                 } else
                 {
-                    Player.Morals += ChoiceValues.arr[i, choiceArr[i].choice - 1, j];
+                    Player.calculateHelper(ChoiceValues.elderResult, i, j);
                 }
             }
-            int temp = i + 1;
-            string de = "Scenario " + temp + ": " + ChoiceValues.arr[i, choiceArr[i].choice - 1, 0]
-                         + ChoiceValues.arr[i, choiceArr[i].choice - 1, 1]
-                         + ChoiceValues.arr[i, choiceArr[i].choice - 1, 2]
-                         + ChoiceValues.arr[i, choiceArr[i].choice - 1, 3]
-                         + ChoiceValues.arr[i, choiceArr[i].choice - 1, 4];
-            Debug.Log(de);
+            
         }
 
         
@@ -172,6 +165,32 @@ public class Player : MonoBehaviour
 
 
     }
+
+    public static void calculateHelper(int[,,] currArr, int first, int second) 
+    {
+        if (second == 0)
+        {
+            
+            Player.Career += currArr[choiceArr[first].scenario.id - 1, choiceArr[first].choice - 1, second];
+        }
+        else if (second == 1)
+        {
+            Player.Popularity += currArr[choiceArr[first].scenario.id - 1, choiceArr[first].choice - 1, second];
+        }
+        else if (second == 2)
+        {
+            Player.Health += currArr[choiceArr[first].scenario.id - 1, choiceArr[first].choice - 1, second];
+        }
+        else if (second == 3)
+        {
+            Player.LifeSkills += currArr[choiceArr[first].scenario.id - 1, choiceArr[first].choice - 1, second];
+        }
+        else
+        {
+            Player.Morals += currArr[choiceArr[first].scenario.id - 1, choiceArr[first].choice - 1, second];
+        }
+    }
+    
     
     //work junkie/smooth brain 
     //social butterfly/ shut-in
@@ -202,4 +221,51 @@ public class Player : MonoBehaviour
             return "Morals";
         }
     }
+
+    public static void setUpScenarios(int num)
+    {
+        childScenario.generateScenarios(num);
+        teenScenario.generateScenarios(num);
+        adultScenario.generateScenarios(num);
+        elderScenario.generateScenarios(num);
+
+        childScenario.gameArr = childScenario.randomizeArray();
+        teenScenario.gameArr = teenScenario.randomizeArray();
+        adultScenario.gameArr = adultScenario.randomizeArray();
+        elderScenario.gameArr = elderScenario.randomizeArray();
+
+    }
+
+    public static void allocateScenarios()
+    {
+        int first = childScenario.gameArr.Length;
+        int second = teenScenario.gameArr.Length;
+        int third = adultScenario.gameArr.Length;
+        int fourth = elderScenario.gameArr.Length;
+        int total = first + second + third + fourth; 
+
+        Scenario[] temp = new Scenario[total]; 
+
+        for (int k = 0; k < total; k++)
+        {
+            if (k < first)
+            {
+                temp[k] = childScenario.gameArr[k];
+            }
+            else if (k < first + second)
+            {
+                temp[k] = teenScenario.gameArr[k - first]; 
+            } else if ( k < first + second + third)
+            {
+                temp[k] = adultScenario.gameArr[k - first - second]; 
+            } else
+            {
+                temp[k] = elderScenario.gameArr[k - first - second - third]; 
+            }
+
+        }
+        Player.alottedRound = temp;
+
+        return;
+    } 
 }

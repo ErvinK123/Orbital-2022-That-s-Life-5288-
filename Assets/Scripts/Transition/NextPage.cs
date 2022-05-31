@@ -26,5 +26,13 @@ public class NextPage : MonoBehaviour
     {
         SceneManager.LoadScene("StartPage");
     }
+
+    void Start()
+    {
+        int numberOfScenarios = 2;
+        Player.setUpScenarios(numberOfScenarios);
+        Player.allocateScenarios(); 
+
+    }
 }
 
