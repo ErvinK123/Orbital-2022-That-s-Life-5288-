@@ -1,5 +1,4 @@
 # Orbital-2022-That-s-Life-5288-
-![](RackMultipart20220525-1-y4ehis_html_19bc63fa24c5880f.png)
 
 **MILESTONE 1 SUBMISSION**
 
@@ -258,7 +257,13 @@ We have implemented the Start new game button that brings you to the character n
 ![Timeline1](https://user-images.githubusercontent.com/88079008/170196529-fee8d529-0dbb-421c-ace0-2ce821a103bb.png)
 ![Timeline2](https://user-images.githubusercontent.com/88079008/170195818-8201698f-7f07-4035-be7c-fb35f1740588.png)
 
+<br />
+
 **Proof of Concept**
+
+https://youtu.be/D5vnJWtORyc
+
+<br />
 
 **Work Log**
 
