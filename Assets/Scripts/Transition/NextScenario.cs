@@ -10,7 +10,7 @@ public class NextScenario : MonoBehaviour
         Player.ageUp();
         if (Player.age != "Dead")
         {
-            string scene = Player.age + Player.alottedRound[Player.scenarios - 1].id;
+            string scene = Player.alottedRound[Player.scenarios - 1].name;
             SceneManager.LoadScene(scene);
         }
         else

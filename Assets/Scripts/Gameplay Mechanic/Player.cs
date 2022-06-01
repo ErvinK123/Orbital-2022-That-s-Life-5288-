@@ -92,7 +92,6 @@ public class Player : MonoBehaviour
                     Player.calculateHelper(ChoiceValues.elderResult, i, j);
                 }
             }
-            
         }
 
         
@@ -238,29 +237,26 @@ public class Player : MonoBehaviour
 
     public static void allocateScenarios()
     {
-        int first = childScenario.gameArr.Length;
-        int second = teenScenario.gameArr.Length;
-        int third = adultScenario.gameArr.Length;
-        int fourth = elderScenario.gameArr.Length;
-        int total = first + second + third + fourth; 
+        int num = NextPage.numberOfScene;
+        int total = 4 * num;
 
         Scenario[] temp = new Scenario[total]; 
 
         for (int k = 0; k < total; k++)
         {
-            if (k < first)
+            if (k < num)
             {
                 temp[k] = childScenario.gameArr[k];
             }
-            else if (k < first + second)
+            else if (k < 2 * num)
             {
-                temp[k] = teenScenario.gameArr[k - first]; 
-            } else if ( k < first + second + third)
+                temp[k] = teenScenario.gameArr[k - num]; 
+            } else if ( k < 3 * num)
             {
-                temp[k] = adultScenario.gameArr[k - first - second]; 
+                temp[k] = adultScenario.gameArr[k - (2 * num)]; 
             } else
             {
-                temp[k] = elderScenario.gameArr[k - first - second - third]; 
+                temp[k] = elderScenario.gameArr[k - (3 * num)]; 
             }
 
         }
