@@ -20,6 +20,21 @@ public class Player : MonoBehaviour
     public static string age = "Child";
     public static string title = "Jack Of All Trades";
 
+    // Initialising the achievement badge trackers;
+    public static bool WorkJunkieGet = false;
+    public static bool SmoothBrainGet = false;
+    public static bool SocialButterflyGet = false;
+    public static bool ShutInGet = false;
+    public static bool PeakHumanGet = false;
+    public static bool ZombieGet = false;
+    public static bool HandymanGet = false;
+    public static bool HopelesslyIneptGet = false;
+    public static bool SaintGet = false;
+    public static bool VillainGet = false;
+    public static bool JackOfAllTradesGet = false;
+    public static bool MasterOfNoneGet = false;
+    public static bool CollectorGet = false;
+
     public static int scenarios = 1;
 
     public static Choice[] choiceArr = new Choice[8];
@@ -115,56 +130,73 @@ public class Player : MonoBehaviour
             }
         }
 
-        Player.title = "Jack Of All Trades"; 
+
+    Player.title = "Jack Of All Trades"; 
 
         if (highestvalue > 70)
         {
             if (best == "Career")
             {
                 Player.title = "Work Junkie";
+                Player.WorkJunkieGet = true;
             } else if (best == "Popularity") 
             {
-                Player.title = "Social Butterfly"; 
+                Player.title = "Social Butterfly";
+                Player.SocialButterflyGet = true;
             } else if (best == "Health")
             {
                 Player.title = "Peak Human";
+                Player.PeakHumanGet = true;
             } else if (best == "LifeSKills") 
             {
                 Player.title = "Handyman";
+                Player.HandymanGet = true;
             } else
             {
-                Player.title = "Saint"; 
+                Player.title = "Saint";
+                Player.SaintGet = true;
             }
             
         }
 
-        if (lowestvalue < 40)
+        else if (lowestvalue < 40)
         {
             if (worst == "Career")
             {
                 Player.title = "Smooth Brain";
+                Player.SmoothBrainGet = true;
             }
             else if (worst == "Popularity")
             {
                 Player.title = "Shut-In";
+                Player.ShutInGet = true;
             }
             else if (worst == "Health")
             {
                 Player.title = "Zombie";
+                Player.ZombieGet = true;
             }
             else if (worst == "LifeSkills")
             {
                 Player.title = "Hopelessly Inept";
+                Player.HopelesslyIneptGet = true;
             }
             else
             {
                 Player.title = "Villain";
+                Player.VillainGet = true;
             }
 
         }
 
+        else
+        {
+            Player.JackOfAllTradesGet = true;
+        }
 
+        // TODO: Set condition to obtain Master of None achievement
     }
+
 
     public static void calculateHelper(int[,,] currArr, int first, int second) 
     {

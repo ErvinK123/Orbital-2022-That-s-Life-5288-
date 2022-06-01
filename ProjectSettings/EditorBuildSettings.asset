@@ -110,4 +110,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Summary.unity
     guid: df2cd9960389ebd45825240f32b84078
+  - enabled: 1
+    path: Assets/Scenes/AchievementPage1.unity
+    guid: ec90f05a43d4888468a47a61147d84ce
+  - enabled: 1
+    path: Assets/Scenes/AchievementPage2.unity
+    guid: c159bd499a562004ab0ddf8a059adee6
   m_configObjects: {}
