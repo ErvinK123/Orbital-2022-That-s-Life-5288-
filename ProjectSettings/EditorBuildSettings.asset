@@ -21,7 +21,7 @@ EditorBuildSettings:
     path: Assets/Scenes/Introduction.unity
     guid: 5343189499bcccd4faef4358091082ef
   - enabled: 1
-    path: Assets/Scenes/Scenarios/Child1.unity
+    path: Assets/Scenes/Scenarios/Child/Child1.unity
     guid: ae6141572c43169419176bda822f4e8b
   - enabled: 1
     path: Assets/Scenes/Explanations/Child/Child1E1.unity
@@ -30,7 +30,7 @@ EditorBuildSettings:
     path: Assets/Scenes/Explanations/Child/Child1E2.unity
     guid: 3e45367dbb49239479c055611a043f56
   - enabled: 1
-    path: Assets/Scenes/Scenarios/Child2.unity
+    path: Assets/Scenes/Scenarios/Child/Child2.unity
     guid: 2726321d23305d3488e10704409d13c1
   - enabled: 1
     path: Assets/Scenes/Explanations/Child/Child2E1.unity
@@ -42,7 +42,16 @@ EditorBuildSettings:
     path: Assets/Scenes/Explanations/Child/Child2E3.unity
     guid: 04415470d40fd06469d154d89977ea78
   - enabled: 1
-    path: Assets/Scenes/Scenarios/Teen1.unity
+    path: Assets/Scenes/Scenarios/Child/Child3.unity
+    guid: d1a0c16216ec6ab42a13fdbcb3a182a0
+  - enabled: 1
+    path: Assets/Scenes/Explanations/Child/Child3E1.unity
+    guid: 6dad8cbdf3282714b981f4c966e75bf1
+  - enabled: 1
+    path: Assets/Scenes/Explanations/Child/Child3E2.unity
+    guid: 537543957a0b93e408914d8cf9824eb3
+  - enabled: 1
+    path: Assets/Scenes/Scenarios/Teen/Teen1.unity
     guid: a4a361ad7f21fc84caa918f97018e4f2
   - enabled: 1
     path: Assets/Scenes/Explanations/Teen/Teen1E1.unity
@@ -54,7 +63,7 @@ EditorBuildSettings:
     path: Assets/Scenes/Explanations/Teen/Teen1E3.unity
     guid: bcd019d775937d947a471d401d997b4e
   - enabled: 1
-    path: Assets/Scenes/Scenarios/Teen2.unity
+    path: Assets/Scenes/Scenarios/Teen/Teen2.unity
     guid: e449b0765af849443974262b0fd355ec
   - enabled: 1
     path: Assets/Scenes/Explanations/Teen/Teen2E1.unity
@@ -63,7 +72,19 @@ EditorBuildSettings:
     path: Assets/Scenes/Explanations/Teen/Teen2E2.unity
     guid: a592617e593422943a33da88cb556d52
   - enabled: 1
-    path: Assets/Scenes/Scenarios/Adult1.unity
+    path: Assets/Scenes/Scenarios/Teen/Teen3.unity
+    guid: b2c8bba68e3912844a5b93882d2b96d5
+  - enabled: 1
+    path: Assets/Scenes/Explanations/Teen/Teen3E1.unity
+    guid: d5307df18275b8e4dadfd167d6faf749
+  - enabled: 1
+    path: Assets/Scenes/Explanations/Teen/Teen3E2.unity
+    guid: f1ba2e5eb2b4ff54d9597eeeaceb5761
+  - enabled: 1
+    path: Assets/Scenes/Explanations/Teen/Teen3E3.unity
+    guid: 06b2525e0043c2940bd99bd964e1d0ad
+  - enabled: 1
+    path: Assets/Scenes/Scenarios/Adult/Adult1.unity
     guid: dbd0aad1678f3bd4d84f737e191df781
   - enabled: 1
     path: Assets/Scenes/Explanations/Adult/Adult1E1.unity
@@ -75,7 +96,7 @@ EditorBuildSettings:
     path: Assets/Scenes/Explanations/Adult/Adult1E3.unity
     guid: e0cfc68a82c2b54429eaee18f461033f
   - enabled: 1
-    path: Assets/Scenes/Scenarios/Adult2.unity
+    path: Assets/Scenes/Scenarios/Adult/Adult2.unity
     guid: 127bafc23a7a4694f99a83ec21ceaaba
   - enabled: 1
     path: Assets/Scenes/Explanations/Adult/Adult2E1.unity
@@ -84,7 +105,16 @@ EditorBuildSettings:
     path: Assets/Scenes/Explanations/Adult/Adult2E2.unity
     guid: 6d7a816307e0b2b49bae0c3cf29c0c6f
   - enabled: 1
-    path: Assets/Scenes/Scenarios/Elder1.unity
+    path: Assets/Scenes/Scenarios/Adult/Adult3.unity
+    guid: c78a60b7ff08d7143a4b6d2c41ab3fcc
+  - enabled: 1
+    path: Assets/Scenes/Explanations/Adult/Adult3E1.unity
+    guid: ba902d7090a217848a13ddab74ff7ffa
+  - enabled: 1
+    path: Assets/Scenes/Explanations/Adult/Adult3E2.unity
+    guid: cc6327a71f8ad2e44bd330d62c57b4f6
+  - enabled: 1
+    path: Assets/Scenes/Scenarios/Elder/Elder1.unity
     guid: 6b8725ae369554140a2baf771cee1f09
   - enabled: 1
     path: Assets/Scenes/Explanations/Elder/Elder1E1.unity
@@ -96,7 +126,7 @@ EditorBuildSettings:
     path: Assets/Scenes/Explanations/Elder/Elder1E3.unity
     guid: 93ecd6a99157a924f9cabb93b84707e2
   - enabled: 1
-    path: Assets/Scenes/Scenarios/Elder2.unity
+    path: Assets/Scenes/Scenarios/Elder/Elder2.unity
     guid: 1d1ed9e25816c2048ad289e4028f475b
   - enabled: 1
     path: Assets/Scenes/Explanations/Elder/Elder2E1.unity
@@ -104,6 +134,15 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Explanations/Elder/Elder2E2.unity
     guid: ece138d5e27c2d247a6711c2913e0ea2
+  - enabled: 1
+    path: Assets/Scenes/Scenarios/Elder/Elder3.unity
+    guid: 45edf72139017064ab548c32d48877e6
+  - enabled: 1
+    path: Assets/Scenes/Explanations/Elder/Elder3E1.unity
+    guid: 3904ec31f6cc6cf4f9b05506dd137814
+  - enabled: 1
+    path: Assets/Scenes/Explanations/Elder/Elder3E2.unity
+    guid: 73f953e730732e042b8d0bf55b15c8af
   - enabled: 1
     path: Assets/Scenes/End.unity
     guid: e31445a6bc719734c8f2e21cdbe81dc6

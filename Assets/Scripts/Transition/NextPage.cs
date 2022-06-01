@@ -5,6 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class NextPage : MonoBehaviour
 {
+    public static int numberOfScene = 2; 
+
     public void next()
     {
         if (Player.name == null || Player.name == "") 
@@ -29,8 +31,8 @@ public class NextPage : MonoBehaviour
 
     void Start()
     {
-        int numberOfScenarios = 2;
-        Player.setUpScenarios(numberOfScenarios);
+        int scenePerPool = 3;
+        Player.setUpScenarios(scenePerPool);
         Player.allocateScenarios(); 
 
     }

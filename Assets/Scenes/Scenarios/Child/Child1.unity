@@ -449,7 +449,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Cheer them from your porch
+  m_text: Hand it to the school general office
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 612491e3f7c61114fadbda59f70c5e52, type: 2}
   m_sharedMaterial: {fileID: -6632078951794378098, guid: 612491e3f7c61114fadbda59f70c5e52, type: 2}
@@ -584,7 +584,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'You see a couple of neighbourhood kids playing on your lawn without permission. '
+  m_text: 'You found 10 bucks on the floor in school. '
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 612491e3f7c61114fadbda59f70c5e52, type: 2}
   m_sharedMaterial: {fileID: -6632078951794378098, guid: 612491e3f7c61114fadbda59f70c5e52, type: 2}
@@ -1052,7 +1052,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: c5121fafe02870849baed17d95e26251, type: 3}
+  m_Sprite: {fileID: 21300000, guid: cc0bcfbcd40fa4041b077dd61d9cb63f, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1128,7 +1128,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Chase them away
+  m_text: Keep it
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 612491e3f7c61114fadbda59f70c5e52, type: 2}
   m_sharedMaterial: {fileID: -6632078951794378098, guid: 612491e3f7c61114fadbda59f70c5e52, type: 2}
