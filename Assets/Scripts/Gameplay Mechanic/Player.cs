@@ -146,7 +146,7 @@ public class Player : MonoBehaviour
             {
                 Player.title = "Peak Human";
                 Player.PeakHumanGet = true;
-            } else if (best == "LifeSKills") 
+            } else if (best == "LifeSkills") 
             {
                 Player.title = "Handyman";
                 Player.HandymanGet = true;
