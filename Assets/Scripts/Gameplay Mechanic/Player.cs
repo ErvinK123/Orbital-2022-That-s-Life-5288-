@@ -18,7 +18,7 @@ public class Player : MonoBehaviour
 {   
     public static string name;
     public static string age = "Child";
-    public static string title = "Jack Of All Trades";
+    public static string title;
 
     // Initialising the achievement badge trackers;
     public static bool WorkJunkieGet = false;
@@ -129,71 +129,101 @@ public class Player : MonoBehaviour
             }
         }
 
+        Player.title = "Master Of None";
 
-    Player.title = "Jack Of All Trades"; 
+        foreach(int i in tempArr)
+        {
+            if (i > 60 || i < 40)
+            {
+                Player.title = "Jack Of All Trades";
+            }
+        }
 
         if (highestvalue > 70)
         {
-            if (best == "Career")
-            {
-                Player.title = "Work Junkie";
-                Player.WorkJunkieGet = true;
-            } else if (best == "Popularity") 
-            {
-                Player.title = "Social Butterfly";
-                Player.SocialButterflyGet = true;
-            } else if (best == "Health")
-            {
-                Player.title = "Peak Human";
-                Player.PeakHumanGet = true;
-            } else if (best == "LifeSkills") 
-            {
-                Player.title = "Handyman";
-                Player.HandymanGet = true;
-            } else
-            {
-                Player.title = "Saint";
-                Player.SaintGet = true;
-            }
-            
+            Player.getBadgeBest(best);
+            return;
         }
 
-        else if (lowestvalue < 40)
+        if (lowestvalue < 40)
         {
-            if (worst == "Career")
-            {
-                Player.title = "Smooth Brain";
-                Player.SmoothBrainGet = true;
-            }
-            else if (worst == "Popularity")
-            {
-                Player.title = "Shut-In";
-                Player.ShutInGet = true;
-            }
-            else if (worst == "Health")
-            {
-                Player.title = "Zombie";
-                Player.ZombieGet = true;
-            }
-            else if (worst == "LifeSkills")
-            {
-                Player.title = "Hopelessly Inept";
-                Player.HopelesslyIneptGet = true;
-            }
-            else
-            {
-                Player.title = "Villain";
-                Player.VillainGet = true;
-            }
-
+            Player.getBadgeWorst(worst);
+            return; 
         }
 
+        Player.getBadgeNeutral(Player.title);
+    }   
+        
+    public static void getBadgeBest(string b)
+    {
+        if (b == "Career")
+        {
+            Player.title = "Work Junkie";
+            Player.WorkJunkieGet = true;
+        }
+        else if (b == "Popularity")
+        {
+            Player.title = "Social Butterfly";
+            Player.SocialButterflyGet = true;
+        }
+        else if (b == "Health")
+        {
+            Player.title = "Peak Human";
+            Player.PeakHumanGet = true;
+        }
+        else if (b == "LifeSkills")
+        {
+            Player.title = "Handyman";
+            Player.HandymanGet = true;
+        }
         else
         {
+            Player.title = "Saint";
+            Player.SaintGet = true;
+        }
+    }
+
+    public static void getBadgeWorst(string w)
+    {
+        if (w == "Career")
+        {
+            Player.title = "Smooth Brain";
+            Player.SmoothBrainGet = true;
+        }
+        else if (w == "Popularity")
+        {
+            Player.title = "Shut-In";
+            Player.ShutInGet = true;
+        }
+        else if (w == "Health")
+        {
+            Player.title = "Zombie";
+            Player.ZombieGet = true;
+        }
+        else if (w == "LifeSkills")
+        {
+            Player.title = "Hopelessly Inept";
+            Player.HopelesslyIneptGet = true;
+        }
+        else
+        {
+            Player.title = "Villain";
+            Player.VillainGet = true;
+        }
+    }
+
+    public static void getBadgeNeutral(string n)
+    {
+        if (n == "Jack Of All Trades")
+        {
+            Player.title = "Jack of All Trades";
             Player.JackOfAllTradesGet = true;
         }
-
-        // TODO: Set condition to obtain Master of None achievement
+        else if (n == "Master Of None")
+        {
+            Player.title = "Master Of None";
+            Player.MasterOfNoneGet = true;
+        }
     }
 
 
