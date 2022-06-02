@@ -296,4 +296,26 @@ public class Player : MonoBehaviour
 
         return;
     } 
+
+
+    public static bool collector()
+    {
+        if (Player.WorkJunkieGet 
+            && Player.SmoothBrainGet 
+            && Player.SocialButterflyGet 
+            && Player.ShutInGet 
+            && Player.PeakHumanGet
+            && Player.ZombieGet 
+            && Player.HandymanGet 
+            && Player.HopelesslyIneptGet 
+            && Player.SaintGet 
+            && Player.VillainGet
+            && Player.JackOfAllTradesGet 
+            && Player.MasterOfNoneGet)
+        {
+            Player.CollectorGet = true;
+            return true; 
+        }
+        return false;
+    }
 }
