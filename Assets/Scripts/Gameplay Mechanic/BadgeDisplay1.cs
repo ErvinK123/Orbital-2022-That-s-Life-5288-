@@ -16,87 +16,63 @@ public class BadgeDisplay1 : MonoBehaviour
     public GameObject SaintLock;
 
 
-    void Update()
+    
+    void Start()
     {
-        if (Player.WorkJunkieGet == true)
+        Player.collector();
+        displayBadge();
+    }
+
+    public void displayBadge()
+    {
+        WorkJunkieLock.SetActive(true);
+        SmoothBrainLock.SetActive(true);
+        SocialButterflyLock.SetActive(true);
+        ShutInLock.SetActive(true);
+        PeakHumanLock.SetActive(true);
+        ZombieLock.SetActive(true);
+        HandymanLock.SetActive(true);
+        HopelesslyIneptLock.SetActive(true);
+        SaintLock.SetActive(true); 
+
+        if (Player.WorkJunkieGet)
         {
             WorkJunkieLock.SetActive(false);
         }
-        else
-        {
-            WorkJunkieLock.SetActive(true);
-        }
-        
-        if (Player.SmoothBrainGet == true)
+
+        if (Player.SmoothBrainGet)
         {
             SmoothBrainLock.SetActive(false);
         }
-        else
-        {
-            SmoothBrainLock.SetActive(true);
-        }
 
-        if (Player.SocialButterflyGet == true)
+        if (Player.SocialButterflyGet)
         {
             SocialButterflyLock.SetActive(false);
         }
-        else
-        {
-            SocialButterflyLock.SetActive(true);
-        }
-
-        if (Player.ShutInGet == true)
+        if (Player.ShutInGet)
         {
             ShutInLock.SetActive(false);
         }
-        else
-        {
-            ShutInLock.SetActive(true);
-        }
-
-        if (Player.PeakHumanGet == true)
+        if (Player.PeakHumanGet)
         {
             PeakHumanLock.SetActive(false);
         }
-        else
-        {
-            PeakHumanLock.SetActive(true);
-        }
-
-        if (Player.ZombieGet == true)
+        if (Player.ZombieGet)
         {
             ZombieLock.SetActive(false);
         }
-        else
-        {
-            ZombieLock.SetActive(true);
-        }
-
-        if (Player.HandymanGet == true)
+        if (Player.HandymanGet)
         {
             HandymanLock.SetActive(false);
         }
-        else
-        {
-            HandymanLock.SetActive(true);
-        }
-
-        if (Player.HopelesslyIneptGet == true)
+        if (Player.HopelesslyIneptGet)
         {
             HopelesslyIneptLock.SetActive(false);
         }
-        else
-        {
-            HopelesslyIneptLock.SetActive(true);
-        }
-
-        if (Player.SaintGet == true)
+        if (Player.SaintGet)
         {
             SaintLock.SetActive(false);
         }
-        else
-        {
-            SaintLock.SetActive(true);
-        }
-    } 
+    }
+    
 }
