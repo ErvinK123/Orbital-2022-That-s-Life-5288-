@@ -8,11 +8,11 @@ public class NextExplanation : MonoBehaviour
     public void choice1()
     {
         //store choice 
-        Player.choiceArr[Player.scenarios - 1] = new Choice(Player.alottedRound[Player.scenarios - 1], 1);
+        Player.storeChoice(1);
 
         //load new scene
-        string scene = Player.age + Player.alottedRound[Player.scenarios -1].id + "E1";
-        SceneManager.LoadScene(scene);
+        string next = Player.getNextSceneName(1);
+        SceneManager.LoadScene(next);
 
     }
 
@@ -20,30 +20,30 @@ public class NextExplanation : MonoBehaviour
     public void choice2()
     {
         //store choice 
-        Player.choiceArr[Player.scenarios - 1] = new Choice(Player.alottedRound[Player.scenarios - 1], 2);
+        Player.storeChoice(2);
 
         //load new scene 
-        string scene = Player.age + Player.alottedRound[Player.scenarios - 1].id + "E2";
-        SceneManager.LoadScene(scene);
+        string next = Player.getNextSceneName(2);
+        SceneManager.LoadScene(next);
     }
 
     public void choice3()
     {
         //store choice 
-        Player.choiceArr[Player.scenarios - 1] = new Choice(Player.alottedRound[Player.scenarios - 1], 3);
+        Player.storeChoice(3);
 
         //load new scene 
-        string scene = Player.age + Player.alottedRound[Player.scenarios - 1].id + "E3";
-        SceneManager.LoadScene(scene);
+        string next = Player.getNextSceneName(3);
+        SceneManager.LoadScene(next);
     }
 
     public void choice4()
     {
         //store choice 
-        Player.choiceArr[Player.scenarios - 1] = new Choice(Player.alottedRound[Player.scenarios - 1], 4);
+        Player.storeChoice(4);
 
         //load new scene 
-        string scene = Player.age + Player.alottedRound[Player.scenarios - 1].id + "E4";
-        SceneManager.LoadScene(scene);
+        string next = Player.getNextSceneName(4);
+        SceneManager.LoadScene(next);
     }
 }
