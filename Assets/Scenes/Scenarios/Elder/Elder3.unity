@@ -585,7 +585,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_text: "A travelling salesman knocks on your door and tries to sell you a hair
-    \u2018unbalder\u2019"
+    \u2018unbalder\u2019."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 612491e3f7c61114fadbda59f70c5e52, type: 2}
   m_sharedMaterial: {fileID: -6632078951794378098, guid: 612491e3f7c61114fadbda59f70c5e52, type: 2}
@@ -1054,7 +1054,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: c5121fafe02870849baed17d95e26251, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 529a1fa173976f143a4f24947bbd9e14, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1

@@ -772,7 +772,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Child3E1
+  m_text: You really liked the new teacher, and tried your best to help her out in
+    any way possible. The teacher frequently praised you and you learned a lot from
+    her, but your classmates made fun of you for being a teacher's pet.
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 612491e3f7c61114fadbda59f70c5e52, type: 2}
   m_sharedMaterial: {fileID: -6632078951794378098, guid: 612491e3f7c61114fadbda59f70c5e52, type: 2}

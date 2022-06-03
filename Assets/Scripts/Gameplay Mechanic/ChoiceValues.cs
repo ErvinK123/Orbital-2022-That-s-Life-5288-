@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class ChoiceValues : MonoBehaviour
 {
+    // {Career, Popularity, Health, LifeSkills, Morals}
     public static int[,,] childResult = new int[3, 3, 5] { {{0, 0, -5, 0, -5} // Child 1
                                                           , {0, 5, 0, 0, 5}
                                                           , {0, 0, 0, 0, 0}}
@@ -12,8 +13,8 @@ public class ChoiceValues : MonoBehaviour
                                                           , {0, 0, 0, 10, -5},
                                                            {0 , 10, -5, 5, 0}}
         
-                                                          , {{0, -5, 0, 0, 5} // Child 3 
-                                                          , {0, 5, 0, 10, -5},
+                                                          , {{5, -5, 0, 0, 0} // Child 3 
+                                                          , {0, 5, 0, 0, -5},
                                                            {0 , 0, 0, 0, 0}}};
 
     public static int[,,] teenResult = new int[3, 3, 5] { {{5, -5, -5, 5, 0} // Teen 1
@@ -37,7 +38,7 @@ public class ChoiceValues : MonoBehaviour
                                                            {0 , 0, 0, 0, 0}}
 
                                                           , {{0, 5, 0, 0, 0} // Adult 3 
-                                                          , {0, 0, 5, 0, 0},
+                                                          , {0, -5, 0, 0, 0},
                                                            {0 , 0, 0, 0, 0}}};
 
     public static int[,,] elderResult = new int[3, 3, 5] { {{0, 0, 0, 0, -5} // Elder 1 
