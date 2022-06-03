@@ -45,8 +45,87 @@ public class Player : MonoBehaviour
     public static int LifeSkills = 50;
     public static int Morals = 50;
 
-    public static Scenario[] alottedRound; 
-    
+    public static Scenario[] alottedRound;
+
+    //Used when there is a invalid name input
+    public static void nameReset()
+    {
+        Player.name = "";
+    }
+
+    // Fills in the Scenarios array in each Scenario class and randomizes them
+    public static void setUpScenarios(int num)
+    {
+        childScenario.generateScenarios(num);
+        teenScenario.generateScenarios(num);
+        adultScenario.generateScenarios(num);
+        elderScenario.generateScenarios(num);
+
+        childScenario.gameArr = childScenario.randomizeArray();
+        teenScenario.gameArr = teenScenario.randomizeArray();
+        adultScenario.gameArr = adultScenario.randomizeArray();
+        elderScenario.gameArr = elderScenario.randomizeArray();
+
+    }
+
+    // generates an array of scenario for the player for that run 
+    public static void allocateScenarios()
+    {
+        int num = NextPage.numberOfScene;
+        int total = 4 * num;
+
+        Scenario[] temp = new Scenario[total];
+
+        for (int k = 0; k < total; k++)
+        {
+            if (k < num)
+            {
+                temp[k] = childScenario.gameArr[k];
+            }
+            else if (k < 2 * num)
+            {
+                temp[k] = teenScenario.gameArr[k - num];
+            }
+            else if (k < 3 * num)
+            {
+                temp[k] = adultScenario.gameArr[k - (2 * num)];
+            }
+            else
+            {
+                temp[k] = elderScenario.gameArr[k - (3 * num)];
+            }
+
+        }
+        Player.alottedRound = temp;
+
+        return;
+    }
+
+    //Store choice given number of button pressed
+    public static void storeChoice(int i)
+    {
+        Player.choiceArr[Player.scenarios - 1] = new Choice(Player.alottedRound[Player.scenarios - 1], i);
+        return; 
+    }
+
+    public static string getNextSceneName(int j)
+    {
+        if (j == 1)
+        {
+            return Player.age + Player.alottedRound[Player.scenarios - 1].id + "E1";       
+        } else if (j == 2)
+        {
+            return Player.age + Player.alottedRound[Player.scenarios - 1].id + "E2";
+        } else if (j == 3)
+        {
+            return Player.age + Player.alottedRound[Player.scenarios - 1].id + "E3";
+        } else
+        {
+            return Player.age + Player.alottedRound[Player.scenarios - 1].id + "E4";
+        }
+    }
+
+    //Happens on next scenario in void Start()
     public static void ageUp()
     {
         Player.scenarios += 1;
@@ -54,20 +133,26 @@ public class Player : MonoBehaviour
         if (Player.scenarios <= 2)
         {
             Player.age = "Child";
+            return; 
         } else if (Player.scenarios <= 4) {
-            Player.age = "Teen"; 
+            Player.age = "Teen";
+            return;
         } else if (Player.scenarios <= 6)
         {
             Player.age = "Adult";
+            return;
         } else if (Player.scenarios <= 8) 
         {
             Player.age = "Elder";
+            return; 
         } else
         {
-            Player.age = "Dead"; 
+            Player.age = "Dead";
+            return;
         }
     }
 
+    //Reset all after a run 
     public static void reset()
     {
         Player.age = "Child";
@@ -79,14 +164,12 @@ public class Player : MonoBehaviour
         Player.scenarios = 1;
         Player.name = "";
 
-        Player.choiceArr = new Choice[8]; 
+        Player.choiceArr = new Choice[8];
+        return; 
     }
 
-    public static void nameReset()
-    {
-        Player.name = ""; 
-    }
 
+    //Happens at the  end of a run, determines the title and the attributes of the player
     public static void calculate()
     {
         for (int i=0; i < 8; i++) 
@@ -154,112 +237,125 @@ public class Player : MonoBehaviour
         Player.getBadgeNeutral(Player.title);
     }   
         
+    // Used in calculate : Title and badge 
     public static void getBadgeBest(string b)
     {
         if (b == "Career")
         {
             Player.title = "Work Junkie";
             Player.WorkJunkieGet = true;
+            return;
         }
         else if (b == "Popularity")
         {
             Player.title = "Social Butterfly";
             Player.SocialButterflyGet = true;
+            return;
         }
         else if (b == "Health")
         {
             Player.title = "Peak Human";
             Player.PeakHumanGet = true;
+            return;
         }
         else if (b == "LifeSkills")
         {
             Player.title = "Handyman";
             Player.HandymanGet = true;
+            return;
         }
         else
         {
             Player.title = "Saint";
             Player.SaintGet = true;
+            return;
         }
     }
 
+    // Used in calculate : Title and badge 
     public static void getBadgeWorst(string w)
     {
         if (w == "Career")
         {
             Player.title = "Smooth Brain";
             Player.SmoothBrainGet = true;
+            return;
         }
         else if (w == "Popularity")
         {
             Player.title = "Shut-In";
             Player.ShutInGet = true;
+            return;
         }
         else if (w == "Health")
         {
             Player.title = "Zombie";
             Player.ZombieGet = true;
+            return;
         }
         else if (w == "LifeSkills")
         {
             Player.title = "Hopelessly Inept";
             Player.HopelesslyIneptGet = true;
+            return;
         }
         else
         {
             Player.title = "Villain";
             Player.VillainGet = true;
+            return;
         }
     }
 
+    // Used in calculate : Title and badge 
     public static void getBadgeNeutral(string n)
     {
         if (n == "Jack Of All Trades")
         {
             Player.title = "Jack of All Trades";
             Player.JackOfAllTradesGet = true;
+            return;
         }
         else if (n == "Master Of None")
         {
             Player.title = "Master Of None";
             Player.MasterOfNoneGet = true;
+            return;
         }
     }
 
-
+    // Used in calculate : Cross checks the choices made by player and changes player attribute 
     public static void calculateHelper(int[,,] currArr, int first, int second) 
     {
         if (second == 0)
         {
             
             Player.Career += currArr[choiceArr[first].scenario.id - 1, choiceArr[first].choice - 1, second];
+            return;
         }
         else if (second == 1)
         {
             Player.Popularity += currArr[choiceArr[first].scenario.id - 1, choiceArr[first].choice - 1, second];
+            return;
         }
         else if (second == 2)
         {
             Player.Health += currArr[choiceArr[first].scenario.id - 1, choiceArr[first].choice - 1, second];
+            return;
         }
         else if (second == 3)
         {
             Player.LifeSkills += currArr[choiceArr[first].scenario.id - 1, choiceArr[first].choice - 1, second];
+            return;
         }
         else
         {
             Player.Morals += currArr[choiceArr[first].scenario.id - 1, choiceArr[first].choice - 1, second];
+            return;
         }
     }
     
-    
-    //work junkie/smooth brain 
-    //social butterfly/ shut-in
-    //peak human / zombie
-    //handyman / hopelessly inept
-    //saint / villain 
-    // jack of all trades/ master of none 
-
+    // Used in calculate : returns attribute name given a int parameter  
     public static string getattributeName(int id)
     {
         if (id == 0)
@@ -282,52 +378,9 @@ public class Player : MonoBehaviour
             return "Morals";
         }
     }
+ 
 
-    public static void setUpScenarios(int num)
-    {
-        childScenario.generateScenarios(num);
-        teenScenario.generateScenarios(num);
-        adultScenario.generateScenarios(num);
-        elderScenario.generateScenarios(num);
-
-        childScenario.gameArr = childScenario.randomizeArray();
-        teenScenario.gameArr = teenScenario.randomizeArray();
-        adultScenario.gameArr = adultScenario.randomizeArray();
-        elderScenario.gameArr = elderScenario.randomizeArray();
-
-    }
-
-    public static void allocateScenarios()
-    {
-        int num = NextPage.numberOfScene;
-        int total = 4 * num;
-
-        Scenario[] temp = new Scenario[total]; 
-
-        for (int k = 0; k < total; k++)
-        {
-            if (k < num)
-            {
-                temp[k] = childScenario.gameArr[k];
-            }
-            else if (k < 2 * num)
-            {
-                temp[k] = teenScenario.gameArr[k - num]; 
-            } else if ( k < 3 * num)
-            {
-                temp[k] = adultScenario.gameArr[k - (2 * num)]; 
-            } else
-            {
-                temp[k] = elderScenario.gameArr[k - (3 * num)]; 
-            }
-
-        }
-        Player.alottedRound = temp;
-
-        return;
-    } 
-
-
+    // Used to check if collector badge should be allocated
     public static bool collector()
     {
         if (Player.WorkJunkieGet 
