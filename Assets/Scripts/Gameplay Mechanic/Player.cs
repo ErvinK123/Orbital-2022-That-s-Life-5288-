@@ -54,12 +54,12 @@ public class Player : MonoBehaviour
     }
 
     // Fills in the Scenarios array in each Scenario class and randomizes them
-    public static void setUpScenarios(int num)
+    public static void setUpScenarios(int child, int teen, int adult, int elder)
     {
-        childScenario.generateScenarios(num);
-        teenScenario.generateScenarios(num);
-        adultScenario.generateScenarios(num);
-        elderScenario.generateScenarios(num);
+        childScenario.generateScenarios(child);
+        teenScenario.generateScenarios(teen);
+        adultScenario.generateScenarios(adult);
+        elderScenario.generateScenarios(elder);
 
         childScenario.gameArr = childScenario.randomizeArray();
         teenScenario.gameArr = teenScenario.randomizeArray();
