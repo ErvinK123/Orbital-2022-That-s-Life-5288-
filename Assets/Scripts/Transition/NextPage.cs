@@ -31,10 +31,10 @@ public class NextPage : MonoBehaviour
 
     void Start()
     {
-        int childScene = 3;
-        int teenScene = 3;
-        int adultScene = 3;
-        int elderlyScene = 3; 
+        int childScene = 4;
+        int teenScene = 4;
+        int adultScene = 4;
+        int elderlyScene = 4; 
         Player.setUpScenarios(childScene, teenScene, adultScene, elderlyScene);
         Player.allocateScenarios(); 
 
