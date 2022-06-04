@@ -7,7 +7,19 @@ using Random = UnityEngine.Random;
 public class elderScenario : MonoBehaviour
 {
     public static Scenario[] elderArr;
-    public static Scenario[] gameArr; 
+    public static Scenario[] gameArr;
+
+    public static int numScene;
+
+    public static void setNumScene(int i)
+    {
+        elderScenario.numScene = i;
+    }
+
+    public static int getNumScene()
+    {
+        return elderScenario.numScene;
+    }
 
     public static void generateScenarios(int num)
     {

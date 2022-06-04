@@ -16,10 +16,21 @@ public struct Scenario
 }
 
 public class childScenario : MonoBehaviour
-{
+{ 
     public static Scenario[] childArr;
+    public static Scenario[] gameArr;
 
-    public static Scenario[] gameArr; 
+    public static int numScene; 
+
+    public static void setNumScene(int i)
+    {
+        childScenario.numScene = i;
+    }
+
+    public static int getNumScene()
+    {
+        return childScenario.numScene;
+    }
 
     public static void generateScenarios(int num)
     {
@@ -32,7 +43,6 @@ public class childScenario : MonoBehaviour
             childArr[i] = new Scenario(number, temp + number);
         }
     }
-
     public static Scenario[] randomizeArray()
     {
         Scenario[] newArray = childArr.Clone() as Scenario[]; 

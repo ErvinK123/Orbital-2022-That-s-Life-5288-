@@ -11,6 +11,7 @@ public class NextExplanation : MonoBehaviour
         Player.storeChoice(1);
 
         //load new scene
+        
         string next = Player.getNextSceneName(1);
         SceneManager.LoadScene(next);
 

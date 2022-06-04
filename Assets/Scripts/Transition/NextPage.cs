@@ -31,8 +31,11 @@ public class NextPage : MonoBehaviour
 
     void Start()
     {
-        int scenePerPool = 3;
-        Player.setUpScenarios(scenePerPool);
+        int childScene = 3;
+        int teenScene = 3;
+        int adultScene = 3;
+        int elderlyScene = 3; 
+        Player.setUpScenarios(childScene, teenScene, adultScene, elderlyScene);
         Player.allocateScenarios(); 
 
     }
