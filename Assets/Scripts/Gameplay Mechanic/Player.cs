@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public struct Choice
 {
@@ -55,6 +56,32 @@ public class Player : MonoBehaviour
     public static void nameReset()
     {
         Player.name = "";
+    }
+
+    //Used when generating a fair start 
+    public static void generateFair()
+    {
+        Player.Career = 50;
+        Player.Popularity = 50;
+        Player.Health = 50;
+        Player.LifeSkills = 50;
+        Player.Morals = 50;
+    }
+
+    //Used when generating a random start
+    public static void generateRandom()
+    {
+        int first = Random.Range(45, 55);
+        int second = Random.Range(45, 55);
+        int third = 150 - first - second;
+        int fourth = Random.Range(45, 55);
+        int fifth = 100 - fourth; 
+        Player.Career = first;
+        Player.Popularity = second;
+        Player.Health = third;
+        Player.LifeSkills = fourth;
+        Player.Morals = fifth;
+
     }
 
     // Fills in the Scenarios array in each Scenario class and randomizes them
