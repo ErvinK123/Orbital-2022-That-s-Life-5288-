@@ -20,6 +20,10 @@ public class Player : MonoBehaviour
     public static string age = "Child";
     public static string title;
 
+    // Initialising the trackers for the number of friends and enemies
+    public static int friends = 0;
+    public static int enemies = 0;
+
     // Initialising the achievement badge trackers;
     public static bool WorkJunkieGet = false;
     public static bool SmoothBrainGet = false;
