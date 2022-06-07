@@ -432,4 +432,14 @@ public class Player : MonoBehaviour
         }
         return false;
     }
+
+    // Debug function to display Player Statistics
+    public static void showStatistics()
+    {
+        Debug.Log(Player.Career);
+        Debug.Log(Player.Popularity);
+        Debug.Log(Player.Health);
+        Debug.Log(Player.LifeSkills);
+        Debug.Log(Player.Morals);
+    }
 }
