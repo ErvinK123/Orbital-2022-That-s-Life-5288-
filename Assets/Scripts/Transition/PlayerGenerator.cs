@@ -4,13 +4,34 @@ using UnityEngine;
 
 public class PlayerGenerator : MonoBehaviour
 {
-    public static void generateFair()
+    // Initialising the Fair and Random buttons as game objects
+    public GameObject FairButton;
+    public GameObject RandomButton;
+
+    
+    void Start()
     {
-        Player.generateFair(); 
+        // Default to generating fair stats for the player
+        Player.generateFair();
+
+        // Shows Fair as ticked while allowing player to click the Random button
+        FairButton.SetActive(false);
+        RandomButton.SetActive(true);
     }
 
-    public static void generateRandom()
+    // Function to call when Fair button is clicked
+    public void generateFair()
     {
-        Player.generateRandom(); 
+        Player.generateFair();
+        FairButton.SetActive(false);
+        RandomButton.SetActive(true);
+    }
+
+    // Function to call when Random button is clicked
+    public void generateRandom()
+    {
+        Player.generateRandom();
+        FairButton.SetActive(true);
+        RandomButton.SetActive(false);
     }
 }
