@@ -146,11 +146,9 @@ public class Player : MonoBehaviour
                 temp[i] = pool[i]; 
             }
             Player.teenAlotted = temp;
-            Debug.Log("Assigned teen");
         }
         else if (s == "Teen")
         {
-            Debug.Log("in Teen");
             int combi = Player.nextCombination(Player.friends, Player.enemies);
             Scenario[] pool = Player.arrayCombiner(adultScenario.adultArr, adult1frScenario.adult1frArr, adult1enScenario.adult1enArr, adult2frScenario.adult2frArr, combi);
             Scenario[] temp = new Scenario[NextPage.numberOfScene];
@@ -159,7 +157,6 @@ public class Player : MonoBehaviour
                 temp[i] = pool[i];
             }
             Player.adultAlotted = temp;
-            Debug.Log("Assigned Adult");
 
         } else if (s == "Adult")
         {
@@ -171,7 +168,6 @@ public class Player : MonoBehaviour
                 temp[i] = pool[i];
             }
             Player.elderAlotted = temp;
-            Debug.Log("Assigned elder");
         } else
         {
             // do nothing 
@@ -179,8 +175,7 @@ public class Player : MonoBehaviour
     }
 
     public static void allocateChild()
-    {
-        Debug.Log("allocatedChild");
+    { 
         Scenario[] temp = new Scenario[NextPage.numberOfScene];
         for (int i = 0; i < temp.Length; i++)
         {
@@ -405,10 +400,9 @@ public class Player : MonoBehaviour
             Player.allocateScenarios("Child"); 
             return; 
         } else if (Player.scenarios == 2 * num + 1) {
-            Debug.Log("inhere1");
+            
             Player.age = "Adult";
             Player.allocateScenarios("Teen");
-            Debug.Log("in here 2");
             return;
         } else if (Player.scenarios == 3 * num + 1 )
         {
