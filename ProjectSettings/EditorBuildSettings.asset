@@ -69,6 +69,15 @@ EditorBuildSettings:
     path: Assets/Scenes/Explanations/Child/Child5E2.unity
     guid: 89f63ae04db34354488f1f3714239f0e
   - enabled: 1
+    path: Assets/Scenes/Scenarios/Child/Child6.unity
+    guid: a101906dcbddb0142bb9a7842f813219
+  - enabled: 1
+    path: Assets/Scenes/Explanations/Child/Child6E1.unity
+    guid: 083812c853685d04c886a5a0cb520b5e
+  - enabled: 1
+    path: Assets/Scenes/Explanations/Child/Child6E2.unity
+    guid: ebf223d0b3ccd674ca9281725284eef4
+  - enabled: 1
     path: Assets/Scenes/Scenarios/Teen/Teen1.unity
     guid: 0b5be7e14af05204db66896a5c620038
   - enabled: 1
@@ -119,6 +128,18 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Explanations/Teen/Teen5E2.unity
     guid: 1ebb1a5b15dce7548bbfabd7c223b14b
+  - enabled: 1
+    path: Assets/Scenes/Scenarios/Teen/Teen6.unity
+    guid: 4ce99f0a6793fca4e8593c8d469f42ae
+  - enabled: 1
+    path: Assets/Scenes/Explanations/Teen/Teen6E1.unity
+    guid: dfd1cab13b63d684fa333dd932c4fd49
+  - enabled: 1
+    path: Assets/Scenes/Explanations/Teen/Teen6E2.unity
+    guid: db6165d546643414ea1afa0111239292
+  - enabled: 1
+    path: Assets/Scenes/Explanations/Teen/Teen6E3.unity
+    guid: 42d130c7b7d340944a47cf7a51ca92da
   - enabled: 1
     path: Assets/Scenes/Scenarios/Adult/Adult1.unity
     guid: dbd0aad1678f3bd4d84f737e191df781
@@ -174,6 +195,15 @@ EditorBuildSettings:
     path: Assets/Scenes/Explanations/Adult/Adult5E3.unity
     guid: a2cfd2975d0cb544ca80fb59295c9d15
   - enabled: 1
+    path: Assets/Scenes/Scenarios/Adult/Adult6.unity
+    guid: f74becc2709bb2f4e8cae193a7433c76
+  - enabled: 1
+    path: Assets/Scenes/Explanations/Adult/Adult6E1.unity
+    guid: 871e05c9db44f5244800c3cf94c483fc
+  - enabled: 1
+    path: Assets/Scenes/Explanations/Adult/Adult6E2.unity
+    guid: e85fc18b4e1f8fa488c8cead8cde332a
+  - enabled: 1
     path: Assets/Scenes/Scenarios/Elder/Elder1.unity
     guid: 6b8725ae369554140a2baf771cee1f09
   - enabled: 1
@@ -224,6 +254,15 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Explanations/Elder/Elder5E3.unity
     guid: f847fe0642160544ba146a7a4650bded
+  - enabled: 1
+    path: Assets/Scenes/Scenarios/Elder/Elder6.unity
+    guid: 6e24dca91c25d4343a5f76d9c89b6bb8
+  - enabled: 1
+    path: Assets/Scenes/Explanations/Elder/Elder6E1.unity
+    guid: 9580e7e32d3c15e47b84a7fc459e3b94
+  - enabled: 1
+    path: Assets/Scenes/Explanations/Elder/Elder6E2.unity
+    guid: 352c0f398fe535b47a77f084366e2fcc
   - enabled: 1
     path: Assets/Scenes/End.unity
     guid: e31445a6bc719734c8f2e21cdbe81dc6
