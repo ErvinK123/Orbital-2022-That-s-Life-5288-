@@ -32,11 +32,25 @@ public class NextPage : MonoBehaviour
     void Start()
     {
         int childScene = 4;
+        
         int teenScene = 4;
+        int teen1frScene = 0;
+        int teen2frScene = 0;
+        int teen1enScene = 0;
+        
         int adultScene = 4;
-        int elderlyScene = 4; 
-        Player.setUpScenarios(childScene, teenScene, adultScene, elderlyScene);
-        Player.allocateScenarios(); 
+        int adult1frScene = 0;
+        int adult2frScene = 0;
+        int adult1enScene = 0;
+        
+        int elderlyScene = 4;
+        int elderly1frScene = 0;
+        int elderly2frScene = 0;
+        int elderly1enScene = 0;
+        Player.setUpScenarios(childScene, teenScene, teen1frScene, teen2frScene, teen1enScene, 
+            adultScene, adult1frScene,adult2frScene, adult1enScene,
+            elderlyScene, elderly1frScene, elderly2frScene,elderly1enScene);
+        Player.allocateChild();
 
     }
 }
