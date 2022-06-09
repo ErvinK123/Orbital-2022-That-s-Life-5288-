@@ -51,6 +51,12 @@ public class Player : MonoBehaviour
     public static int Morals = 50;
 
     public static Scenario[] alottedRound;
+    public static Scenario[] childAlotted;
+    public static Scenario[] teenAlotted;
+    public static Scenario[] adultAlotted;
+    public static Scenario[] elderAlotted;
+
+    public static string prevSceneName;
 
     //Used when there is a invalid name input
     public static void nameReset()
@@ -85,74 +91,301 @@ public class Player : MonoBehaviour
     }
 
     // Fills in the Scenarios array in each Scenario class and randomizes them
-    public static void setUpScenarios(int child, int teen, int adult, int elder)
+    public static void setUpScenarios(int child, int teen, int teen1fr, int teen2fr, int teen1en,
+        int adult, int adult1fr, int adult2fr, int adult1en, int elder, int elder1fr, int elder2fr, int elder1en)
     {
         childScenario.generateScenarios(child);
-        teenScenario.generateScenarios(teen);
-        adultScenario.generateScenarios(adult);
-        elderScenario.generateScenarios(elder);
-
         childScenario.gameArr = childScenario.randomizeArray();
-        teenScenario.gameArr = teenScenario.randomizeArray();
-        adultScenario.gameArr = adultScenario.randomizeArray();
-        elderScenario.gameArr = elderScenario.randomizeArray();
+
+
+
+        teenScenario.generateScenarios(teen);
+        //teenScenario.gameArr = teenScenario.randomizeArray();
+        teen1frScenario.generateScenarios(teen1fr);
+        //teen1frScenario.gameArr = teen1frScenario.randomizeArray();
+        teen2frScenario.generateScenarios(teen2fr);
+        //teen2frScenario.gameArr = teen2frScenario.randomizeArray();
+        teen1enScenario.generateScenarios(teen1en);
+        //teen1enScenario.gameArr = teen1enScenario.randomizeArray();
+
+
+
+        adultScenario.generateScenarios(adult);
+        //adultScenario.gameArr = adultScenario.randomizeArray();
+        adult1frScenario.generateScenarios(adult1fr);
+        //adult1frScenario.gameArr = adult1frScenario.randomizeArray();
+        adult2frScenario.generateScenarios(adult2fr);
+        //adult2frScenario.gameArr = adult2frScenario.randomizeArray();
+        adult1enScenario.generateScenarios(adult1en);
+        //adult1enScenario.gameArr = adult1enScenario.randomizeArray();
+
+
+        elderScenario.generateScenarios(elder);
+        //elderScenario.gameArr = elderScenario.randomizeArray();
+        elder1frScenario.generateScenarios(elder1fr);
+        //elder1frScenario.gameArr = elder1frScenario.randomizeArray();
+        elder2frScenario.generateScenarios(elder2fr);
+        //elder2frScenario.gameArr = elder2frScenario.randomizeArray();
+        elder1enScenario.generateScenarios(elder1en);
+        //elder1enScenario.gameArr = elder1enScenario.randomizeArray();
 
     }
 
     // generates an array of scenario for the player for that run 
-    public static void allocateScenarios()
+    public static void allocateScenarios(string s)
     {
         int num = NextPage.numberOfScene;
-        int total = 4 * num;
-
-        Scenario[] temp = new Scenario[total];
-
-        for (int k = 0; k < total; k++)
+        
+        if(s == "Child")
         {
-            if (k < num)
+            int combi = Player.nextCombination(Player.friends, Player.enemies);
+            Scenario[] pool = Player.arrayCombiner(teenScenario.teenArr, teen1frScenario.teen1frArr, teen1enScenario.teen1enArr, teen2frScenario.teen2frArr, combi);
+            Scenario[] temp = new Scenario[NextPage.numberOfScene];
+            for (int i = 0; i < temp.Length; i++)
             {
-                temp[k] = childScenario.gameArr[k];
+                temp[i] = pool[i]; 
             }
-            else if (k < 2 * num)
-            {
-                temp[k] = teenScenario.gameArr[k - num];
-            }
-            else if (k < 3 * num)
-            {
-                temp[k] = adultScenario.gameArr[k - (2 * num)];
-            }
-            else
-            {
-                temp[k] = elderScenario.gameArr[k - (3 * num)];
-            }
-
+            Player.teenAlotted = temp;
         }
-        Player.alottedRound = temp;
+        else if (s == "Teen")
+        {
+            int combi = Player.nextCombination(Player.friends, Player.enemies);
+            Scenario[] pool = Player.arrayCombiner(adultScenario.adultArr, adult1frScenario.adult1frArr, adult1enScenario.adult1enArr, adult2frScenario.adult2frArr, combi);
+            Scenario[] temp = new Scenario[NextPage.numberOfScene];
+            for (int i = 0; i < temp.Length; i++)
+            {
+                temp[i] = pool[i];
+            }
+            Player.adultAlotted = temp;
 
-        return;
+        } else if (s == "Adult")
+        {
+            int combi = Player.nextCombination(Player.friends, Player.enemies);
+            Scenario[] pool = Player.arrayCombiner(elderScenario.elderArr, elder1frScenario.elder1frArr, elder1enScenario.elder1enArr, elder2frScenario.elder2frArr, combi);
+            Scenario[] temp = new Scenario[NextPage.numberOfScene];
+            for (int i = 0; i < temp.Length; i++)
+            {
+                temp[i] = pool[i];
+            }
+            Player.elderAlotted = temp;
+        } else
+        {
+            // do nothing 
+        }
+    }
+
+    public static void allocateChild()
+    { 
+        Scenario[] temp = new Scenario[NextPage.numberOfScene];
+        for (int i = 0; i < temp.Length; i++)
+        {
+            temp[i] = childScenario.gameArr[i]; 
+        }
+        Player.childAlotted = temp;
+    }
+
+    //gives the next pool 
+    public static Scenario[] arrayCombiner(Scenario[] arr1, Scenario[] arr2 , Scenario[] arr3, Scenario[] arr4, int i)
+    {
+        if (i == 1)
+        {
+            //only base pool
+            Scenario[] temp = randomizeArray(arr1);
+            return temp; 
+        } else if (i == 2)
+        {
+            //base + 1 friend
+            int total = arr1.Length + arr2.Length;
+            Scenario[] temp = new Scenario[total];
+            for (int j = 0; j < total; j++)
+            {
+                if(j < arr1.Length)
+                {
+                    temp[j] = arr1[j];
+                } else
+                {
+                    temp[j] = arr2[j - arr1.Length];
+                }
+            }
+            temp = randomizeArray(temp);
+            return temp;
+        } else if (i == 3)
+        {
+            // base + 1 enemy 
+            int total = arr1.Length + arr3.Length;
+            Scenario[] temp = new Scenario[total];
+            for (int j = 0; j < total; j++)
+            {
+                if (j < arr1.Length)
+                {
+                    temp[j] = arr1[j];
+                }
+                else
+                {
+                    temp[j] = arr3[j - arr1.Length];
+                }
+            }
+            return temp; 
+        } else if (i == 4)
+        {
+            // base + 1 enemy + 1 friend 
+            int total = arr1.Length + arr2.Length + arr3.Length;
+            Scenario[] temp = new Scenario[total];
+            for (int j = 0; j < total; j++)
+            {
+                if (j < arr1.Length)
+                {
+                    temp[j] = arr1[j];
+                } else if (j < arr1.Length + arr2.Length)
+                {
+                    temp[j] = arr2[j - arr1.Length];
+                }
+                else
+                {
+                    temp[j] = arr3[j - arr1.Length - arr2.Length];
+                }
+            }
+            temp = randomizeArray(temp);
+            return temp;
+        }
+        else if (i == 5)
+        {
+            // base + 2 friend 
+            int total = arr1.Length + arr2.Length + arr3.Length;
+            Scenario[] temp = new Scenario[total];
+            for (int j = 0; j < total; j++)
+            {
+                if (j < arr1.Length)
+                {
+                    temp[j] = arr1[j];
+                }
+                else if (j < arr1.Length + arr2.Length)
+                {
+                    temp[j] = arr2[j - arr1.Length];
+                }
+                else
+                {
+                    temp[j] = arr3[j - arr1.Length - arr2.Length];
+                }
+            }
+            temp = randomizeArray(temp);
+            return temp;
+        } else
+        {   
+            // base + 2 friend + 1 enemy 
+            int total = arr1.Length + arr2.Length + arr3.Length + arr4.Length;
+            Scenario[] temp = new Scenario[total];
+            for (int j = 0; j < total; j++)
+            {
+                if (j < arr1.Length)
+                {
+                    temp[j] = arr1[j];
+                }
+                else if (j < arr1.Length + arr2.Length)
+                {
+                    temp[j] = arr2[j - arr1.Length];
+                } else if (j < arr1.Length + arr2.Length + arr3.Length)
+                {
+                    temp[j] = arr3[j - arr1.Length - arr2.Length];
+                } else
+                {
+                    temp[j] = arr4[j - arr1.Length - arr2.Length - arr3.Length];
+                }
+            }
+            temp = randomizeArray(temp);
+            return temp;
+        }
+    }
+
+    public static  int nextCombination(int fr, int en)
+    {
+        if (fr == 0 && en == 0)
+        {
+            return 1;
+        } else if (fr == 1 && en == 0)
+        {
+            return 2; 
+        } else if (fr == 0 && en == 1)
+        {
+            return 3; 
+        } else if (fr == 1 && en == 1)
+        {
+            return 4; 
+        } else if (fr == 2 && en == 0)
+        {
+            return 5; 
+        } else
+        {
+            return 6; 
+        }
+    }
+
+    public static Scenario[] randomizeArray(Scenario[] arr1)
+    {
+        Scenario[] newArray = arr1.Clone() as Scenario[];
+        for (int i = 0; i < arr1.Length; i++)
+        {
+            Scenario tmp = newArray[i];
+            int r = Random.Range(i, newArray.Length);
+            newArray[i] = newArray[r];
+            newArray[r] = tmp;
+        }
+        return newArray;
     }
 
     //Store choice given number of button pressed
     public static void storeChoice(int i)
     {
-        Player.choiceArr[Player.scenarios - 1] = new Choice(Player.alottedRound[Player.scenarios - 1], i);
-        return; 
+        if (Player.age == "Child")
+        {
+            Player.choiceArr[Player.scenarios - 1] = new Choice(Player.childAlotted[Player.scenarios - 1], i);
+        }
+        else if (Player.age == "Teen")
+        {
+            Player.choiceArr[Player.scenarios - 1] = new Choice(Player.teenAlotted[Player.scenarios - 1 - Player.childAlotted.Length], i);
+        }
+        else if (Player.age == "Adult")
+        {
+            Player.choiceArr[Player.scenarios - 1] = new Choice(Player.adultAlotted[Player.scenarios - 1 - Player.childAlotted.Length - Player.teenAlotted.Length], i);
+        } else
+        {
+            Player.choiceArr[Player.scenarios - 1] = new Choice(Player.adultAlotted[Player.scenarios - 1 - Player.childAlotted.Length - Player.teenAlotted.Length - Player.adultAlotted.Length], i);
+        } 
     }
 
+    //get next explanation 
     public static string getNextSceneName(int j)
     {
         if (j == 1)
         {
-            return Player.age + Player.alottedRound[Player.scenarios - 1].id + "E1";       
+            return Player.prevSceneName + "E1";       
         } else if (j == 2)
         {
-            return Player.age + Player.alottedRound[Player.scenarios - 1].id + "E2";
+            return Player.prevSceneName + "E2";
         } else if (j == 3)
         {
-            return Player.age + Player.alottedRound[Player.scenarios - 1].id + "E3";
+            return Player.prevSceneName + "E3";
         } else
         {
-            return Player.age + Player.alottedRound[Player.scenarios - 1].id + "E4";
+            return Player.prevSceneName + "E4";
+        }
+    }
+
+    public static string getNextScenarioName()
+    {
+        int num = NextPage.numberOfScene;
+        if (scenarios-1 < num)
+        {
+            return childAlotted[scenarios - 1].name;
+        } else if (scenarios-1 < 2*num)
+        {
+            return teenAlotted[scenarios - 1 - num].name; 
+        } else if (scenarios-1 < 3*num)
+        {
+            return adultAlotted[scenarios - 1 - 2 * num].name; 
+        } else
+        {
+            return elderAlotted[scenarios - 1 - 3 * num].name; 
         }
     }
 
@@ -160,26 +393,29 @@ public class Player : MonoBehaviour
     public static void ageUp()
     {
         Player.scenarios += 1;
-
-        if (Player.scenarios <= 2)
+        int num = NextPage.numberOfScene;
+        if (Player.scenarios == num + 1 )
         {
-            Player.age = "Child";
-            return; 
-        } else if (Player.scenarios <= 4) {
             Player.age = "Teen";
-            return;
-        } else if (Player.scenarios <= 6)
-        {
+            Player.allocateScenarios("Child"); 
+            return; 
+        } else if (Player.scenarios == 2 * num + 1) {
+            
             Player.age = "Adult";
+            Player.allocateScenarios("Teen");
             return;
-        } else if (Player.scenarios <= 8) 
+        } else if (Player.scenarios == 3 * num + 1 )
         {
             Player.age = "Elder";
+            Player.allocateScenarios("Adult");
+            return;
+        } else if (Player.scenarios == 4*num + 1) 
+        {
+            Player.age = "Dead";
             return; 
         } else
         {
-            Player.age = "Dead";
-            return;
+            //Do nothing
         }
     }
 
