@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class NextPage : MonoBehaviour
 {
-    public static int numberOfScene = 2; 
+    public static int numberOfScene = 5; 
 
     public void next()
     {
@@ -31,19 +31,19 @@ public class NextPage : MonoBehaviour
 
     void Start()
     {
-        int childScene = 4;
+        int childScene = 6;
         
-        int teenScene = 4;
+        int teenScene = 6;
         int teen1frScene = 0;
         int teen2frScene = 0;
         int teen1enScene = 0;
         
-        int adultScene = 4;
+        int adultScene = 6;
         int adult1frScene = 0;
         int adult2frScene = 0;
         int adult1enScene = 0;
         
-        int elderlyScene = 4;
+        int elderlyScene = 6;
         int elderly1frScene = 0;
         int elderly2frScene = 0;
         int elderly1enScene = 0;

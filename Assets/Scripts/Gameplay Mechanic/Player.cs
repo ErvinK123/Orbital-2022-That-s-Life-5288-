@@ -42,7 +42,7 @@ public class Player : MonoBehaviour
 
     public static int scenarios = 1;
 
-    public static Choice[] choiceArr = new Choice[8];
+    public static Choice[] choiceArr = new Choice[NextPage.numberOfScene * 4];
 
     public static int Career = 50;
     public static int Popularity = 50;
@@ -342,14 +342,14 @@ public class Player : MonoBehaviour
         }
         else if (Player.age == "Teen")
         {
-            Player.choiceArr[Player.scenarios - 1] = new Choice(Player.teenAlotted[Player.scenarios - 1 - Player.childAlotted.Length], i);
+            Player.choiceArr[Player.scenarios - 1] = new Choice(Player.teenAlotted[Player.scenarios - 1 - NextPage.numberOfScene], i);
         }
         else if (Player.age == "Adult")
         {
-            Player.choiceArr[Player.scenarios - 1] = new Choice(Player.adultAlotted[Player.scenarios - 1 - Player.childAlotted.Length - Player.teenAlotted.Length], i);
+            Player.choiceArr[Player.scenarios - 1] = new Choice(Player.adultAlotted[Player.scenarios - 1 - 2*NextPage.numberOfScene], i);
         } else
         {
-            Player.choiceArr[Player.scenarios - 1] = new Choice(Player.adultAlotted[Player.scenarios - 1 - Player.childAlotted.Length - Player.teenAlotted.Length - Player.adultAlotted.Length], i);
+            Player.choiceArr[Player.scenarios - 1] = new Choice(Player.adultAlotted[Player.scenarios - 1 - 3*NextPage.numberOfScene], i);
         } 
     }
 
@@ -431,7 +431,7 @@ public class Player : MonoBehaviour
         Player.scenarios = 1;
         Player.name = "";
 
-        Player.choiceArr = new Choice[8];
+        Player.choiceArr = new Choice[4*NextPage.numberOfScene];
         return; 
     }
 
@@ -439,17 +439,17 @@ public class Player : MonoBehaviour
     //Happens at the  end of a run, determines the title and the attributes of the player
     public static void calculate()
     {
-        for (int i=0; i < 8; i++) 
+        for (int i=0; i < 4*NextPage.numberOfScene; i++) 
         {
             for (int j = 0; j < 5; j++) 
             {
-                if (i < 2)
+                if (i < NextPage.numberOfScene)
                 {
                     Player.calculateHelper(ChoiceValues.childResult, i, j);
-                } else if (i < 4)
+                } else if (i < 2*NextPage.numberOfScene)
                 {
                     Player.calculateHelper(ChoiceValues.teenResult, i, j);
-                } else if (i < 6)
+                } else if (i < 3*NextPage.numberOfScene)
                 {
                     Player.calculateHelper(ChoiceValues.adultResult, i, j);
                 } else
