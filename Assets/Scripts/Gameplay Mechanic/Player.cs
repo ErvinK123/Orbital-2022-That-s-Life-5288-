@@ -16,7 +16,7 @@ public struct Choice
 }
 
 public class Player : MonoBehaviour
-{   
+{
     public static string name;
     public static string age = "Child";
     public static string title;
@@ -58,6 +58,15 @@ public class Player : MonoBehaviour
 
     public static string prevSceneName;
 
+
+    //Friend/ENEMY system 
+    public static int friendLimit;
+    public static int enemyLimit;
+    public static bool addedFriend = false;
+    public static bool lostFriend = false;
+    public static bool addedEnemy = false;
+    public static bool lostEnemy = false;
+
     //Used when there is a invalid name input
     public static void nameReset()
     {
@@ -81,7 +90,7 @@ public class Player : MonoBehaviour
         int second = Random.Range(45, 55);
         int third = 150 - first - second;
         int fourth = Random.Range(45, 55);
-        int fifth = 100 - fourth; 
+        int fifth = 100 - fourth;
         Player.Career = first;
         Player.Popularity = second;
         Player.Health = third;
@@ -135,15 +144,15 @@ public class Player : MonoBehaviour
     public static void allocateScenarios(string s)
     {
         int num = NextPage.numberOfScene;
-        
-        if(s == "Child")
+
+        if (s == "Child")
         {
             int combi = Player.nextCombination(Player.friends, Player.enemies);
             Scenario[] pool = Player.arrayCombiner(teenScenario.teenArr, teen1frScenario.teen1frArr, teen1enScenario.teen1enArr, teen2frScenario.teen2frArr, combi);
             Scenario[] temp = new Scenario[NextPage.numberOfScene];
             for (int i = 0; i < temp.Length; i++)
             {
-                temp[i] = pool[i]; 
+                temp[i] = pool[i];
             }
             Player.teenAlotted = temp;
         }
@@ -175,23 +184,23 @@ public class Player : MonoBehaviour
     }
 
     public static void allocateChild()
-    { 
+    {
         Scenario[] temp = new Scenario[NextPage.numberOfScene];
         for (int i = 0; i < temp.Length; i++)
         {
-            temp[i] = childScenario.gameArr[i]; 
+            temp[i] = childScenario.gameArr[i];
         }
         Player.childAlotted = temp;
     }
 
     //gives the next pool 
-    public static Scenario[] arrayCombiner(Scenario[] arr1, Scenario[] arr2 , Scenario[] arr3, Scenario[] arr4, int i)
+    public static Scenario[] arrayCombiner(Scenario[] arr1, Scenario[] arr2, Scenario[] arr3, Scenario[] arr4, int i)
     {
         if (i == 1)
         {
             //only base pool
             Scenario[] temp = randomizeArray(arr1);
-            return temp; 
+            return temp;
         } else if (i == 2)
         {
             //base + 1 friend
@@ -199,7 +208,7 @@ public class Player : MonoBehaviour
             Scenario[] temp = new Scenario[total];
             for (int j = 0; j < total; j++)
             {
-                if(j < arr1.Length)
+                if (j < arr1.Length)
                 {
                     temp[j] = arr1[j];
                 } else
@@ -225,7 +234,7 @@ public class Player : MonoBehaviour
                     temp[j] = arr3[j - arr1.Length];
                 }
             }
-            return temp; 
+            return temp;
         } else if (i == 4)
         {
             // base + 1 enemy + 1 friend 
@@ -271,7 +280,7 @@ public class Player : MonoBehaviour
             temp = randomizeArray(temp);
             return temp;
         } else
-        {   
+        {
             // base + 2 friend + 1 enemy 
             int total = arr1.Length + arr2.Length + arr3.Length + arr4.Length;
             Scenario[] temp = new Scenario[total];
@@ -297,26 +306,26 @@ public class Player : MonoBehaviour
         }
     }
 
-    public static  int nextCombination(int fr, int en)
+    public static int nextCombination(int fr, int en)
     {
         if (fr == 0 && en == 0)
         {
             return 1;
         } else if (fr == 1 && en == 0)
         {
-            return 2; 
+            return 2;
         } else if (fr == 0 && en == 1)
         {
-            return 3; 
+            return 3;
         } else if (fr == 1 && en == 1)
         {
-            return 4; 
+            return 4;
         } else if (fr == 2 && en == 0)
         {
-            return 5; 
+            return 5;
         } else
         {
-            return 6; 
+            return 6;
         }
     }
 
@@ -346,11 +355,11 @@ public class Player : MonoBehaviour
         }
         else if (Player.age == "Adult")
         {
-            Player.choiceArr[Player.scenarios - 1] = new Choice(Player.adultAlotted[Player.scenarios - 1 - 2*NextPage.numberOfScene], i);
+            Player.choiceArr[Player.scenarios - 1] = new Choice(Player.adultAlotted[Player.scenarios - 1 - 2 * NextPage.numberOfScene], i);
         } else
         {
-            Player.choiceArr[Player.scenarios - 1] = new Choice(Player.adultAlotted[Player.scenarios - 1 - 3*NextPage.numberOfScene], i);
-        } 
+            Player.choiceArr[Player.scenarios - 1] = new Choice(Player.adultAlotted[Player.scenarios - 1 - 3 * NextPage.numberOfScene], i);
+        }
     }
 
     //get next explanation 
@@ -358,7 +367,7 @@ public class Player : MonoBehaviour
     {
         if (j == 1)
         {
-            return Player.prevSceneName + "E1";       
+            return Player.prevSceneName + "E1";
         } else if (j == 2)
         {
             return Player.prevSceneName + "E2";
@@ -374,18 +383,18 @@ public class Player : MonoBehaviour
     public static string getNextScenarioName()
     {
         int num = NextPage.numberOfScene;
-        if (scenarios-1 < num)
+        if (scenarios - 1 < num)
         {
             return childAlotted[scenarios - 1].name;
-        } else if (scenarios-1 < 2*num)
+        } else if (scenarios - 1 < 2 * num)
         {
-            return teenAlotted[scenarios - 1 - num].name; 
-        } else if (scenarios-1 < 3*num)
+            return teenAlotted[scenarios - 1 - num].name;
+        } else if (scenarios - 1 < 3 * num)
         {
-            return adultAlotted[scenarios - 1 - 2 * num].name; 
+            return adultAlotted[scenarios - 1 - 2 * num].name;
         } else
         {
-            return elderAlotted[scenarios - 1 - 3 * num].name; 
+            return elderAlotted[scenarios - 1 - 3 * num].name;
         }
     }
 
@@ -394,25 +403,25 @@ public class Player : MonoBehaviour
     {
         Player.scenarios += 1;
         int num = NextPage.numberOfScene;
-        if (Player.scenarios == num + 1 )
+        if (Player.scenarios == num + 1)
         {
             Player.age = "Teen";
-            Player.allocateScenarios("Child"); 
-            return; 
+            Player.allocateScenarios("Child");
+            return;
         } else if (Player.scenarios == 2 * num + 1) {
-            
+
             Player.age = "Adult";
             Player.allocateScenarios("Teen");
             return;
-        } else if (Player.scenarios == 3 * num + 1 )
+        } else if (Player.scenarios == 3 * num + 1)
         {
             Player.age = "Elder";
             Player.allocateScenarios("Adult");
             return;
-        } else if (Player.scenarios == 4*num + 1) 
+        } else if (Player.scenarios == 4 * num + 1)
         {
             Player.age = "Dead";
-            return; 
+            return;
         } else
         {
             //Do nothing
@@ -430,26 +439,29 @@ public class Player : MonoBehaviour
         Player.Morals = 50;
         Player.scenarios = 1;
         Player.name = "";
+        Player.friends = 0;
+        Player.enemies = 0;
+        Player.addedFriend = false;
 
-        Player.choiceArr = new Choice[4*NextPage.numberOfScene];
-        return; 
+        Player.choiceArr = new Choice[4 * NextPage.numberOfScene];
+        return;
     }
 
 
     //Happens at the  end of a run, determines the title and the attributes of the player
     public static void calculate()
     {
-        for (int i=0; i < 4*NextPage.numberOfScene; i++) 
+        for (int i = 0; i < 4 * NextPage.numberOfScene; i++)
         {
-            for (int j = 0; j < 5; j++) 
+            for (int j = 0; j < 5; j++)
             {
                 if (i < NextPage.numberOfScene)
                 {
                     Player.calculateHelper(ChoiceValues.childResult, i, j);
-                } else if (i < 2*NextPage.numberOfScene)
+                } else if (i < 2 * NextPage.numberOfScene)
                 {
                     Player.calculateHelper(ChoiceValues.teenResult, i, j);
-                } else if (i < 3*NextPage.numberOfScene)
+                } else if (i < 3 * NextPage.numberOfScene)
                 {
                     Player.calculateHelper(ChoiceValues.adultResult, i, j);
                 } else
@@ -459,7 +471,7 @@ public class Player : MonoBehaviour
             }
         }
 
-        
+
         int[] tempArr = new int[] { Player.Career, Player.Popularity, Player.Health, Player.LifeSkills, Player.Morals };
         string best = "Career";
         string worst = "Career";
@@ -468,20 +480,20 @@ public class Player : MonoBehaviour
 
         for (int r = 1; r < 5; r++)
         {
-            if (tempArr[r]> highestvalue)
+            if (tempArr[r] > highestvalue)
             {
                 highestvalue = tempArr[r];
-                best = Player.getattributeName(r); 
+                best = Player.getattributeName(r);
             } else if (tempArr[r] < lowestvalue)
             {
                 lowestvalue = tempArr[r];
-                worst = Player.getattributeName(r); 
+                worst = Player.getattributeName(r);
             }
         }
 
         Player.title = "Master Of None";
 
-        foreach(int i in tempArr)
+        foreach (int i in tempArr)
         {
             if (i > 60 || i < 40)
             {
@@ -498,12 +510,12 @@ public class Player : MonoBehaviour
         if (lowestvalue < 40)
         {
             Player.getBadgeWorst(worst);
-            return; 
+            return;
         }
 
         Player.getBadgeNeutral(Player.title);
-    }   
-        
+    }
+
     // Used in calculate : Title and badge 
     public static void getBadgeBest(string b)
     {
@@ -592,11 +604,11 @@ public class Player : MonoBehaviour
     }
 
     // Used in calculate : Cross checks the choices made by player and changes player attribute 
-    public static void calculateHelper(int[,,] currArr, int first, int second) 
+    public static void calculateHelper(int[,,] currArr, int first, int second)
     {
         if (second == 0)
         {
-            
+
             Player.Career += currArr[choiceArr[first].scenario.id - 1, choiceArr[first].choice - 1, second];
             return;
         }
@@ -621,7 +633,7 @@ public class Player : MonoBehaviour
             return;
         }
     }
-    
+
     // Used in calculate : returns attribute name given a int parameter  
     public static string getattributeName(int id)
     {
@@ -645,26 +657,26 @@ public class Player : MonoBehaviour
             return "Morals";
         }
     }
- 
+
 
     // Used to check if collector badge should be allocated
     public static bool collector()
     {
-        if (Player.WorkJunkieGet 
-            && Player.SmoothBrainGet 
-            && Player.SocialButterflyGet 
-            && Player.ShutInGet 
+        if (Player.WorkJunkieGet
+            && Player.SmoothBrainGet
+            && Player.SocialButterflyGet
+            && Player.ShutInGet
             && Player.PeakHumanGet
-            && Player.ZombieGet 
-            && Player.HandymanGet 
-            && Player.HopelesslyIneptGet 
-            && Player.SaintGet 
+            && Player.ZombieGet
+            && Player.HandymanGet
+            && Player.HopelesslyIneptGet
+            && Player.SaintGet
             && Player.VillainGet
-            && Player.JackOfAllTradesGet 
+            && Player.JackOfAllTradesGet
             && Player.MasterOfNoneGet)
         {
             Player.CollectorGet = true;
-            return true; 
+            return true;
         }
         return false;
     }
@@ -677,5 +689,84 @@ public class Player : MonoBehaviour
         Debug.Log(Player.Health);
         Debug.Log(Player.LifeSkills);
         Debug.Log(Player.Morals);
+    }
+
+    public static void setFElimits(int friend, int enemy)
+    {
+        Player.friendLimit = friend;
+        Player.enemyLimit = enemy;
+    }
+
+    //Friend/enemy System 
+    public static bool isFriendLimit()
+    {
+        return Player.friends >= Player.friendLimit;
+    }
+
+    public static bool isEnemyLimit()
+    {
+        return Player.enemies >= Player.enemyLimit;
+    }
+
+    public static void addFriend()
+    {
+        Player.friends++;
+        Player.addedFriend = true;
+    }
+
+    public static void addEnemy()
+    {
+        Player.enemies++;
+        Player.addedEnemy = true;
+    }
+
+    public static void loseFriend()
+    {
+        Player.friends--;
+        Player.lostFriend = true;
+    }
+
+    public static void loseEnemy()
+    {
+        Player.enemies--;
+        Player.lostEnemy = true;
+    }
+
+    public static void offFEtriggers()
+    {
+        Player.addedFriend = false;
+        Player.addedEnemy = false;
+        Player.lostFriend = false;
+        Player.lostEnemy = false; 
+    }
+
+    public static bool feTrigger()
+    {
+        return (Player.addedFriend || Player.addedEnemy || Player.lostEnemy || Player.lostFriend);
+    }
+
+    public static int getFriends()
+    {
+        return Player.friends;
+    }
+
+    public static string generateFEscreen()
+    {
+        if (Player.addedFriend)
+        {
+            return "MakeFriend" + Player.friends;
+        } else if (Player.addedEnemy)
+        {
+            return "MakeEnemy" + Player.enemies;
+        } else if (Player.lostFriend)
+        {
+            return "LostFriend1"; 
+        } else if (Player.lostEnemy)
+        {
+            return "LostEnemy1";
+        } else
+        {
+            return ""; 
+        }
     }
 }

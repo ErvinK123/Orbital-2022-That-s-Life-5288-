@@ -9,7 +9,13 @@ public class NextScenario : MonoBehaviour
     {
         Player.ageUp();
         if (Player.age != "Dead")
-        {
+        {   
+            if (Player.feTrigger())
+            {
+                string next = Player.generateFEscreen(); 
+                Player.offFEtriggers(); 
+                SceneManager.LoadScene(next);
+            }
             string scene = Player.getNextScenarioName();
             Player.prevSceneName = scene;
             SceneManager.LoadScene(scene);
