@@ -10,7 +10,7 @@ public class ChoiceValues : MonoBehaviour
                                                           , {0, 0, 0, 0, 0}}
 
                                                           , {{0, 0, 0, 0, -5} // Child 2 
-                                                          , {0, 0, 0, 10, -5},
+                                                          , {0, 0, 0, 0, -5},
                                                            {0, 0, 0, 5, 0}}
         
                                                           , {{5, -5, 0, 0, 0} // Child 3 
@@ -86,7 +86,7 @@ public class ChoiceValues : MonoBehaviour
                                                            {0, 0, 0, 0, 0}}
 
                                                           , {{0, 0, -5, 0, 0} // Elder 3 
-                                                          , {0, 0, 0, 10, 0},
+                                                          , {0, 0, 0, 5, 0},
                                                            {0, 0, 0, 0, 0}}
 
                                                           , {{0, 5, 0, 0, 0} // Elder 4 
