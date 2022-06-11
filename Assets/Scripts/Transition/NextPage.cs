@@ -4,7 +4,8 @@ using UnityEngine;
 using UnityEngine.SceneManagement; 
 
 public class NextPage : MonoBehaviour
-{
+{   
+    //number of scenarios per phase of life 
     public static int numberOfScene = 5; 
 
     public void next()
@@ -30,23 +31,28 @@ public class NextPage : MonoBehaviour
     }
 
     void Start()
-    {
+    {   
+        // sizes of each pool
         int childScene = 6;
         
         int teenScene = 6;
-        int teen1frScene = 0;
+        int teen1frScene = 1;
         int teen2frScene = 0;
         int teen1enScene = 0;
         
         int adultScene = 6;
-        int adult1frScene = 0;
+        int adult1frScene = 1;
         int adult2frScene = 0;
         int adult1enScene = 0;
         
         int elderlyScene = 6;
-        int elderly1frScene = 0;
+        int elderly1frScene = 1;
         int elderly2frScene = 0;
         int elderly1enScene = 0;
+
+        int fLimit = 1;
+        int enLimit = 0;
+        Player.setFElimits(fLimit, enLimit);
         Player.setUpScenarios(childScene, teenScene, teen1frScene, teen2frScene, teen1enScene, 
             adultScene, adult1frScene,adult2frScene, adult1enScene,
             elderlyScene, elderly1frScene, elderly2frScene,elderly1enScene);
