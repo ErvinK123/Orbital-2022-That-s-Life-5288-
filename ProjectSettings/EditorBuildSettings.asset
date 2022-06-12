@@ -18,7 +18,7 @@ EditorBuildSettings:
     path: Assets/Scenes/NameErrorLong.unity
     guid: 493c6f0acf724f14891f1ea213b83aad
   - enabled: 1
-    path: Assets/Scenes/Introduction.unity
+    path: Assets/Scenes/Introductions/StandardIntro1.unity
     guid: 5343189499bcccd4faef4358091082ef
   - enabled: 1
     path: Assets/Scenes/Scenarios/Child/Base Child/Child1.unity
