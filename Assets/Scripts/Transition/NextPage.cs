@@ -21,7 +21,7 @@ public class NextPage : MonoBehaviour
             
         } else
         {
-            SceneManager.LoadScene("Introduction");
+            SceneManager.LoadScene("StandardIntro1"); // Have to change this intro according to the randomised stats
         }
     }
 
