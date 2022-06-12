@@ -358,7 +358,7 @@ public class Player : MonoBehaviour
             Player.choiceArr[Player.scenarios - 1] = new Choice(Player.adultAlotted[Player.scenarios - 1 - 2 * NextPage.numberOfScene], i);
         } else
         {
-            Player.choiceArr[Player.scenarios - 1] = new Choice(Player.adultAlotted[Player.scenarios - 1 - 3 * NextPage.numberOfScene], i);
+            Player.choiceArr[Player.scenarios - 1] = new Choice(Player.elderAlotted[Player.scenarios - 1 - 3 * NextPage.numberOfScene], i);
         }
     }
 
@@ -454,19 +454,19 @@ public class Player : MonoBehaviour
         for (int i = 0; i < 4 * NextPage.numberOfScene; i++)
         {
             for (int j = 0; j < 5; j++)
-            {
+            {   
                 if (i < NextPage.numberOfScene)
                 {
                     Player.calculateHelper(ChoiceValues.childResult, i, j);
                 } else if (i < 2 * NextPage.numberOfScene)
                 {
-                    Player.calculateHelper(ChoiceValues.teenResult, i, j);
+                    Player.calculateHelper(ChoiceValues.teenResult, ChoiceValues.teen1frResult, ChoiceValues.teen2frResult, ChoiceValues.teen1enResult, i, j);
                 } else if (i < 3 * NextPage.numberOfScene)
                 {
-                    Player.calculateHelper(ChoiceValues.adultResult, i, j);
+                    Player.calculateHelper(ChoiceValues.adultResult, ChoiceValues.adult1frResult, ChoiceValues.adult2frResult, ChoiceValues.adult1enResult, i, j);
                 } else
                 {
-                    Player.calculateHelper(ChoiceValues.elderResult, i, j);
+                    Player.calculateHelper(ChoiceValues.elderResult, ChoiceValues.elder1frResult, ChoiceValues.elder2frResult, ChoiceValues.elder1enResult, i, j);
                 }
             }
         }
@@ -604,33 +604,156 @@ public class Player : MonoBehaviour
     }
 
     // Used in calculate : Cross checks the choices made by player and changes player attribute 
-    public static void calculateHelper(int[,,] currArr, int first, int second)
+    public static void calculateHelper(int[,,] normArr, int first, int second)
     {
         if (second == 0)
         {
 
-            Player.Career += currArr[choiceArr[first].scenario.id - 1, choiceArr[first].choice - 1, second];
+            Player.Career += normArr[choiceArr[first].scenario.id - 1, choiceArr[first].choice - 1, second];
             return;
         }
         else if (second == 1)
         {
-            Player.Popularity += currArr[choiceArr[first].scenario.id - 1, choiceArr[first].choice - 1, second];
+            Player.Popularity += normArr[choiceArr[first].scenario.id - 1, choiceArr[first].choice - 1, second];
             return;
         }
         else if (second == 2)
         {
-            Player.Health += currArr[choiceArr[first].scenario.id - 1, choiceArr[first].choice - 1, second];
+            Player.Health += normArr[choiceArr[first].scenario.id - 1, choiceArr[first].choice - 1, second];
             return;
         }
         else if (second == 3)
         {
-            Player.LifeSkills += currArr[choiceArr[first].scenario.id - 1, choiceArr[first].choice - 1, second];
+            Player.LifeSkills += normArr[choiceArr[first].scenario.id - 1, choiceArr[first].choice - 1, second];
             return;
         }
         else
         {
-            Player.Morals += currArr[choiceArr[first].scenario.id - 1, choiceArr[first].choice - 1, second];
+            Player.Morals += normArr[choiceArr[first].scenario.id - 1, choiceArr[first].choice - 1, second];
             return;
+        }
+    }
+
+
+    // Used in calculate : Cross checks the choices made by player and changes player attribute 
+    public static void calculateHelper(int[,,] normArr, int[,,] onefr, int[,,] twofr, int[,,] oneen, int first, int second)
+    {
+        int temp = choiceArr[first].scenario.type;
+
+        if (temp == 1)
+        {
+            if (second == 0)
+            {
+                Player.Career += normArr[choiceArr[first].scenario.id - 1, choiceArr[first].choice - 1, second];
+                return;
+            }
+            else if (second == 1)
+            {
+                Player.Popularity += normArr[choiceArr[first].scenario.id - 1, choiceArr[first].choice - 1, second];
+                return;
+            }
+            else if (second == 2)
+            {
+                Player.Health += normArr[choiceArr[first].scenario.id - 1, choiceArr[first].choice - 1, second];
+                return;
+            }
+            else if (second == 3)
+            {
+                Player.LifeSkills += normArr[choiceArr[first].scenario.id - 1, choiceArr[first].choice - 1, second];
+                return;
+            }
+            else
+            {
+                Player.Morals += normArr[choiceArr[first].scenario.id - 1, choiceArr[first].choice - 1, second];
+                return;
+            }
+        }
+
+        if (temp == 2)
+        {
+            if (second == 0)
+            {
+                Player.Career += onefr[choiceArr[first].scenario.id - 1, choiceArr[first].choice - 1, second];
+                return;
+            }
+            else if (second == 1)
+            {
+                Player.Popularity += onefr[choiceArr[first].scenario.id - 1, choiceArr[first].choice - 1, second];
+                return;
+            }
+            else if (second == 2)
+            {
+                Player.Health += onefr[choiceArr[first].scenario.id - 1, choiceArr[first].choice - 1, second];
+                return;
+            }
+            else if (second == 3)
+            {
+                Player.LifeSkills += onefr[choiceArr[first].scenario.id - 1, choiceArr[first].choice - 1, second];
+                return;
+            }
+            else
+            {
+                Player.Morals += onefr[choiceArr[first].scenario.id - 1, choiceArr[first].choice - 1, second];
+                return;
+            }
+        }
+
+        if(temp == 3)
+        {
+            if (second == 0)
+            {
+                Player.Career += twofr[choiceArr[first].scenario.id - 1, choiceArr[first].choice - 1, second];
+                return;
+            }
+            else if (second == 1)
+            {
+                Player.Popularity += twofr[choiceArr[first].scenario.id - 1, choiceArr[first].choice - 1, second];
+                return;
+            }
+            else if (second == 2)
+            {
+                Player.Health += twofr[choiceArr[first].scenario.id - 1, choiceArr[first].choice - 1, second];
+                return;
+            }
+            else if (second == 3)
+            {
+                Player.LifeSkills += twofr[choiceArr[first].scenario.id - 1, choiceArr[first].choice - 1, second];
+                return;
+            }
+            else
+            {
+                Player.Morals += twofr[choiceArr[first].scenario.id - 1, choiceArr[first].choice - 1, second];
+                return;
+            }
+        }
+
+        if (temp == 4)
+        {
+            if (second == 0)
+            {
+                Player.Career += oneen[choiceArr[first].scenario.id - 1, choiceArr[first].choice - 1, second];
+                return;
+            }
+            else if (second == 1)
+            {
+                Player.Popularity += oneen[choiceArr[first].scenario.id - 1, choiceArr[first].choice - 1, second];
+                return;
+            }
+            else if (second == 2)
+            {
+                Player.Health += oneen[choiceArr[first].scenario.id - 1, choiceArr[first].choice - 1, second];
+                return;
+            }
+            else if (second == 3)
+            {
+                Player.LifeSkills += oneen[choiceArr[first].scenario.id - 1, choiceArr[first].choice - 1, second];
+                return;
+            }
+            else
+            {
+                Player.Morals += oneen[choiceArr[first].scenario.id - 1, choiceArr[first].choice - 1, second];
+                return;
+            }
         }
     }
 

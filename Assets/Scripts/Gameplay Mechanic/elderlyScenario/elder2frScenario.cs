@@ -28,7 +28,7 @@ public class elder2frScenario : MonoBehaviour
         for (int i = 0; i < num; i++)
         {
             int number = i + 1;
-            elder2frArr[i] = new Scenario(number, temp + number);
+            elder2frArr[i] = new Scenario(number, temp + number, 3);
         }
     }
 

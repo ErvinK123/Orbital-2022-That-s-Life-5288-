@@ -6,12 +6,16 @@ using Random = UnityEngine.Random;
 public struct Scenario
 {
     public int id;
-    public string name; 
+    public string name;
 
-    public Scenario (int id, string name)
+    // type 1:norm 2:onefr 3:twofr 4:oneen
+    public int type; 
+
+    public Scenario (int id, string name, int type)
     {
         this.id = id;
-        this.name = name; 
+        this.name = name;
+        this.type = type;
     }
 }
 
@@ -40,7 +44,7 @@ public class childScenario : MonoBehaviour
         for(int i = 0; i < num; i++)
         {
             int number = i + 1;
-            childArr[i] = new Scenario(number, temp + number);
+            childArr[i] = new Scenario(number, temp + number, 1);
         }
     }
     public static Scenario[] randomizeArray()
