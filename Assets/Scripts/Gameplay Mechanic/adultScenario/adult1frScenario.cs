@@ -28,7 +28,7 @@ public class adult1frScenario : MonoBehaviour
         for (int i = 0; i < num; i++)
         {
             int number = i + 1;
-            adult1frArr[i] = new Scenario(number, temp + number);
+            adult1frArr[i] = new Scenario(number, temp + number, 2);
         }
     }
 
