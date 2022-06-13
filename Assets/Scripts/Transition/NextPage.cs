@@ -1,12 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement; 
+using UnityEngine.SceneManagement;
+using Random = UnityEngine.Random;
 
 public class NextPage : MonoBehaviour
-{   
-    //number of scenarios per phase of life 
-    public static int numberOfScene = 5; 
+{
+    //number of scenarios per phase of life
+    // can be randomized 
+    public static int numberOfScene = 5;
 
     public void next()
     {

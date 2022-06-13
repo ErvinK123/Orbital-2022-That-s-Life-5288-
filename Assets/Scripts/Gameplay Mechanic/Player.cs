@@ -67,6 +67,9 @@ public class Player : MonoBehaviour
     public static bool addedEnemy = false;
     public static bool lostEnemy = false;
 
+    //Transitions 
+    public static bool transition = false; 
+
     //Used when there is a invalid name input
     public static void nameReset()
     {
@@ -891,5 +894,36 @@ public class Player : MonoBehaviour
         {
             return ""; 
         }
+    }
+
+    public static bool transitionTrigger()
+    {
+        return Player.transition;
+    }
+
+    public static void setTransition()
+    {
+        int temp = NextPage.numberOfScene;
+        if (Player.scenarios == temp || Player.scenarios == temp*2 || Player.scenarios == temp*3)
+        {
+            Player.transition = true;
+            return; 
+        }
+    }
+
+    public static string generateTransition()
+    {
+        Player.transition = false; 
+        if (Player.age == "Child")
+        {
+            return "ChildToTeen"; 
+        } else if (Player.age == "Teen") 
+        {
+            return "TeenToAdult"; 
+        } else
+        {
+            return "AdultToElder";
+        }
+
     }
 }

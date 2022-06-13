@@ -15,7 +15,15 @@ public class NextScenario : MonoBehaviour
             return;
         }
 
+        if (Player.transitionTrigger() && Player.age != "Dead")
+        {
+            string next = Player.generateTransition();
+            SceneManager.LoadScene(next);
+            return;
+        }
+
         Player.ageUp();
+        Player.setTransition();
 
         if (Player.age != "Dead")
         {   
