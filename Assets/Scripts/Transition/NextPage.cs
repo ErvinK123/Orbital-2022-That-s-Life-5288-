@@ -51,7 +51,6 @@ public class NextPage : MonoBehaviour
             } else // Random option is selected
             {
                 SceneManager.LoadScene(Player.useIntro());
-                Player.showStatistics();
             }
         }
     } 
