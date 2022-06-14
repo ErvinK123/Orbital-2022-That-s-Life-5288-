@@ -2818,6 +2818,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0e8665abbbe972940a42347240c2752f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  FairButton: {fileID: 14292955}
+  RandomButton: {fileID: 608707161}
+  fairIntros:
+  - StandardIntro1
+  - StandardIntro2
+  - StandardIntro3
 --- !u!1 &2000217222
 GameObject:
   m_ObjectHideFlags: 0

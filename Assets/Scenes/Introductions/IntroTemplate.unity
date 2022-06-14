@@ -785,7 +785,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 20/04/1963
+  m_text: 20/04/1995
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 612491e3f7c61114fadbda59f70c5e52, type: 2}
   m_sharedMaterial: {fileID: -6632078951794378098, guid: 612491e3f7c61114fadbda59f70c5e52, type: 2}

@@ -21,6 +21,27 @@ EditorBuildSettings:
     path: Assets/Scenes/Introductions/StandardIntro1.unity
     guid: 5343189499bcccd4faef4358091082ef
   - enabled: 1
+    path: Assets/Scenes/Introductions/StandardIntro2.unity
+    guid: 97b9d2d141cd31746a1aeaeddb4a42af
+  - enabled: 1
+    path: Assets/Scenes/Introductions/StandardIntro3.unity
+    guid: 160959a1a9e6317489ba113709c34748
+  - enabled: 1
+    path: Assets/Scenes/Introductions/CareerBestIntro.unity
+    guid: b6ddff78fba6ef042b7d9b9492d8b6ca
+  - enabled: 1
+    path: Assets/Scenes/Introductions/PopularityBestIntro.unity
+    guid: 3654605376b01604b98fb09811cbcd12
+  - enabled: 1
+    path: Assets/Scenes/Introductions/HealthBestIntro.unity
+    guid: f0f75508c28ab0d42b7f4f443602663d
+  - enabled: 1
+    path: Assets/Scenes/Introductions/LifeskillsBestIntro.unity
+    guid: 2240ae11aa5b9794891c76e91cfe0465
+  - enabled: 1
+    path: Assets/Scenes/Introductions/MoralsBestIntro.unity
+    guid: 4d8e363bff54beb4b8e191f16fd90602
+  - enabled: 1
     path: Assets/Scenes/Scenarios/Child/Base Child/Child1.unity
     guid: ae6141572c43169419176bda822f4e8b
   - enabled: 1

@@ -102,6 +102,25 @@ public class Player : MonoBehaviour
 
     }
 
+    // Function to determine which introduction page to use when the Random button is selected in the name page
+    public static string useIntro()
+    {
+        int[] initAttributes = { Player.Career, Player.Popularity, Player.Health, Player.LifeSkills, Player.Morals };
+        string[] introScenes = { "CareerBestIntro", "PopularityBestIntro", "HealthBestIntro", "LifeskillsBestIntro", "MoralsBestIntro" };
+        int temp = Player.Career;
+        string intro = "CareerBestIntro";
+        
+        for (int i = 1; i < 5; i++)
+        {
+            if (initAttributes[i] > temp)
+            {
+                temp = initAttributes[i];
+                intro = introScenes[i];
+            }
+        }
+        return intro;
+    }
+
     // Fills in the Scenarios array in each Scenario class and randomizes them
     public static void setUpScenarios(int child, int teen, int teen1fr, int teen2fr, int teen1en,
         int adult, int adult1fr, int adult2fr, int adult1en, int elder, int elder1fr, int elder2fr, int elder1en)
