@@ -10,6 +10,27 @@ public class NextPage : MonoBehaviour
     // can be randomized 
     public static int numberOfScene = 5;
 
+    // Initialising the Fair and Random buttons as game objects
+    public GameObject FairButton;
+    public GameObject RandomButton;
+    
+    // Initialising an array for storing the fair introductions
+    public string[] fairIntros = { "StandardIntro1", "StandardIntro2", "StandardIntro3" };
+
+    // Function to randomize an array of string
+    public string[] randomize(string[] fairIntros)
+    {
+        string[] newArray = fairIntros.Clone() as string[];
+        for (int i = 0; i < fairIntros.Length; i++)
+        {
+            string tmp = newArray[i];
+            int r = Random.Range(i, newArray.Length);
+            newArray[i] = newArray[r];
+            newArray[r] = tmp;
+        }
+        return newArray;
+    }
+    
     public void next()
     {
         if (Player.name == null || Player.name == "") 
@@ -23,9 +44,17 @@ public class NextPage : MonoBehaviour
             
         } else
         {
-            SceneManager.LoadScene("StandardIntro1"); // Have to change this intro according to the randomised stats
+            if (!FairButton.activeSelf) // Fair option is selected
+            {
+                string[] randomFairIntros = randomize(fairIntros);
+                SceneManager.LoadScene(randomFairIntros[0]);
+            } else // Random option is selected
+            {
+                SceneManager.LoadScene(Player.useIntro());
+                Player.showStatistics();
+            }
         }
-    }
+    } 
 
     public void back()
     {

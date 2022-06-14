@@ -33,5 +33,5 @@ public class PlayerGenerator : MonoBehaviour
         Player.generateRandom();
         FairButton.SetActive(true);
         RandomButton.SetActive(false);
-    }
+    } 
 }
