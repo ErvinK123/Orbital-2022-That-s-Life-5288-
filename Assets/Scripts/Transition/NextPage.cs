@@ -80,8 +80,8 @@ public class NextPage : MonoBehaviour
         int elderly2frScene = 0;
         int elderly1enScene = 0;
 
-        int fLimit = 1;
-        int enLimit = 0;
+        int fLimit = 2;
+        int enLimit = 1;
         Player.setFElimits(fLimit, enLimit);
         Player.setUpScenarios(childScene, teenScene, teen1frScene, teen2frScene, teen1enScene, 
             adultScene, adult1frScene,adult2frScene, adult1enScene,

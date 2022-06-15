@@ -867,14 +867,20 @@ public class Player : MonoBehaviour
 
     public static void loseFriend()
     {
-        Player.friends--;
-        Player.lostFriend = true;
+        if (Player.friends != 0)
+        {
+            Player.friends--;
+            Player.lostFriend = true;
+        } 
     }
 
     public static void loseEnemy()
     {
-        Player.enemies--;
-        Player.lostEnemy = true;
+        if (Player.enemies != 0)
+        {
+            Player.enemies--;
+            Player.lostEnemy = true;
+        }
     }
 
     public static void offFEtriggers()
