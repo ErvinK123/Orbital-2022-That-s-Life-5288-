@@ -27,8 +27,10 @@ public class NextScenario : MonoBehaviour
 
         if (Player.age != "Dead")
         {   
-            string scene = Player.getNextScenarioName();
+            string scene = Player.getNextScenarioName(Player.age);
+            Debug.Log(scene);
             Player.prevSceneName = scene;
+            Player.increasePointer(Player.age);
             SceneManager.LoadScene(scene);
         }
         else

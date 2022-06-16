@@ -151,7 +151,6 @@ public class NextExplanation : MonoBehaviour
     {
         Player.loseEnemy();
         choice1();
-
     }
 
 

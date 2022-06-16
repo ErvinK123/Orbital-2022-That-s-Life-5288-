@@ -7,6 +7,7 @@ public class BeginScenario : MonoBehaviour
 {
     public void begin()
     {
+        Debug.Log(Player.childAlotted[0].name);
         Player.prevSceneName = Player.childAlotted[0].name;
         SceneManager.LoadScene(Player.childAlotted[0].name); 
     }
