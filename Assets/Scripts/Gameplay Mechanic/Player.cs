@@ -56,6 +56,11 @@ public class Player : MonoBehaviour
     public static Scenario[] adultAlotted;
     public static Scenario[] elderAlotted;
 
+    public static int teenPointer = 0;
+    public static int adultPointer = 0;
+    public static int elderPointer = 0; 
+
+
     public static string prevSceneName;
 
 
@@ -131,201 +136,23 @@ public class Player : MonoBehaviour
 
 
         teenScenario.generateScenarios(teen);
-        //teenScenario.gameArr = teenScenario.randomizeArray();
         teen1frScenario.generateScenarios(teen1fr);
-        //teen1frScenario.gameArr = teen1frScenario.randomizeArray();
         teen2frScenario.generateScenarios(teen2fr);
-        //teen2frScenario.gameArr = teen2frScenario.randomizeArray();
         teen1enScenario.generateScenarios(teen1en);
-        //teen1enScenario.gameArr = teen1enScenario.randomizeArray();
 
 
 
         adultScenario.generateScenarios(adult);
-        //adultScenario.gameArr = adultScenario.randomizeArray();
         adult1frScenario.generateScenarios(adult1fr);
-        //adult1frScenario.gameArr = adult1frScenario.randomizeArray();
         adult2frScenario.generateScenarios(adult2fr);
-        //adult2frScenario.gameArr = adult2frScenario.randomizeArray();
         adult1enScenario.generateScenarios(adult1en);
-        //adult1enScenario.gameArr = adult1enScenario.randomizeArray();
 
 
         elderScenario.generateScenarios(elder);
-        //elderScenario.gameArr = elderScenario.randomizeArray();
         elder1frScenario.generateScenarios(elder1fr);
-        //elder1frScenario.gameArr = elder1frScenario.randomizeArray();
         elder2frScenario.generateScenarios(elder2fr);
-        //elder2frScenario.gameArr = elder2frScenario.randomizeArray();
         elder1enScenario.generateScenarios(elder1en);
-        //elder1enScenario.gameArr = elder1enScenario.randomizeArray();
 
-    }
-
-    // generates an array of scenario for the player for that run 
-    public static void allocateScenarios(string s)
-    {
-        int num = NextPage.numberOfScene;
-
-        if (s == "Child")
-        {
-            int combi = Player.nextCombination(Player.friends, Player.enemies);
-            Scenario[] pool = Player.arrayCombiner(teenScenario.teenArr, teen1frScenario.teen1frArr, teen1enScenario.teen1enArr, teen2frScenario.teen2frArr, combi);
-            Scenario[] temp = new Scenario[NextPage.numberOfScene];
-            for (int i = 0; i < temp.Length; i++)
-            {
-                temp[i] = pool[i];
-            }
-            Player.teenAlotted = temp;
-        }
-        else if (s == "Teen")
-        {
-            int combi = Player.nextCombination(Player.friends, Player.enemies);
-            Scenario[] pool = Player.arrayCombiner(adultScenario.adultArr, adult1frScenario.adult1frArr, adult1enScenario.adult1enArr, adult2frScenario.adult2frArr, combi);
-            Scenario[] temp = new Scenario[NextPage.numberOfScene];
-            for (int i = 0; i < temp.Length; i++)
-            {
-                temp[i] = pool[i];
-            }
-            Player.adultAlotted = temp;
-
-        } else if (s == "Adult")
-        {
-            int combi = Player.nextCombination(Player.friends, Player.enemies);
-            Scenario[] pool = Player.arrayCombiner(elderScenario.elderArr, elder1frScenario.elder1frArr, elder1enScenario.elder1enArr, elder2frScenario.elder2frArr, combi);
-            Scenario[] temp = new Scenario[NextPage.numberOfScene];
-            for (int i = 0; i < temp.Length; i++)
-            {
-                temp[i] = pool[i];
-            }
-            Player.elderAlotted = temp;
-        } else
-        {
-            // do nothing 
-        }
-    }
-
-    public static void allocateChild()
-    {
-        Scenario[] temp = new Scenario[NextPage.numberOfScene];
-        for (int i = 0; i < temp.Length; i++)
-        {
-            temp[i] = childScenario.gameArr[i];
-        }
-        Player.childAlotted = temp;
-    }
-
-    //gives the next pool 
-    public static Scenario[] arrayCombiner(Scenario[] arr1, Scenario[] arr2, Scenario[] arr3, Scenario[] arr4, int i)
-    {
-        if (i == 1)
-        {
-            //only base pool
-            Scenario[] temp = randomizeArray(arr1);
-            return temp;
-        } else if (i == 2)
-        {
-            //base + 1 friend
-            int total = arr1.Length + arr2.Length;
-            Scenario[] temp = new Scenario[total];
-            for (int j = 0; j < total; j++)
-            {
-                if (j < arr1.Length)
-                {
-                    temp[j] = arr1[j];
-                } else
-                {
-                    temp[j] = arr2[j - arr1.Length];
-                }
-            }
-            temp = randomizeArray(temp);
-            return temp;
-        } else if (i == 3)
-        {
-            // base + 1 enemy 
-            int total = arr1.Length + arr3.Length;
-            Scenario[] temp = new Scenario[total];
-            for (int j = 0; j < total; j++)
-            {
-                if (j < arr1.Length)
-                {
-                    temp[j] = arr1[j];
-                }
-                else
-                {
-                    temp[j] = arr3[j - arr1.Length];
-                }
-            }
-            return temp;
-        } else if (i == 4)
-        {
-            // base + 1 enemy + 1 friend 
-            int total = arr1.Length + arr2.Length + arr3.Length;
-            Scenario[] temp = new Scenario[total];
-            for (int j = 0; j < total; j++)
-            {
-                if (j < arr1.Length)
-                {
-                    temp[j] = arr1[j];
-                } else if (j < arr1.Length + arr2.Length)
-                {
-                    temp[j] = arr2[j - arr1.Length];
-                }
-                else
-                {
-                    temp[j] = arr3[j - arr1.Length - arr2.Length];
-                }
-            }
-            temp = randomizeArray(temp);
-            return temp;
-        }
-        else if (i == 5)
-        {
-            // base + 2 friend 
-            int total = arr1.Length + arr2.Length + arr3.Length;
-            Scenario[] temp = new Scenario[total];
-            for (int j = 0; j < total; j++)
-            {
-                if (j < arr1.Length)
-                {
-                    temp[j] = arr1[j];
-                }
-                else if (j < arr1.Length + arr2.Length)
-                {
-                    temp[j] = arr2[j - arr1.Length];
-                }
-                else
-                {
-                    temp[j] = arr3[j - arr1.Length - arr2.Length];
-                }
-            }
-            temp = randomizeArray(temp);
-            return temp;
-        } else
-        {
-            // base + 2 friend + 1 enemy 
-            int total = arr1.Length + arr2.Length + arr3.Length + arr4.Length;
-            Scenario[] temp = new Scenario[total];
-            for (int j = 0; j < total; j++)
-            {
-                if (j < arr1.Length)
-                {
-                    temp[j] = arr1[j];
-                }
-                else if (j < arr1.Length + arr2.Length)
-                {
-                    temp[j] = arr2[j - arr1.Length];
-                } else if (j < arr1.Length + arr2.Length + arr3.Length)
-                {
-                    temp[j] = arr3[j - arr1.Length - arr2.Length];
-                } else
-                {
-                    temp[j] = arr4[j - arr1.Length - arr2.Length - arr3.Length];
-                }
-            }
-            temp = randomizeArray(temp);
-            return temp;
-        }
     }
 
     public static int nextCombination(int fr, int en)
@@ -350,6 +177,55 @@ public class Player : MonoBehaviour
             return 6;
         }
     }
+    
+
+    public static Scenario[] generateArray(Scenario[] arr1, Scenario[] arr2, Scenario[] arr3, Scenario[] arr4)
+    {
+        int total = arr1.Length + arr2.Length + arr3.Length + arr4.Length;
+        Scenario[] temp = new Scenario[total];
+        for (int j = 0; j < total; j++)
+        {
+            if (j < arr1.Length)
+            {
+                temp[j] = arr1[j];
+            }
+            else if (j < arr1.Length + arr2.Length)
+            {
+                temp[j] = arr2[j - arr1.Length];
+            }
+            else if (j < arr1.Length + arr2.Length + arr3.Length)
+            {
+                temp[j] = arr3[j - arr1.Length - arr2.Length];
+            }
+            else
+            {
+                temp[j] = arr4[j - arr1.Length - arr2.Length - arr3.Length];
+            }
+        }
+        temp = randomizeArray(temp);
+        return temp;
+    }
+
+    public static void allocateScenarios(Scenario[] arr1, string phase)
+    {
+        if (phase == "Child")
+        {
+            Player.childAlotted = arr1;
+            return; 
+        } else if (phase == "Teen")
+        {
+            Player.teenAlotted = arr1;
+            return; 
+        } else if (phase == "Adult")
+        {
+            Player.adultAlotted = arr1;
+            return; 
+        } else
+        {
+            Player.elderAlotted = arr1;
+            return; 
+        }
+    } 
 
     public static Scenario[] randomizeArray(Scenario[] arr1)
     {
@@ -369,18 +245,22 @@ public class Player : MonoBehaviour
     {
         if (Player.age == "Child")
         {
+            Debug.Log("New Choice from child alotted name" + Player.childAlotted[Player.scenarios-1].name);
             Player.choiceArr[Player.scenarios - 1] = new Choice(Player.childAlotted[Player.scenarios - 1], i);
         }
         else if (Player.age == "Teen")
         {
-            Player.choiceArr[Player.scenarios - 1] = new Choice(Player.teenAlotted[Player.scenarios - 1 - NextPage.numberOfScene], i);
+            Debug.Log("New Choice from teen alotted name" + Player.teenAlotted[teenPointer-1].name);
+            Player.choiceArr[Player.scenarios - 1] = new Choice(Player.teenAlotted[teenPointer-1], i);
         }
         else if (Player.age == "Adult")
         {
-            Player.choiceArr[Player.scenarios - 1] = new Choice(Player.adultAlotted[Player.scenarios - 1 - 2 * NextPage.numberOfScene], i);
+            Debug.Log("New Choice from adult alotted name:" + Player.adultAlotted[adultPointer-1].name);
+            Player.choiceArr[Player.scenarios - 1] = new Choice(Player.adultAlotted[adultPointer-1], i);
         } else
         {
-            Player.choiceArr[Player.scenarios - 1] = new Choice(Player.elderAlotted[Player.scenarios - 1 - 3 * NextPage.numberOfScene], i);
+            Debug.Log("New Choice from adult alotted name: " + Player.elderAlotted[elderPointer-1].name);
+            Player.choiceArr[Player.scenarios - 1] = new Choice(Player.elderAlotted[elderPointer-1], i);
         }
     }
 
@@ -402,21 +282,106 @@ public class Player : MonoBehaviour
         }
     }
 
-    public static string getNextScenarioName()
+    public static string getNextScenarioName(string s)
     {
         int num = NextPage.numberOfScene;
+        //Player.adjustPointer(s);
         if (scenarios - 1 < num)
         {
             return childAlotted[scenarios - 1].name;
-        } else if (scenarios - 1 < 2 * num)
+        }
+        else if (scenarios - 1 < 2 * num)
+        {   
+            return teenAlotted[teenPointer].name;
+        }
+        else if (scenarios - 1 < 3 * num)
         {
-            return teenAlotted[scenarios - 1 - num].name;
-        } else if (scenarios - 1 < 3 * num)
+            return adultAlotted[adultPointer].name;
+        }
+        else
         {
-            return adultAlotted[scenarios - 1 - 2 * num].name;
+            return elderAlotted[elderPointer].name;
+        }
+
+    }
+
+    public static void adjustPointer(string s)
+    {
+        if (s == "Child")
+        {
+            return; 
+        } else if (s == "Teen")
+        {
+            teenPointer = Player.scenarioChecker(teenPointer, teenAlotted);
+        } else if (s == "Adult")
+        {
+            adultPointer = Player.scenarioChecker(adultPointer, adultAlotted);
         } else
         {
-            return elderAlotted[scenarios - 1 - 3 * num].name;
+            elderPointer = Player.scenarioChecker(elderPointer, elderAlotted);
+        }
+    }
+
+    public static int scenarioChecker(int i, Scenario[] arr)
+    {
+        for (int r = i; r < arr.Length; r++)
+        {
+            if (Player.nextCombination(Player.friends,Player.enemies) == 1) 
+            {
+                if (arr[r].type == 1)
+                {
+                    return r;
+                } 
+            } else if (Player.nextCombination(Player.friends, Player.enemies) == 2) 
+            {
+                if(arr[r].type == 1 || arr[r].type == 2)
+                {
+                    return r; 
+                }
+            } else if (Player.nextCombination(Player.friends, Player.enemies) == 3)
+            {  
+                if(arr[r].type == 1 || arr[r].type == 4)
+                {
+                    return r;
+                }
+
+            } else if (Player.nextCombination(Player.friends, Player.enemies) == 4)
+            {
+                if(arr[r].type == 1 || arr[r].type == 2 || arr[r].type == 4)
+                {
+                    return r; 
+                }
+            } else if (Player.nextCombination(Player.friends, Player.enemies) == 5)
+            {
+                if(arr[r].type == 1 || arr[r].type == 2 || arr[r].type == 3)
+                {
+                    return r; 
+                }
+            } else
+            {
+                if (arr[r].type == 1 || arr[r].type == 2 || arr[r].type == 3 || arr[r].type == 4)
+                {
+                    return r;
+                }
+            }
+        }
+        return i;
+    }
+
+    public static void increasePointer(string s)
+    {
+        if (s == "Child")
+        {
+            return; 
+        } else if(s == "Teen")
+        {
+            teenPointer++;
+        } else if(s == "Adult")
+        {
+            adultPointer++; 
+        } else
+        {
+            elderPointer++;
         }
     }
 
@@ -428,17 +393,17 @@ public class Player : MonoBehaviour
         if (Player.scenarios == num + 1)
         {
             Player.age = "Teen";
-            Player.allocateScenarios("Child");
+            Player.adjustPointer("Teen"); 
             return;
         } else if (Player.scenarios == 2 * num + 1) {
 
             Player.age = "Adult";
-            Player.allocateScenarios("Teen");
+            Player.adjustPointer("Adult");
             return;
         } else if (Player.scenarios == 3 * num + 1)
         {
             Player.age = "Elder";
-            Player.allocateScenarios("Adult");
+            Player.adjustPointer("Elder");
             return;
         } else if (Player.scenarios == 4 * num + 1)
         {
@@ -464,6 +429,9 @@ public class Player : MonoBehaviour
         Player.friends = 0;
         Player.enemies = 0;
         Player.addedFriend = false;
+        Player.teenPointer = 0;
+        Player.adultPointer = 0;
+        Player.elderPointer = 0;
 
         Player.choiceArr = new Choice[4 * NextPage.numberOfScene];
         return;
@@ -478,21 +446,20 @@ public class Player : MonoBehaviour
             for (int j = 0; j < 5; j++)
             {   
                 if (i < NextPage.numberOfScene)
-                {
+                { 
                     Player.calculateHelper(ChoiceValues.childResult, i, j);
                 } else if (i < 2 * NextPage.numberOfScene)
-                {
+                {                    
                     Player.calculateHelper(ChoiceValues.teenResult, ChoiceValues.teen1frResult, ChoiceValues.teen2frResult, ChoiceValues.teen1enResult, i, j);
                 } else if (i < 3 * NextPage.numberOfScene)
-                {
+                {                   
                     Player.calculateHelper(ChoiceValues.adultResult, ChoiceValues.adult1frResult, ChoiceValues.adult2frResult, ChoiceValues.adult1enResult, i, j);
                 } else
-                {
+                {                    
                     Player.calculateHelper(ChoiceValues.elderResult, ChoiceValues.elder1frResult, ChoiceValues.elder2frResult, ChoiceValues.elder1enResult, i, j);
                 }
             }
         }
-
 
         int[] tempArr = new int[] { Player.Career, Player.Popularity, Player.Health, Player.LifeSkills, Player.Morals };
         string best = "Career";
@@ -630,27 +597,31 @@ public class Player : MonoBehaviour
     {
         if (second == 0)
         {
-
+            //Debug.Log(normArr[choiceArr[first].scenario.id - 1, choiceArr[first].choice - 1, second]);
             Player.Career += normArr[choiceArr[first].scenario.id - 1, choiceArr[first].choice - 1, second];
             return;
         }
         else if (second == 1)
         {
+            //Debug.Log(normArr[choiceArr[first].scenario.id - 1, choiceArr[first].choice - 1, second]);
             Player.Popularity += normArr[choiceArr[first].scenario.id - 1, choiceArr[first].choice - 1, second];
             return;
         }
         else if (second == 2)
         {
+            //Debug.Log(normArr[choiceArr[first].scenario.id - 1, choiceArr[first].choice - 1, second]); 
             Player.Health += normArr[choiceArr[first].scenario.id - 1, choiceArr[first].choice - 1, second];
             return;
         }
         else if (second == 3)
         {
+           //Debug.Log(normArr[choiceArr[first].scenario.id - 1, choiceArr[first].choice - 1, second]); 
             Player.LifeSkills += normArr[choiceArr[first].scenario.id - 1, choiceArr[first].choice - 1, second];
             return;
         }
         else
         {
+            //Debug.Log(normArr[choiceArr[first].scenario.id - 1, choiceArr[first].choice - 1, second]); 
             Player.Morals += normArr[choiceArr[first].scenario.id - 1, choiceArr[first].choice - 1, second];
             return;
         }
@@ -666,26 +637,31 @@ public class Player : MonoBehaviour
         {
             if (second == 0)
             {
+                //Debug.Log(normArr[choiceArr[first].scenario.id - 1, choiceArr[first].choice - 1, second]);
                 Player.Career += normArr[choiceArr[first].scenario.id - 1, choiceArr[first].choice - 1, second];
                 return;
             }
             else if (second == 1)
             {
+                //Debug.Log(normArr[choiceArr[first].scenario.id - 1, choiceArr[first].choice - 1, second]);
                 Player.Popularity += normArr[choiceArr[first].scenario.id - 1, choiceArr[first].choice - 1, second];
                 return;
             }
             else if (second == 2)
             {
+                //Debug.Log(normArr[choiceArr[first].scenario.id - 1, choiceArr[first].choice - 1, second]);
                 Player.Health += normArr[choiceArr[first].scenario.id - 1, choiceArr[first].choice - 1, second];
                 return;
             }
             else if (second == 3)
             {
+               //Debug.Log(normArr[choiceArr[first].scenario.id - 1, choiceArr[first].choice - 1, second]); 
                 Player.LifeSkills += normArr[choiceArr[first].scenario.id - 1, choiceArr[first].choice - 1, second];
                 return;
             }
             else
             {
+                //Debug.Log(normArr[choiceArr[first].scenario.id - 1, choiceArr[first].choice - 1, second]);
                 Player.Morals += normArr[choiceArr[first].scenario.id - 1, choiceArr[first].choice - 1, second];
                 return;
             }
@@ -693,6 +669,7 @@ public class Player : MonoBehaviour
 
         if (temp == 2)
         {
+            //Debug.Log("shoudlnt be here");
             if (second == 0)
             {
                 Player.Career += onefr[choiceArr[first].scenario.id - 1, choiceArr[first].choice - 1, second];
@@ -951,4 +928,27 @@ public class Player : MonoBehaviour
         }
 
     }
+
+    public static void printName()
+    {
+        for (int i = 0; i < childAlotted.Length; i++)
+        {
+            Debug.Log(childAlotted[i].name);
+        }
+        for (int i = 0; i < teenAlotted.Length; i++)
+        {
+            Debug.Log(teenAlotted[i].name);
+        }
+        for (int i = 0; i < adultAlotted.Length; i++)
+        {
+            Debug.Log(adultAlotted[i].name);
+        }
+        for (int i = 0; i < elderAlotted.Length; i++)
+        {
+            Debug.Log(elderAlotted[i].name);
+        }
+
+    }
+    
+
 }
