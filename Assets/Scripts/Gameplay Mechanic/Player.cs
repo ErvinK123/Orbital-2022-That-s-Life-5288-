@@ -259,7 +259,7 @@ public class Player : MonoBehaviour
             Player.choiceArr[Player.scenarios - 1] = new Choice(Player.adultAlotted[adultPointer-1], i);
         } else
         {
-            Debug.Log("New Choice from adult alotted name: " + Player.elderAlotted[elderPointer-1].name);
+            Debug.Log("New Choice from elder alotted name: " + Player.elderAlotted[elderPointer-1].name);
             Player.choiceArr[Player.scenarios - 1] = new Choice(Player.elderAlotted[elderPointer-1], i);
         }
     }
