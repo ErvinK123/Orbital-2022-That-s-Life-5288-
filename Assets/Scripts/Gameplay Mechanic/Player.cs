@@ -326,41 +326,52 @@ public class Player : MonoBehaviour
     {
         for (int r = i; r < arr.Length; r++)
         {
-            if (Player.nextCombination(Player.friends,Player.enemies) == 1) 
+            if (Player.nextCombination(Player.friends, Player.enemies) == 1)
             {
                 if (arr[r].type == 1)
                 {
+                    //Debug.Log(Player.nextCombination(Player.friends, Player.enemies) + ": " + "pooled from position" + r);
                     return r;
-                } 
-            } else if (Player.nextCombination(Player.friends, Player.enemies) == 2) 
-            {
-                if(arr[r].type == 1 || arr[r].type == 2)
-                {
-                    return r; 
                 }
-            } else if (Player.nextCombination(Player.friends, Player.enemies) == 3)
-            {  
-                if(arr[r].type == 1 || arr[r].type == 4)
+            }
+            else if (Player.nextCombination(Player.friends, Player.enemies) == 2)
+            {
+                if (arr[r].type == 1 || arr[r].type == 2)
                 {
+                    //Debug.Log(Player.nextCombination(Player.friends, Player.enemies) + ": " + "pooled from position" + r);
+                    return r;
+                }
+            }
+            else if (Player.nextCombination(Player.friends, Player.enemies) == 3)
+            {
+                if (arr[r].type == 1 || arr[r].type == 4)
+                {
+                    //Debug.Log(Player.nextCombination(Player.friends, Player.enemies) + ": " + "pooled from position" + r);
                     return r;
                 }
 
-            } else if (Player.nextCombination(Player.friends, Player.enemies) == 4)
+            }
+            else if (Player.nextCombination(Player.friends, Player.enemies) == 4)
             {
-                if(arr[r].type == 1 || arr[r].type == 2 || arr[r].type == 4)
+                if (arr[r].type == 1 || arr[r].type == 2 || arr[r].type == 4)
                 {
-                    return r; 
+                    //Debug.Log(Player.nextCombination(Player.friends, Player.enemies) + ": " + "pooled from position" + r);
+                    return r;
                 }
-            } else if (Player.nextCombination(Player.friends, Player.enemies) == 5)
+            }
+            else if (Player.nextCombination(Player.friends, Player.enemies) == 5)
             {
-                if(arr[r].type == 1 || arr[r].type == 2 || arr[r].type == 3)
+                if (arr[r].type == 1 || arr[r].type == 2 || arr[r].type == 3)
                 {
-                    return r; 
+                    //Debug.Log(Player.nextCombination(Player.friends, Player.enemies) + ": " + "pooled from position" + r);
+                    return r;
                 }
-            } else
+            }
+            else
             {
                 if (arr[r].type == 1 || arr[r].type == 2 || arr[r].type == 3 || arr[r].type == 4)
                 {
+                    //Debug.Log(Player.nextCombination(Player.friends, Player.enemies) + ": " + "pooled from position" + r);
                     return r;
                 }
             }
@@ -409,6 +420,15 @@ public class Player : MonoBehaviour
         {
             Player.age = "Dead";
             return;
+        } else if (Player.age == "Teen")
+        {
+            Player.adjustPointer("Teen");
+        } else if (Player.age == "Adult")
+        {
+            Player.adjustPointer("Adult"); 
+        } else if (Player.age == "Elder")
+        {
+            Player.adjustPointer("Elder");
         } else
         {
             //Do nothing
