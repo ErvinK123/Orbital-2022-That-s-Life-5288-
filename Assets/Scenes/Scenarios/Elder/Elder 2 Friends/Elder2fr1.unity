@@ -209,7 +209,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 495839962}
         m_TargetAssemblyTypeName: NextExplanation, Assembly-CSharp
-        m_MethodName: choice1
+        m_MethodName: choice1lf
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -343,7 +343,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 495839962}
         m_TargetAssemblyTypeName: NextExplanation, Assembly-CSharp
-        m_MethodName: choice2
+        m_MethodName: choice2lf
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -587,7 +587,7 @@ MonoBehaviour:
   m_text: 'Your friend _B_ ''s health is deteriorating and she is hospitalised. It
     seems she has contracted an incurable disease.
 
-    
+
 
 '
   m_isRightToLeft: 0
@@ -1170,7 +1170,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 495839962}
         m_TargetAssemblyTypeName: NextExplanation, Assembly-CSharp
-        m_MethodName: choice3
+        m_MethodName: choice3lf
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1411,7 +1411,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Visit him '
+  m_text: Visit her
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 612491e3f7c61114fadbda59f70c5e52, type: 2}
   m_sharedMaterial: {fileID: -6632078951794378098, guid: 612491e3f7c61114fadbda59f70c5e52, type: 2}

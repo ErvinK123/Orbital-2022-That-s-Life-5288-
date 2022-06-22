@@ -343,7 +343,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 495839962}
         m_TargetAssemblyTypeName: NextExplanation, Assembly-CSharp
-        m_MethodName: choice2
+        m_MethodName: choice2e
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -586,7 +586,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: 'A bully, Bob harrasses you in school in front of your friends
 
-    
+
 
 '
   m_isRightToLeft: 0

@@ -642,11 +642,17 @@ EditorBuildSettings:
     path: Assets/Scenes/Explanations/MakeFriend1.unity
     guid: a34dc4b2294643a4cb4b6991993306ff
   - enabled: 1
+    path: Assets/Scenes/Explanations/MakeFriend2.unity
+    guid: 227dab4b9d57d1942ac0370dc6613f90
+  - enabled: 1
     path: Assets/Scenes/Explanations/MakeEnemy1.unity
     guid: da02b8367ec85184a9ec4d2e352ed978
   - enabled: 1
     path: Assets/Scenes/Explanations/LostFriend1.unity
     guid: 8a54bb3ded5145347aba15fa2cebf3f7
+  - enabled: 1
+    path: Assets/Scenes/Explanations/LostFriend2.unity
+    guid: ec5255f0d2638634e8a635aab18d015f
   - enabled: 1
     path: Assets/Scenes/Explanations/LostEnemy1.unity
     guid: 4e802ddbf7a4ba44b9644c47e6cba49e

@@ -1166,7 +1166,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 495839962}
         m_TargetAssemblyTypeName: NextExplanation, Assembly-CSharp
-        m_MethodName: choice3
+        m_MethodName: choice3lf
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

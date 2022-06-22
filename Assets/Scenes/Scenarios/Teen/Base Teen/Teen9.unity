@@ -209,7 +209,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 495839962}
         m_TargetAssemblyTypeName: NextExplanation, Assembly-CSharp
-        m_MethodName: choice1
+        m_MethodName: choice1e
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -587,7 +587,7 @@ MonoBehaviour:
   m_text: 'Your brother sneaks home late at night, you see him looking dazed and
     scared
 
-    
+
 
 '
   m_isRightToLeft: 0
