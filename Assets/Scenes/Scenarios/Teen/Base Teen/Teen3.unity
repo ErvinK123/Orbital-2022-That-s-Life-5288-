@@ -209,7 +209,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 495839962}
         m_TargetAssemblyTypeName: NextExplanation, Assembly-CSharp
-        m_MethodName: choice1
+        m_MethodName: choice1f
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -584,8 +584,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Your friend asks you to accompany him to the movies during school time,
-    but you are worried about the consequences. '
+  m_text: 'Mark asks you to accompany him to the movies during school time, but you
+    are worried about the consequences. '
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 612491e3f7c61114fadbda59f70c5e52, type: 2}
   m_sharedMaterial: {fileID: -6632078951794378098, guid: 612491e3f7c61114fadbda59f70c5e52, type: 2}
@@ -1064,7 +1064,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 495839962}
         m_TargetAssemblyTypeName: NextExplanation, Assembly-CSharp
-        m_MethodName: choice3
+        m_MethodName: choice3lf
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1305,7 +1305,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Follow your friend to the movies '
+  m_text: 'Follow Mark to the movies '
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 612491e3f7c61114fadbda59f70c5e52, type: 2}
   m_sharedMaterial: {fileID: -6632078951794378098, guid: 612491e3f7c61114fadbda59f70c5e52, type: 2}
