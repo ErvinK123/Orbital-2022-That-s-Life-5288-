@@ -10,6 +10,9 @@ public class InfoCard : MonoBehaviour
     public GameObject TeenImage;
     public GameObject AdultImage;
     public GameObject ElderImage;
+    public GameObject Friend1Name;
+    public GameObject Friend2Name;
+    public GameObject Enemy1Name;
 
 
     // Function to choose which age period picture to use
@@ -41,8 +44,33 @@ public class InfoCard : MonoBehaviour
         TeenImage.SetActive(false);
         AdultImage.SetActive(false);
         ElderImage.SetActive(false);
+        Friend1Name.SetActive(false);
+        Friend2Name.SetActive(false);
+        Enemy1Name.SetActive(false);
 
         agePicture();
+
+        if (Player.friends == 1)
+        {
+            Friend1Name.SetActive(true);
+            Friend2Name.SetActive(false);
+        } else if (Player.friends == 2)
+        {
+            Friend1Name.SetActive(true);
+            Friend2Name.SetActive(true);
+        } else
+        {
+            Friend1Name.SetActive(false);
+            Friend2Name.SetActive(false);
+        }
+
+        if (Player.enemies == 1)
+        {
+            Enemy1Name.SetActive(true);
+        } else
+        {
+            Enemy1Name.SetActive(false);
+        }
     }
 
     public void open()
