@@ -584,8 +584,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Your friend _B_ ''s health is deteriorating and she is hospitalised. It
-    seems she has contracted an incurable disease.
+  m_text: 'Your friend Sally''s health is deteriorating and she is hospitalised.
+    It seems she has contracted an incurable disease.
 
 
 
