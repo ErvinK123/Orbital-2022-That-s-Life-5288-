@@ -561,7 +561,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.000018835, y: -430}
+  m_AnchoredPosition: {x: 17, y: -430}
   m_SizeDelta: {x: 1066.2, y: 194.3}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &394709195
@@ -586,7 +586,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: 'The new super soaker 3000 supreme is out. It costs 29.99.
 
-    
+
 
 '
   m_isRightToLeft: 0

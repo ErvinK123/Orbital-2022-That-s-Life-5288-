@@ -2784,6 +2784,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Background Fade
       objectReference: {fileID: 0}
+    - target: {fileID: 445317843282790154, guid: 06891166c020896498bde9a22edda2a4, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 445317843504573101, guid: 06891166c020896498bde9a22edda2a4, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 

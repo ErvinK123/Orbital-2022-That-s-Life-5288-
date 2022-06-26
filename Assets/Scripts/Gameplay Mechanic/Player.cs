@@ -245,21 +245,21 @@ public class Player : MonoBehaviour
     {
         if (Player.age == "Child")
         {
-            Debug.Log("New Choice from child alotted name" + Player.childAlotted[Player.scenarios-1].name);
+            //Debug.Log("New Choice from child alotted name" + Player.childAlotted[Player.scenarios-1].name);
             Player.choiceArr[Player.scenarios - 1] = new Choice(Player.childAlotted[Player.scenarios - 1], i);
         }
         else if (Player.age == "Teen")
         {
-            Debug.Log("New Choice from teen alotted name" + Player.teenAlotted[teenPointer-1].name);
+            //Debug.Log("New Choice from teen alotted name" + Player.teenAlotted[teenPointer-1].name);
             Player.choiceArr[Player.scenarios - 1] = new Choice(Player.teenAlotted[teenPointer-1], i);
         }
         else if (Player.age == "Adult")
         {
-            Debug.Log("New Choice from adult alotted name:" + Player.adultAlotted[adultPointer-1].name);
+            //Debug.Log("New Choice from adult alotted name:" + Player.adultAlotted[adultPointer-1].name);
             Player.choiceArr[Player.scenarios - 1] = new Choice(Player.adultAlotted[adultPointer-1], i);
         } else
         {
-            Debug.Log("New Choice from elder alotted name: " + Player.elderAlotted[elderPointer-1].name);
+            //Debug.Log("New Choice from elder alotted name: " + Player.elderAlotted[elderPointer-1].name);
             Player.choiceArr[Player.scenarios - 1] = new Choice(Player.elderAlotted[elderPointer-1], i);
         }
     }

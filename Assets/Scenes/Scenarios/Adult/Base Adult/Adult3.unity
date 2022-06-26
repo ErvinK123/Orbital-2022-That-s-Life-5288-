@@ -561,7 +561,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 5, y: -430}
+  m_AnchoredPosition: {x: 14, y: -430}
   m_SizeDelta: {x: 1069, y: 194.3}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &394709195
@@ -584,7 +584,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: A distant contact asks to meet up with you
+  m_text: A distant contact asks to meet up with you.
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 612491e3f7c61114fadbda59f70c5e52, type: 2}
   m_sharedMaterial: {fileID: -6632078951794378098, guid: 612491e3f7c61114fadbda59f70c5e52, type: 2}

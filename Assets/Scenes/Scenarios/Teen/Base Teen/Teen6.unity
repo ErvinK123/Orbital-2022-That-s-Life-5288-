@@ -585,7 +585,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_text: "It\u2019s results day, and it seems like you are in for an unpleasant
-    evening at home\r.\n\r\n"
+    evening at home.\r"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 612491e3f7c61114fadbda59f70c5e52, type: 2}
   m_sharedMaterial: {fileID: -6632078951794378098, guid: 612491e3f7c61114fadbda59f70c5e52, type: 2}

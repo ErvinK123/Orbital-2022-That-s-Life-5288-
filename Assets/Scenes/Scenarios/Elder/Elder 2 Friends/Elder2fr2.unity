@@ -561,7 +561,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.00000011965, y: -418}
+  m_AnchoredPosition: {x: 18, y: -413}
   m_SizeDelta: {x: 1066.2, y: 194.3}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &394709195
@@ -587,7 +587,7 @@ MonoBehaviour:
   m_text: 'Mark and Sally suddenly organised an all-night get together, and really
     want you to join them for old times'' sake.
 
-    
+
 
 '
   m_isRightToLeft: 0

@@ -561,7 +561,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.00000011965, y: -414}
+  m_AnchoredPosition: {x: 21, y: -414}
   m_SizeDelta: {x: 1066.2, y: 194.3}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &394709195
@@ -587,7 +587,7 @@ MonoBehaviour:
   m_text: 'You find out Bob is the neighbourhood drug kingpin after hearing a group
     of teenagers talk in an alley.
 
-    
+
 
 '
   m_isRightToLeft: 0
