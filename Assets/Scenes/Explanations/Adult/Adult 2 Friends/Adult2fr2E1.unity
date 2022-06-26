@@ -176,7 +176,7 @@ MonoBehaviour:
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 1080, y: 1920}
-  m_ScreenMatchMode: 0
+  m_ScreenMatchMode: 1
   m_MatchWidthOrHeight: 0
   m_PhysicalUnit: 3
   m_FallbackScreenDPI: 96
@@ -651,7 +651,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Tequila, Vodka, shot ,shot.... What happened last night? You missed an
+  m_text: Tequila, Vodka, shot, shot.... What happened last night? You missed an
     important work meeting as you nursed your hangover.
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 612491e3f7c61114fadbda59f70c5e52, type: 2}
