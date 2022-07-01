@@ -435,6 +435,138 @@ public class Player : MonoBehaviour
         }
     }
 
+    // Returns the corresponding number to displayer to correct player's age
+    public static int gameAge()
+    {
+        int ScenarioNum = 1;
+
+        if (Player.age != "Dead")
+        {
+            ScenarioNum = Player.scenarios;
+        } else
+        {
+            ScenarioNum = Player.scenarios - 1;
+        }
+
+        return ScenarioNum;
+    }
+
+    // Function to choose what age to display as the player's age according to the current scenario number
+    public static string displayAge()
+    {
+        // Child period
+        if (Player.gameAge() == 1)
+        {
+            return "6";
+        }
+        
+        if (Player.gameAge() == 2)
+        {
+            return "7";
+        }
+
+        if (Player.gameAge() == 3)
+        {
+            return "8";
+        }
+
+        if (Player.gameAge() == 4)
+        {
+            return "10";
+        }
+
+        if (Player.gameAge() == 5)
+        {
+            return "12";
+        }
+
+        //Teen period
+        if (Player.gameAge() == 6)
+        {
+            return "13";
+        }
+
+        if (Player.gameAge() == 7)
+        {
+            return "14";
+        }
+
+        if (Player.gameAge() == 8)
+        {
+            return "15";
+        }
+
+        if (Player.gameAge() == 9)
+        {
+            return "17";
+        }
+
+        if (Player.gameAge() == 10)
+        {
+            return "19";
+        }
+
+        // Adult period
+        if (Player.gameAge() == 11)
+        {
+            return "25";
+        }
+
+        if (Player.gameAge() == 12)
+        {
+            return "30";
+        }
+
+        if (Player.gameAge() == 13)
+        {
+            return "35";
+        }
+
+        if (Player.gameAge() == 14)
+        {
+            return "45";
+        }
+
+        if (Player.gameAge() == 15)
+        {
+            return "55";
+        }
+
+        // Elder period
+        if (Player.gameAge() == 16)
+        {
+            return "65";
+        }
+
+        if (Player.gameAge() == 17)
+        {
+            return "70";
+        }
+
+        if (Player.gameAge() == 18)
+        {
+            return "75";
+        }
+
+        if (Player.gameAge() == 19)
+        {
+            return "80";
+        }
+
+        if (Player.gameAge() == 20)
+        {
+            return "85";
+        }
+
+        if (Player.gameAge() == 21)
+        {
+            return "90";
+        }
+
+        // invalid scenario number
+        return "0";
+    }
+
     //Reset all after a run 
     public static void reset()
     {
