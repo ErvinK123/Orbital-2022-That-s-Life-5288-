@@ -209,7 +209,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 495839962}
         m_TargetAssemblyTypeName: NextExplanation, Assembly-CSharp
-        m_MethodName: choice1lf
+        m_MethodName: choice1lf2
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -343,7 +343,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 495839962}
         m_TargetAssemblyTypeName: NextExplanation, Assembly-CSharp
-        m_MethodName: choice2lf
+        m_MethodName: choice2lf2
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1170,7 +1170,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 495839962}
         m_TargetAssemblyTypeName: NextExplanation, Assembly-CSharp
-        m_MethodName: choice3lf
+        m_MethodName: choice3lf2
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

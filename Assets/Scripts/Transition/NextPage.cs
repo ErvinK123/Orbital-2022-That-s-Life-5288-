@@ -90,8 +90,7 @@ public class NextPage : MonoBehaviour
         Player.allocateScenarios(Player.generateArray(teenScenario.teenArr, teen1frScenario.teen1frArr, teen2frScenario.teen2frArr, teen1enScenario.teen1enArr), "Teen");
         Player.allocateScenarios(Player.generateArray(adultScenario.adultArr, adult1frScenario.adult1frArr, adult2frScenario.adult2frArr, adult1enScenario.adult1enArr), "Adult");
         Player.allocateScenarios(Player.generateArray(elderScenario.elderArr, elder1frScenario.elder1frArr, elder2frScenario.elder2frArr, elder1enScenario.elder1enArr), "Elder");
-
-
+        FriendEnemy.initializeFEPool();
     }
 }
 
