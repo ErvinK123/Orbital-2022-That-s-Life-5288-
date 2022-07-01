@@ -591,6 +591,9 @@ public class Player : MonoBehaviour
         Player.teenPointer = 0;
         Player.adultPointer = 0;
         Player.elderPointer = 0;
+        Player.friend1 = null;
+        Player.friend2 = null;
+        Player.enemy = null; 
 
         Player.choiceArr = new Choice[4 * NextPage.numberOfScene];
         return;
@@ -1017,6 +1020,7 @@ public class Player : MonoBehaviour
     {
         if (Player.friend1 != null)
         {
+            FriendEnemy.increasePointer(1);
             Player.friend1 = null;
             Player.friends--;
             Player.lostFriend1 = true;
@@ -1027,6 +1031,7 @@ public class Player : MonoBehaviour
     {
         if (Player.friend2 != null)
         {
+            FriendEnemy.increasePointer(2); 
             Player.friend2 = null;
             Player.friends--;
             Player.lostFriend2 = true;
@@ -1037,6 +1042,7 @@ public class Player : MonoBehaviour
     {
         if (Player.enemy != null)
         {
+            FriendEnemy.increasePointer(3);
             Player.enemy = null;
             Player.enemies--;
             Player.lostEnemy = true;
@@ -1149,9 +1155,9 @@ public class Player : MonoBehaviour
     public static void testFE()
     {
         Debug.Log("N"); 
-        Debug.Log(friend1);
-        Debug.Log(friend2);
-        Debug.Log(enemy);
+        Debug.Log("Friend1: " + friend1);
+        Debug.Log("Friend2: " + friend2);
+        Debug.Log("Enemy: " + enemy);
     }
 
 }
