@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class InfoCard : MonoBehaviour
 {
@@ -48,8 +49,10 @@ public class InfoCard : MonoBehaviour
         Friend2Name.SetActive(false);
         Enemy1Name.SetActive(false);
 
+        // Choosing which age picture to show
         agePicture();
 
+        // Temporary code to display names of current friends and enemies
         if (Player.friends == 1)
         {
             Friend1Name.SetActive(true);
