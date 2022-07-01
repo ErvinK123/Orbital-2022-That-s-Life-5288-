@@ -50,7 +50,7 @@ public class Player : MonoBehaviour
     public static int LifeSkills = 50;
     public static int Morals = 50;
 
-    public static Scenario[] alottedRound;
+    //public static Scenario[] alottedRound;
     public static Scenario[] childAlotted;
     public static Scenario[] teenAlotted;
     public static Scenario[] adultAlotted;
@@ -67,10 +67,16 @@ public class Player : MonoBehaviour
     //Friend/ENEMY system 
     public static int friendLimit;
     public static int enemyLimit;
-    public static bool addedFriend = false;
-    public static bool lostFriend = false;
+    public static bool addedFriend1 = false;
+    public static bool addedFriend2 = false; 
+    public static bool lostFriend1 = false;
+    public static bool lostFriend2 = false;
     public static bool addedEnemy = false;
     public static bool lostEnemy = false;
+
+    public static string friend1;
+    public static string friend2;
+    public static string enemy; 
 
     //Transitions 
     public static bool transition = false; 
@@ -448,7 +454,8 @@ public class Player : MonoBehaviour
         Player.name = "";
         Player.friends = 0;
         Player.enemies = 0;
-        Player.addedFriend = false;
+        Player.addedFriend1 = false;
+        Player.addedFriend2 = false;
         Player.teenPointer = 0;
         Player.adultPointer = 0;
         Player.elderPointer = 0;
@@ -850,31 +857,55 @@ public class Player : MonoBehaviour
         return Player.enemies >= Player.enemyLimit;
     }
 
-    public static void addFriend()
+    public static void addFriend1()
     {
+        Player.friend1 = FriendEnemy.friend1Arr[FriendEnemy.friend1Pointer];
+        FriendEnemy.increasePointer(1);
         Player.friends++;
-        Player.addedFriend = true;
+        Player.addedFriend1 = true;
+    }
+
+    public static void addFriend2()
+    {
+        Player.friend2 = FriendEnemy.friend2Arr[FriendEnemy.friend2Pointer];
+        FriendEnemy.increasePointer(2);
+        Player.friends++;
+        Player.addedFriend2 = true;
     }
 
     public static void addEnemy()
     {
+        Player.enemy = FriendEnemy.enemyArr[FriendEnemy.enemyPointer];
+        FriendEnemy.increasePointer(3);
         Player.enemies++;
         Player.addedEnemy = true;
     }
 
-    public static void loseFriend()
+    public static void loseFriend1()
     {
-        if (Player.friends != 0)
+        if (Player.friend1 != null)
         {
+            Player.friend1 = null;
             Player.friends--;
-            Player.lostFriend = true;
+            Player.lostFriend1 = true;
         } 
+    }
+
+    public static void loseFriend2()
+    {
+        if (Player.friend2 != null)
+        {
+            Player.friend2 = null;
+            Player.friends--;
+            Player.lostFriend2 = true;
+        }
     }
 
     public static void loseEnemy()
     {
-        if (Player.enemies != 0)
+        if (Player.enemy != null)
         {
+            Player.enemy = null;
             Player.enemies--;
             Player.lostEnemy = true;
         }
@@ -882,15 +913,17 @@ public class Player : MonoBehaviour
 
     public static void offFEtriggers()
     {
-        Player.addedFriend = false;
+        Player.addedFriend1 = false;
+        Player.addedFriend2 = false; 
         Player.addedEnemy = false;
-        Player.lostFriend = false;
+        Player.lostFriend1 = false;
+        Player.lostFriend2 = false; 
         Player.lostEnemy = false; 
     }
 
     public static bool feTrigger()
     {
-        return (Player.addedFriend || Player.addedEnemy || Player.lostEnemy || Player.lostFriend);
+        return (Player.addedFriend1 || Player.addedFriend2 || Player.addedEnemy || Player.lostEnemy || Player.lostFriend1 || Player.lostFriend2);
     }
 
     public static int getFriends()
@@ -900,21 +933,32 @@ public class Player : MonoBehaviour
 
     public static string generateFEscreen()
     {
-        if (Player.addedFriend)
+        if (Player.addedFriend1)
         {
-            return "MakeFriend" + Player.friends;
-        } else if (Player.addedEnemy)
+            return "MakeFriend1";
+        }
+        else if (Player.addedFriend2)
+        {
+            return "MakeFriend2";
+        }
+        else if (Player.addedEnemy)
         {
             return "MakeEnemy" + Player.enemies;
-        } else if (Player.lostFriend)
+        }
+        else if (Player.lostFriend1)
         {
-            return "LostFriend1"; 
+            return "LostFriend1";
+        }
+        else if (Player.lostFriend2)
+        {
+            return "LostFriend2";
         } else if (Player.lostEnemy)
         {
             return "LostEnemy1";
-        } else
+        }
+        else
         {
-            return ""; 
+            return "";
         }
     }
 
@@ -970,5 +1014,12 @@ public class Player : MonoBehaviour
 
     }
     
+    public static void testFE()
+    {
+        Debug.Log("N"); 
+        Debug.Log(friend1);
+        Debug.Log(friend2);
+        Debug.Log(enemy);
+    }
 
 }

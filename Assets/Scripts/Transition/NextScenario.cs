@@ -7,6 +7,7 @@ public class NextScenario : MonoBehaviour
 {
     public void next()
     {
+        Player.testFE();
         if (Player.feTrigger() && Player.age != "Dead")
         {
             string next = Player.generateFEscreen();
