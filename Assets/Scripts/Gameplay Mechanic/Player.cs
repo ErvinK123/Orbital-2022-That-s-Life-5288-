@@ -564,11 +564,6 @@ public class Player : MonoBehaviour
             return "85";
         }
 
-        if (Player.gameAge() == 21)
-        {
-            return "90";
-        }
-
         // invalid scenario number
         return "0";
     }
