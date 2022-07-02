@@ -11,9 +11,11 @@ public class InfoCard : MonoBehaviour
     public GameObject TeenImage;
     public GameObject AdultImage;
     public GameObject ElderImage;
-    public GameObject Friend1Name;
-    public GameObject Friend2Name;
-    public GameObject Enemy1Name;
+
+    // Initialising the text for friend and enemy names
+    public Text Friend1Name;
+    public Text Friend2Name;
+    public Text Enemy1Name;
 
 
     // Function to choose which age period picture to use
@@ -45,34 +47,24 @@ public class InfoCard : MonoBehaviour
         TeenImage.SetActive(false);
         AdultImage.SetActive(false);
         ElderImage.SetActive(false);
-        Friend1Name.SetActive(false);
-        Friend2Name.SetActive(false);
-        Enemy1Name.SetActive(false);
 
         // Choosing which age picture to show
         agePicture();
 
-        // Temporary code to display names of current friends and enemies
-        if (Player.friends == 1)
+        // Displaying the names of friends and enemies
+        if (Player.friend1 != null)
         {
-            Friend1Name.SetActive(true);
-            Friend2Name.SetActive(false);
-        } else if (Player.friends == 2)
-        {
-            Friend1Name.SetActive(true);
-            Friend2Name.SetActive(true);
-        } else
-        {
-            Friend1Name.SetActive(false);
-            Friend2Name.SetActive(false);
+            Friend1Name.text = "- " + Player.friend1;
         }
 
-        if (Player.enemies == 1)
+        if (Player.friend2 != null)
         {
-            Enemy1Name.SetActive(true);
-        } else
+            Friend2Name.text = "- " + Player.friend2;
+        }
+
+        if (Player.enemy != null)
         {
-            Enemy1Name.SetActive(false);
+            Enemy1Name.text = "- " + Player.enemy;
         }
     }
 
