@@ -15,6 +15,23 @@ public struct Choice
     }
 }
 
+
+public struct Scenario
+{
+    public int id;
+    public string name;
+
+    // type 1:norm 2:onefr 3:twofr 4:oneen 5: dummy 
+    public int type;
+
+    public Scenario(int id, string name, int type)
+    {
+        this.id = id;
+        this.name = name;
+        this.type = type;
+    }
+}
+
 public class Player : MonoBehaviour
 {
     public static string name;
@@ -159,6 +176,14 @@ public class Player : MonoBehaviour
         elder2frScenario.generateScenarios(elder2fr);
         elder1enScenario.generateScenarios(elder1en);
 
+    }
+
+    public static void initializeChoices()
+    {
+        for (int i = 0; i < choiceArr.Length; i++)
+        {
+            choiceArr[i] = new Choice(new Scenario(1, "", 5), 1);
+        }
     }
 
     public static int nextCombination(int fr, int en)
@@ -752,35 +777,43 @@ public class Player : MonoBehaviour
     // Used in calculate : Cross checks the choices made by player and changes player attribute 
     public static void calculateHelper(int[,,] normArr, int first, int second)
     {
-        if (second == 0)
+        int temp = choiceArr[first].scenario.type;
+
+        if (temp == 1)
         {
-            //Debug.Log(normArr[choiceArr[first].scenario.id - 1, choiceArr[first].choice - 1, second]);
-            Player.Career += normArr[choiceArr[first].scenario.id - 1, choiceArr[first].choice - 1, second];
-            return;
-        }
-        else if (second == 1)
+            if (second == 0)
+            {
+                //Debug.Log(normArr[choiceArr[first].scenario.id - 1, choiceArr[first].choice - 1, second]);
+                Player.Career += normArr[choiceArr[first].scenario.id - 1, choiceArr[first].choice - 1, second];
+                return;
+            }
+            else if (second == 1)
+            {
+                //Debug.Log(normArr[choiceArr[first].scenario.id - 1, choiceArr[first].choice - 1, second]);
+                Player.Popularity += normArr[choiceArr[first].scenario.id - 1, choiceArr[first].choice - 1, second];
+                return;
+            }
+            else if (second == 2)
+            {
+                //Debug.Log(normArr[choiceArr[first].scenario.id - 1, choiceArr[first].choice - 1, second]); 
+                Player.Health += normArr[choiceArr[first].scenario.id - 1, choiceArr[first].choice - 1, second];
+                return;
+            }
+            else if (second == 3)
+            {
+                //Debug.Log(normArr[choiceArr[first].scenario.id - 1, choiceArr[first].choice - 1, second]); 
+                Player.LifeSkills += normArr[choiceArr[first].scenario.id - 1, choiceArr[first].choice - 1, second];
+                return;
+            }
+            else
+            {
+                //Debug.Log(normArr[choiceArr[first].scenario.id - 1, choiceArr[first].choice - 1, second]); 
+                Player.Morals += normArr[choiceArr[first].scenario.id - 1, choiceArr[first].choice - 1, second];
+                return;
+            }
+        } else
         {
-            //Debug.Log(normArr[choiceArr[first].scenario.id - 1, choiceArr[first].choice - 1, second]);
-            Player.Popularity += normArr[choiceArr[first].scenario.id - 1, choiceArr[first].choice - 1, second];
-            return;
-        }
-        else if (second == 2)
-        {
-            //Debug.Log(normArr[choiceArr[first].scenario.id - 1, choiceArr[first].choice - 1, second]); 
-            Player.Health += normArr[choiceArr[first].scenario.id - 1, choiceArr[first].choice - 1, second];
-            return;
-        }
-        else if (second == 3)
-        {
-           //Debug.Log(normArr[choiceArr[first].scenario.id - 1, choiceArr[first].choice - 1, second]); 
-            Player.LifeSkills += normArr[choiceArr[first].scenario.id - 1, choiceArr[first].choice - 1, second];
-            return;
-        }
-        else
-        {
-            //Debug.Log(normArr[choiceArr[first].scenario.id - 1, choiceArr[first].choice - 1, second]); 
-            Player.Morals += normArr[choiceArr[first].scenario.id - 1, choiceArr[first].choice - 1, second];
-            return;
+            return; 
         }
     }
 
@@ -910,6 +943,11 @@ public class Player : MonoBehaviour
                 Player.Morals += oneen[choiceArr[first].scenario.id - 1, choiceArr[first].choice - 1, second];
                 return;
             }
+        }
+
+        if (temp == 5)
+        {
+            return;
         }
     }
 

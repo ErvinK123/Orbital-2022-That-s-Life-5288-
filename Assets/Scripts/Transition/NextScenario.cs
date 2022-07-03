@@ -39,4 +39,9 @@ public class NextScenario : MonoBehaviour
             SceneManager.LoadScene("End");
         }
     }
+
+    public void endGame()
+    {
+        SceneManager.LoadScene("End");
+    }
 }

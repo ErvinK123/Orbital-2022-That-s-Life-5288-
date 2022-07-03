@@ -7,7 +7,8 @@ public class ChoiceValues : MonoBehaviour
     // {Career, Popularity, Health, LifeSkills, Morals
 
     //Child 
-    public static int[,,] childResult = new int[10, 3, 5] { {{0, 0, -5, 0, -5} // Child 1
+    public static int[,,] childResult = new int[10, 3, 5] { 
+                                                            {{0, 0, -5, 0, -5} // Child 1
                                                           , {0, 5, 0, 0, 5}
                                                           , {0, 0, 0, 0, 0}}
 
