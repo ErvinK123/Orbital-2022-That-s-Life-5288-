@@ -3,13 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class ShowAge : MonoBehaviour
+public class LoseEnemy1 : MonoBehaviour
 {
-    public Text DisplayAge;
+    public Text Enemy1;
 
     // Start is called before the first frame update
     void Start()
     {
-        DisplayAge.text = Player.displayAge();
+        Enemy1.text = FriendEnemy.enemyArr[FriendEnemy.enemyPointer - 2];
     }
 }
