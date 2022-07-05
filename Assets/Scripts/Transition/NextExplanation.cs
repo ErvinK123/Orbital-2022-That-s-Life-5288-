@@ -11,20 +11,22 @@ public class NextExplanation : MonoBehaviour
         Player.storeChoice(1);
 
         //load new scene
-        
+        Player.testFE();
         string next = Player.getNextSceneName(1);
+        Player.currScene = next;
         SceneManager.LoadScene(next);
 
     }
 
     public void choice1f1()
     {
-        if (Player.friend1 != null)
+        if (Player.friend1 != null && Player.friend1 != "")
         {
             choice1();
         }
         else
         {
+            Debug.Log("Imadeafriendchoice");
             Player.addFriend1();
             choice1();
         }
@@ -33,7 +35,7 @@ public class NextExplanation : MonoBehaviour
 
     public void choice1f2()
     {
-        if (Player.friend2 != null)
+        if (Player.friend2 != null && Player.friend2 != "")
         {
             choice1();
         }
@@ -85,12 +87,13 @@ public class NextExplanation : MonoBehaviour
 
         //load new scene 
         string next = Player.getNextSceneName(2);
+        Player.currScene = next;
         SceneManager.LoadScene(next);
     }
 
     public void choice2f1()
     {
-        if (Player.friend1 != null)
+        if (Player.friend1 != null && Player.friend1 != "")
         {
             choice2();
         }
@@ -103,7 +106,7 @@ public class NextExplanation : MonoBehaviour
 
     public void choice2f2()
     {
-        if (Player.friend2 != null)
+        if (!string.IsNullOrEmpty(Player.friend2))
         {
             choice2();
         }
@@ -153,12 +156,13 @@ public class NextExplanation : MonoBehaviour
 
         //load new scene 
         string next = Player.getNextSceneName(3);
+        Player.currScene = next;
         SceneManager.LoadScene(next);
     }
 
     public void choice3f1()
     {
-        if(Player.friend1 != null)
+        if(Player.friend1 != null && Player.friend1 != "")
         {
             choice3();
         } else
@@ -170,7 +174,7 @@ public class NextExplanation : MonoBehaviour
 
     public void choice3f2()
     {
-        if (Player.friend2 != null)
+        if (Player.friend2 != null && Player.friend2 != "")
         {
             choice3();
         }

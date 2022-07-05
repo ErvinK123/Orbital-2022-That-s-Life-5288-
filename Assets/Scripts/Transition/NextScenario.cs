@@ -7,11 +7,11 @@ public class NextScenario : MonoBehaviour
 {
     public void next()
     {
-        Player.testFE();
         if (Player.feTrigger() && Player.age != "Dead")
         {
             string next = Player.generateFEscreen();
             Player.offFEtriggers();
+            Player.currScene = next;
             SceneManager.LoadScene(next);
             return;
         }
@@ -19,6 +19,7 @@ public class NextScenario : MonoBehaviour
         if (Player.transitionTrigger() && Player.age != "Dead")
         {
             string next = Player.generateTransition();
+            Player.currScene = next;
             SceneManager.LoadScene(next);
             return;
         }
@@ -32,10 +33,12 @@ public class NextScenario : MonoBehaviour
             //Debug.Log(scene);
             Player.prevSceneName = scene;
             Player.increasePointer(Player.age);
+            Player.currScene = scene;
             SceneManager.LoadScene(scene);
         }
         else
         {
+            Player.currScene = "End";
             SceneManager.LoadScene("End");
         }
     }

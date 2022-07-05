@@ -52,7 +52,8 @@ public class PauseMenu : MonoBehaviour
     public void save()
     {
         // insert save functionality here
-
+        
+        DataPersistanceManager.instance.SaveGame();
         SavedIndicator.SetActive(true);
     }
 
