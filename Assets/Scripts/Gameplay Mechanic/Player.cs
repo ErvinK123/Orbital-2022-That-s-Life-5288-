@@ -2,7 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Random = UnityEngine.Random;
+using System;
 
+
+
+
+[Serializable]
 public struct Choice
 {
     public Scenario scenario;
@@ -15,7 +20,24 @@ public struct Choice
     }
 }
 
-public class Player : MonoBehaviour
+[Serializable]
+public struct Scenario
+{
+    public int id;
+    public string name;
+
+    // type 1:norm 2:onefr 3:twofr 4:oneen 5: dummy 
+    public int type;
+
+    public Scenario(int id, string name, int type)
+    {
+        this.id = id;
+        this.name = name;
+        this.type = type;
+    }
+}
+
+public class Player : MonoBehaviour, IDataPersistance
 {
     public static string name;
     public static string age = "Child";
@@ -44,6 +66,9 @@ public class Player : MonoBehaviour
 
     public static Choice[] choiceArr = new Choice[NextPage.numberOfScene * 4];
 
+    public static List<Choice> choices;
+
+
     public static int Career = 50;
     public static int Popularity = 50;
     public static int Health = 50;
@@ -58,17 +83,18 @@ public class Player : MonoBehaviour
 
     public static int teenPointer = 0;
     public static int adultPointer = 0;
-    public static int elderPointer = 0; 
+    public static int elderPointer = 0;
 
 
     public static string prevSceneName;
+    public static string currScene;
 
 
     //Friend/ENEMY system 
     public static int friendLimit;
     public static int enemyLimit;
     public static bool addedFriend1 = false;
-    public static bool addedFriend2 = false; 
+    public static bool addedFriend2 = false;
     public static bool lostFriend1 = false;
     public static bool lostFriend2 = false;
     public static bool addedEnemy = false;
@@ -76,10 +102,112 @@ public class Player : MonoBehaviour
 
     public static string friend1;
     public static string friend2;
-    public static string enemy; 
+    public static string enemy;
 
     //Transitions 
-    public static bool transition = false; 
+    public static bool transition = false;
+
+
+    //SaveLoad 
+    public void LoadData(GameData data)
+    {
+        scenarios = data.scenarios;
+        name = data.name;
+        age = data.age;
+        friends = data.friends;
+        enemies = data.enemies;
+        Career = data.Career;
+        Popularity = data.Popularity;
+        Health = data.Health;
+        LifeSkills = data.LifeSkills;
+        Morals = data.Morals;
+        friendLimit = data.friendLimit;
+        enemyLimit = data.enemyLimit;
+        friend1 = data.friend1;
+        friend2 = data.friend2;
+        enemy = data.enemy;
+        transition = data.transition; 
+        prevSceneName = data.prevSceneName;
+
+        teenPointer = data.teenPointer;
+        adultPointer = data.adultPointer;
+        elderPointer = data.elderPointer;
+
+        WorkJunkieGet = data.WorkJunkieGet;
+        SmoothBrainGet = data.SmoothBrainGet;
+        SocialButterflyGet = data.SmoothBrainGet;
+        ShutInGet = data.ShutInGet;
+        PeakHumanGet = data.PeakHumanGet;
+        ZombieGet = data.ZombieGet;
+        HandymanGet = data.HandymanGet;
+        HopelesslyIneptGet = data.HopelesslyIneptGet;
+        SaintGet = data.SaintGet;
+        VillainGet = data.VillainGet;
+        JackOfAllTradesGet = data.JackOfAllTradesGet;
+        MasterOfNoneGet = data.MasterOfNoneGet;
+        CollectorGet = data.CollectorGet;
+
+        addedFriend1 = data.addedFriend1;
+        addedFriend2 = data.addedFriend2;
+        lostFriend1 = data.lostFriend1;
+        lostFriend2 = data.lostFriend2;
+        addedEnemy = data.addedEnemy;
+        lostEnemy = data.lostEnemy;
+        currScene = data.currScene; 
+
+        choices = data.choices;
+    }
+
+    public void SaveData(ref GameData data)
+    {
+        Debug.Log("I HAVE RUN THE PLAYER CLASS SAVE DATA");
+        data.scenarios = scenarios;
+        data.name = name;
+        data.age = age;
+        data.friends = friends;
+        data.enemies = enemies;
+        data.Career = Career;
+        data.Popularity = Popularity;
+        data.Health = Health;
+        data.LifeSkills = LifeSkills;
+        data.Morals = Morals;
+        data.friendLimit = friendLimit;
+        data.enemyLimit = enemyLimit;
+        data.friend1 = friend1;
+        data.friend2 = friend2;
+        data.enemy = enemy;
+        data.prevSceneName = prevSceneName;
+        data.currScene = currScene;
+
+        data.teenPointer = teenPointer;
+        data.adultPointer = adultPointer;
+        data.elderPointer = elderPointer; 
+
+        data.WorkJunkieGet = WorkJunkieGet;
+        data.SmoothBrainGet = SmoothBrainGet;
+        data.SocialButterflyGet = SmoothBrainGet;
+        data.ShutInGet = ShutInGet;
+        data.PeakHumanGet = PeakHumanGet;
+        data.ZombieGet = ZombieGet;
+        data.HandymanGet = HandymanGet;
+        data.HopelesslyIneptGet = HopelesslyIneptGet;
+        data.SaintGet = SaintGet;
+        data.VillainGet = VillainGet;
+        data.JackOfAllTradesGet = JackOfAllTradesGet;
+        data.MasterOfNoneGet = MasterOfNoneGet;
+        data.CollectorGet = CollectorGet;
+        data.choices = choices;
+
+        data.addedFriend1 = addedFriend1;
+        data.addedFriend2 = addedFriend2;
+        data.lostFriend1 = lostFriend1;
+        data.lostFriend2 = lostFriend2;
+        data.addedEnemy = addedEnemy;
+        data.lostEnemy = lostEnemy;
+    }
+
+
+
 
     //Used when there is a invalid name input
     public static void nameReset()
@@ -132,6 +260,23 @@ public class Player : MonoBehaviour
         return intro;
     }
 
+    public static int childScene = 10;
+
+    public static int teenScene = 6;
+    public static int teen1frScene = 2;
+    public static int teen2frScene = 2;
+    public static int teen1enScene = 2;
+
+    public static int adultScene = 10;
+    public static int adult1frScene = 2;
+    public static int adult2frScene = 2;
+    public static int adult1enScene = 2;
+
+    public static int elderlyScene = 10;
+    public static int elderly1frScene = 2;
+    public static int elderly2frScene = 2;
+    public static int elderly1enScene = 2;
+
     // Fills in the Scenarios array in each Scenario class and randomizes them
     public static void setUpScenarios(int child, int teen, int teen1fr, int teen2fr, int teen1en,
         int adult, int adult1fr, int adult2fr, int adult1en, int elder, int elder1fr, int elder2fr, int elder1en)
@@ -159,6 +304,16 @@ public class Player : MonoBehaviour
         elder2frScenario.generateScenarios(elder2fr);
         elder1enScenario.generateScenarios(elder1en);
 
+    }
+
+    public static void initializeChoices()
+    {
+        for (int i = 0; i < choiceArr.Length; i++)
+        {
+            choiceArr[i] = new Choice(new Scenario(1, "", 5), 1);
+        }
+
+        choices = new List<Choice>() ;
     }
 
     public static int nextCombination(int fr, int en)
@@ -252,21 +407,25 @@ public class Player : MonoBehaviour
         if (Player.age == "Child")
         {
             //Debug.Log("New Choice from child alotted name" + Player.childAlotted[Player.scenarios-1].name);
-            Player.choiceArr[Player.scenarios - 1] = new Choice(Player.childAlotted[Player.scenarios - 1], i);
+            //Player.choiceArr[Player.scenarios - 1] = new Choice(Player.childAlotted[Player.scenarios - 1], i);
+            choices.Add(new Choice(Player.childAlotted[Player.scenarios - 1], i));
         }
         else if (Player.age == "Teen")
         {
             //Debug.Log("New Choice from teen alotted name" + Player.teenAlotted[teenPointer-1].name);
-            Player.choiceArr[Player.scenarios - 1] = new Choice(Player.teenAlotted[teenPointer-1], i);
+            //Player.choiceArr[Player.scenarios - 1] = new Choice(Player.teenAlotted[teenPointer-1], i);
+            choices.Add(new Choice(Player.teenAlotted[teenPointer - 1], i));
         }
         else if (Player.age == "Adult")
         {
             //Debug.Log("New Choice from adult alotted name:" + Player.adultAlotted[adultPointer-1].name);
-            Player.choiceArr[Player.scenarios - 1] = new Choice(Player.adultAlotted[adultPointer-1], i);
+            //Player.choiceArr[Player.scenarios - 1] = new Choice(Player.adultAlotted[adultPointer-1], i);
+            choices.Add(new Choice(Player.adultAlotted[adultPointer - 1], i));
         } else
         {
             //Debug.Log("New Choice from elder alotted name: " + Player.elderAlotted[elderPointer-1].name);
-            Player.choiceArr[Player.scenarios - 1] = new Choice(Player.elderAlotted[elderPointer-1], i);
+            //Player.choiceArr[Player.scenarios - 1] = new Choice(Player.elderAlotted[elderPointer-1], i);
+            choices.Add(new Choice(Player.elderAlotted[elderPointer - 1], i));
         }
     }
 
@@ -317,8 +476,9 @@ public class Player : MonoBehaviour
         {
             return; 
         } else if (s == "Teen")
-        {
+        {   
             teenPointer = Player.scenarioChecker(teenPointer, teenAlotted);
+
         } else if (s == "Adult")
         {
             adultPointer = Player.scenarioChecker(adultPointer, adultAlotted);
@@ -588,7 +748,8 @@ public class Player : MonoBehaviour
         Player.elderPointer = 0;
         Player.friend1 = null;
         Player.friend2 = null;
-        Player.enemy = null; 
+        Player.enemy = null;
+        Player.choices = null;
 
         Player.choiceArr = new Choice[4 * NextPage.numberOfScene];
         return;
@@ -752,43 +913,7 @@ public class Player : MonoBehaviour
     // Used in calculate : Cross checks the choices made by player and changes player attribute 
     public static void calculateHelper(int[,,] normArr, int first, int second)
     {
-        if (second == 0)
-        {
-            //Debug.Log(normArr[choiceArr[first].scenario.id - 1, choiceArr[first].choice - 1, second]);
-            Player.Career += normArr[choiceArr[first].scenario.id - 1, choiceArr[first].choice - 1, second];
-            return;
-        }
-        else if (second == 1)
-        {
-            //Debug.Log(normArr[choiceArr[first].scenario.id - 1, choiceArr[first].choice - 1, second]);
-            Player.Popularity += normArr[choiceArr[first].scenario.id - 1, choiceArr[first].choice - 1, second];
-            return;
-        }
-        else if (second == 2)
-        {
-            //Debug.Log(normArr[choiceArr[first].scenario.id - 1, choiceArr[first].choice - 1, second]); 
-            Player.Health += normArr[choiceArr[first].scenario.id - 1, choiceArr[first].choice - 1, second];
-            return;
-        }
-        else if (second == 3)
-        {
-           //Debug.Log(normArr[choiceArr[first].scenario.id - 1, choiceArr[first].choice - 1, second]); 
-            Player.LifeSkills += normArr[choiceArr[first].scenario.id - 1, choiceArr[first].choice - 1, second];
-            return;
-        }
-        else
-        {
-            //Debug.Log(normArr[choiceArr[first].scenario.id - 1, choiceArr[first].choice - 1, second]); 
-            Player.Morals += normArr[choiceArr[first].scenario.id - 1, choiceArr[first].choice - 1, second];
-            return;
-        }
-    }
-
-
-    // Used in calculate : Cross checks the choices made by player and changes player attribute 
-    public static void calculateHelper(int[,,] normArr, int[,,] onefr, int[,,] twofr, int[,,] oneen, int first, int second)
-    {
-        int temp = choiceArr[first].scenario.type;
+        int temp = choices[first].scenario.type;
 
         if (temp == 1)
         {
@@ -796,30 +921,84 @@ public class Player : MonoBehaviour
             {
                 //Debug.Log(normArr[choiceArr[first].scenario.id - 1, choiceArr[first].choice - 1, second]);
                 Player.Career += normArr[choiceArr[first].scenario.id - 1, choiceArr[first].choice - 1, second];
+                Player.Career += normArr[choices[first].scenario.id - 1, choiceArr[first].choice - 1, second]; 
                 return;
             }
             else if (second == 1)
             {
                 //Debug.Log(normArr[choiceArr[first].scenario.id - 1, choiceArr[first].choice - 1, second]);
                 Player.Popularity += normArr[choiceArr[first].scenario.id - 1, choiceArr[first].choice - 1, second];
+                Player.Popularity += normArr[choices[first].scenario.id - 1, choices[first].choice - 1, second];
+                return;
+            }
+            else if (second == 2)
+            {
+                //Debug.Log(normArr[choiceArr[first].scenario.id - 1, choiceArr[first].choice - 1, second]); 
+                Player.Health += normArr[choiceArr[first].scenario.id - 1, choiceArr[first].choice - 1, second];
+                Player.Health += normArr[choices[first].scenario.id - 1, choices[first].choice - 1, second];
+                return;
+            }
+            else if (second == 3)
+            {
+                //Debug.Log(normArr[choiceArr[first].scenario.id - 1, choiceArr[first].choice - 1, second]); 
+                Player.LifeSkills += normArr[choiceArr[first].scenario.id - 1, choiceArr[first].choice - 1, second];
+                Player.LifeSkills += normArr[choices[first].scenario.id - 1, choices[first].choice - 1, second];
+                return;
+            }
+            else
+            {
+                //Debug.Log(normArr[choiceArr[first].scenario.id - 1, choiceArr[first].choice - 1, second]); 
+                Player.Morals += normArr[choiceArr[first].scenario.id - 1, choiceArr[first].choice - 1, second];
+                Player.Morals += normArr[choices[first].scenario.id - 1, choices[first].choice - 1, second];
+                return;
+            }
+        } else
+        {
+            return; 
+        }
+    }
+
+
+    // Used in calculate : Cross checks the choices made by player and changes player attribute 
+    public static void calculateHelper(int[,,] normArr, int[,,] onefr, int[,,] twofr, int[,,] oneen, int first, int second)
+    {
+        int temp = choices[first].scenario.type;
+
+        if (temp == 1)
+        {
+            if (second == 0)
+            {
+                //Debug.Log(normArr[choiceArr[first].scenario.id - 1, choiceArr[first].choice - 1, second]);
+                //Player.Career += normArr[choiceArr[first].scenario.id - 1, choiceArr[first].choice - 1, second];
+                Player.Career += normArr[choices[first].scenario.id - 1, choices[first].choice - 1, second];
+                return;
+            }
+            else if (second == 1)
+            {
+                //Debug.Log(normArr[choiceArr[first].scenario.id - 1, choiceArr[first].choice - 1, second]);
+                //Player.Popularity += normArr[choiceArr[first].scenario.id - 1, choiceArr[first].choice - 1, second];
+                Player.Popularity += normArr[choices[first].scenario.id - 1, choices[first].choice - 1, second];
                 return;
             }
             else if (second == 2)
             {
                 //Debug.Log(normArr[choiceArr[first].scenario.id - 1, choiceArr[first].choice - 1, second]);
-                Player.Health += normArr[choiceArr[first].scenario.id - 1, choiceArr[first].choice - 1, second];
+               // Player.Health += normArr[choiceArr[first].scenario.id - 1, choiceArr[first].choice - 1, second];
+                Player.Health += normArr[choices[first].scenario.id - 1, choices[first].choice - 1, second];
                 return;
             }
             else if (second == 3)
             {
                //Debug.Log(normArr[choiceArr[first].scenario.id - 1, choiceArr[first].choice - 1, second]); 
-                Player.LifeSkills += normArr[choiceArr[first].scenario.id - 1, choiceArr[first].choice - 1, second];
+                //Player.LifeSkills += normArr[choiceArr[first].scenario.id - 1, choiceArr[first].choice - 1, second];
+                Player.LifeSkills += normArr[choices[first].scenario.id - 1, choices[first].choice - 1, second];
                 return;
             }
             else
             {
                 //Debug.Log(normArr[choiceArr[first].scenario.id - 1, choiceArr[first].choice - 1, second]);
-                Player.Morals += normArr[choiceArr[first].scenario.id - 1, choiceArr[first].choice - 1, second];
+                //Player.Morals += normArr[choiceArr[first].scenario.id - 1, choiceArr[first].choice - 1, second];
+                Player.Morals += normArr[choices[first].scenario.id - 1, choices[first].choice - 1, second];
                 return;
             }
         }
@@ -829,27 +1008,32 @@ public class Player : MonoBehaviour
             //Debug.Log("shoudlnt be here");
             if (second == 0)
             {
-                Player.Career += onefr[choiceArr[first].scenario.id - 1, choiceArr[first].choice - 1, second];
+                //Player.Career += onefr[choiceArr[first].scenario.id - 1, choiceArr[first].choice - 1, second];
+                Player.Career += onefr[choices[first].scenario.id - 1, choices[first].choice - 1, second];
                 return;
             }
             else if (second == 1)
             {
-                Player.Popularity += onefr[choiceArr[first].scenario.id - 1, choiceArr[first].choice - 1, second];
+                //Player.Popularity += onefr[choiceArr[first].scenario.id - 1, choiceArr[first].choice - 1, second];
+                Player.Popularity += onefr[choices[first].scenario.id - 1, choices[first].choice - 1, second];
                 return;
             }
             else if (second == 2)
             {
-                Player.Health += onefr[choiceArr[first].scenario.id - 1, choiceArr[first].choice - 1, second];
+                //Player.Health += onefr[choiceArr[first].scenario.id - 1, choiceArr[first].choice - 1, second];
+                Player.Health += onefr[choices[first].scenario.id - 1, choices[first].choice - 1, second];
                 return;
             }
             else if (second == 3)
             {
-                Player.LifeSkills += onefr[choiceArr[first].scenario.id - 1, choiceArr[first].choice - 1, second];
+                //Player.LifeSkills += onefr[choiceArr[first].scenario.id - 1, choiceArr[first].choice - 1, second];
+                Player.LifeSkills += onefr[choices[first].scenario.id - 1, choices[first].choice - 1, second];
                 return;
             }
             else
             {
-                Player.Morals += onefr[choiceArr[first].scenario.id - 1, choiceArr[first].choice - 1, second];
+                //Player.Morals += onefr[choiceArr[first].scenario.id - 1, choiceArr[first].choice - 1, second];
+                Player.Morals += onefr[choices[first].scenario.id - 1, choices[first].choice - 1, second];
                 return;
             }
         }
@@ -858,27 +1042,32 @@ public class Player : MonoBehaviour
         {
             if (second == 0)
             {
-                Player.Career += twofr[choiceArr[first].scenario.id - 1, choiceArr[first].choice - 1, second];
+                //Player.Career += twofr[choiceArr[first].scenario.id - 1, choiceArr[first].choice - 1, second];
+                Player.Career += twofr[choices[first].scenario.id - 1, choices[first].choice - 1, second];
                 return;
             }
             else if (second == 1)
             {
-                Player.Popularity += twofr[choiceArr[first].scenario.id - 1, choiceArr[first].choice - 1, second];
+                //Player.Popularity += twofr[choiceArr[first].scenario.id - 1, choiceArr[first].choice - 1, second];
+                Player.Popularity += twofr[choices[first].scenario.id - 1, choices[first].choice - 1, second];
                 return;
             }
             else if (second == 2)
             {
-                Player.Health += twofr[choiceArr[first].scenario.id - 1, choiceArr[first].choice - 1, second];
+                //Player.Health += twofr[choiceArr[first].scenario.id - 1, choiceArr[first].choice - 1, second];
+                Player.Health += twofr[choices[first].scenario.id - 1, choices[first].choice - 1, second];
                 return;
             }
             else if (second == 3)
             {
-                Player.LifeSkills += twofr[choiceArr[first].scenario.id - 1, choiceArr[first].choice - 1, second];
+                //Player.LifeSkills += twofr[choiceArr[first].scenario.id - 1, choiceArr[first].choice - 1, second];
+                Player.LifeSkills += twofr[choices[first].scenario.id - 1, choices[first].choice - 1, second];
                 return;
             }
             else
             {
-                Player.Morals += twofr[choiceArr[first].scenario.id - 1, choiceArr[first].choice - 1, second];
+                //Player.Morals += twofr[choiceArr[first].scenario.id - 1, choiceArr[first].choice - 1, second];
+                Player.Morals += twofr[choices[first].scenario.id - 1, choices[first].choice - 1, second];
                 return;
             }
         }
@@ -887,29 +1076,39 @@ public class Player : MonoBehaviour
         {
             if (second == 0)
             {
-                Player.Career += oneen[choiceArr[first].scenario.id - 1, choiceArr[first].choice - 1, second];
+                //Player.Career += oneen[choiceArr[first].scenario.id - 1, choiceArr[first].choice - 1, second];
+                Player.Career += oneen[choices[first].scenario.id - 1, choices[first].choice - 1, second];
                 return;
             }
             else if (second == 1)
             {
-                Player.Popularity += oneen[choiceArr[first].scenario.id - 1, choiceArr[first].choice - 1, second];
+                //Player.Popularity += oneen[choiceArr[first].scenario.id - 1, choiceArr[first].choice - 1, second];
+                Player.Popularity += oneen[choices[first].scenario.id - 1, choices[first].choice - 1, second];
                 return;
             }
             else if (second == 2)
             {
-                Player.Health += oneen[choiceArr[first].scenario.id - 1, choiceArr[first].choice - 1, second];
+                //Player.Health += oneen[choiceArr[first].scenario.id - 1, choiceArr[first].choice - 1, second];
+                Player.Health += oneen[choices[first].scenario.id - 1, choices[first].choice - 1, second];
                 return;
             }
             else if (second == 3)
             {
-                Player.LifeSkills += oneen[choiceArr[first].scenario.id - 1, choiceArr[first].choice - 1, second];
+                //Player.LifeSkills += oneen[choiceArr[first].scenario.id - 1, choiceArr[first].choice - 1, second];
+                Player.LifeSkills += oneen[choices[first].scenario.id - 1, choices[first].choice - 1, second];
                 return;
             }
             else
             {
-                Player.Morals += oneen[choiceArr[first].scenario.id - 1, choiceArr[first].choice - 1, second];
+                //Player.Morals += oneen[choiceArr[first].scenario.id - 1, choiceArr[first].choice - 1, second];
+                Player.Morals += oneen[choices[first].scenario.id - 1, choices[first].choice - 1, second];
                 return;
             }
+        }
+
+        if (temp == 5)
+        {
+            return;
         }
     }
 
@@ -989,6 +1188,7 @@ public class Player : MonoBehaviour
 
     public static void addFriend1()
     {
+        Debug.Log("AddFriend");
         Player.friend1 = FriendEnemy.friend1Arr[FriendEnemy.friend1Pointer];
         FriendEnemy.increasePointer(1);
         Player.friends++;
@@ -1013,7 +1213,7 @@ public class Player : MonoBehaviour
 
     public static void loseFriend1()
     {
-        if (Player.friend1 != null)
+        if (Player.friend1 != null || Player.friend1 != "")
         {
             FriendEnemy.increasePointer(1);
             Player.friend1 = null;
@@ -1024,7 +1224,7 @@ public class Player : MonoBehaviour
 
     public static void loseFriend2()
     {
-        if (Player.friend2 != null)
+        if (Player.friend2 != null || Player.friend2 != "")
         {
             FriendEnemy.increasePointer(2); 
             Player.friend2 = null;
@@ -1035,7 +1235,7 @@ public class Player : MonoBehaviour
 
     public static void loseEnemy()
     {
-        if (Player.enemy != null)
+        if (Player.enemy != null || Player.enemy != "")
         {
             FriendEnemy.increasePointer(3);
             Player.enemy = null;
@@ -1149,10 +1349,14 @@ public class Player : MonoBehaviour
     
     public static void testFE()
     {
-        Debug.Log("N"); 
-        Debug.Log("Friend1: " + friend1);
-        Debug.Log("Friend2: " + friend2);
-        Debug.Log("Enemy: " + enemy);
+        //Debug.Log("N"); 
+        //Debug.Log("Friend1: " + friend1);
+        //Debug.Log("Friend2: " + friend2);
+        //Debug.Log("Enemy: " + enemy);
+
+        Debug.Log("T: " +teenPointer);
+        Debug.Log("A" + adultPointer);
+        Debug.Log("E" +elderPointer);
     }
 
 }

@@ -3,21 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using Random = UnityEngine.Random; 
 
-public struct Scenario
-{
-    public int id;
-    public string name;
-
-    // type 1:norm 2:onefr 3:twofr 4:oneen
-    public int type; 
-
-    public Scenario (int id, string name, int type)
-    {
-        this.id = id;
-        this.name = name;
-        this.type = type;
-    }
-}
 
 public class childScenario : MonoBehaviour
 { 
