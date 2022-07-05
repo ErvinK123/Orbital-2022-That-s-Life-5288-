@@ -920,35 +920,35 @@ public class Player : MonoBehaviour, IDataPersistance
             if (second == 0)
             {
                 //Debug.Log(normArr[choiceArr[first].scenario.id - 1, choiceArr[first].choice - 1, second]);
-                Player.Career += normArr[choiceArr[first].scenario.id - 1, choiceArr[first].choice - 1, second];
-                Player.Career += normArr[choices[first].scenario.id - 1, choiceArr[first].choice - 1, second]; 
+                //Player.Career += normArr[choiceArr[first].scenario.id - 1, choiceArr[first].choice - 1, second];
+                Player.Career += normArr[choices[first].scenario.id - 1, choices[first].choice - 1, second]; 
                 return;
             }
             else if (second == 1)
             {
                 //Debug.Log(normArr[choiceArr[first].scenario.id - 1, choiceArr[first].choice - 1, second]);
-                Player.Popularity += normArr[choiceArr[first].scenario.id - 1, choiceArr[first].choice - 1, second];
+                //Player.Popularity += normArr[choiceArr[first].scenario.id - 1, choiceArr[first].choice - 1, second];
                 Player.Popularity += normArr[choices[first].scenario.id - 1, choices[first].choice - 1, second];
                 return;
             }
             else if (second == 2)
             {
                 //Debug.Log(normArr[choiceArr[first].scenario.id - 1, choiceArr[first].choice - 1, second]); 
-                Player.Health += normArr[choiceArr[first].scenario.id - 1, choiceArr[first].choice - 1, second];
+                //Player.Health += normArr[choiceArr[first].scenario.id - 1, choiceArr[first].choice - 1, second];
                 Player.Health += normArr[choices[first].scenario.id - 1, choices[first].choice - 1, second];
                 return;
             }
             else if (second == 3)
             {
                 //Debug.Log(normArr[choiceArr[first].scenario.id - 1, choiceArr[first].choice - 1, second]); 
-                Player.LifeSkills += normArr[choiceArr[first].scenario.id - 1, choiceArr[first].choice - 1, second];
+                //Player.LifeSkills += normArr[choiceArr[first].scenario.id - 1, choiceArr[first].choice - 1, second];
                 Player.LifeSkills += normArr[choices[first].scenario.id - 1, choices[first].choice - 1, second];
                 return;
             }
             else
             {
                 //Debug.Log(normArr[choiceArr[first].scenario.id - 1, choiceArr[first].choice - 1, second]); 
-                Player.Morals += normArr[choiceArr[first].scenario.id - 1, choiceArr[first].choice - 1, second];
+                //Player.Morals += normArr[choiceArr[first].scenario.id - 1, choiceArr[first].choice - 1, second];
                 Player.Morals += normArr[choices[first].scenario.id - 1, choices[first].choice - 1, second];
                 return;
             }
@@ -1213,7 +1213,7 @@ public class Player : MonoBehaviour, IDataPersistance
 
     public static void loseFriend1()
     {
-        if (Player.friend1 != null || Player.friend1 != "")
+        if (Player.friend1 != null && Player.friend1 != "")
         {
             FriendEnemy.increasePointer(1);
             Player.friend1 = null;
@@ -1224,7 +1224,7 @@ public class Player : MonoBehaviour, IDataPersistance
 
     public static void loseFriend2()
     {
-        if (Player.friend2 != null || Player.friend2 != "")
+        if (Player.friend2 != null && Player.friend2 != "")
         {
             FriendEnemy.increasePointer(2); 
             Player.friend2 = null;
@@ -1235,7 +1235,7 @@ public class Player : MonoBehaviour, IDataPersistance
 
     public static void loseEnemy()
     {
-        if (Player.enemy != null || Player.enemy != "")
+        if (Player.enemy != null && Player.enemy != "")
         {
             FriendEnemy.increasePointer(3);
             Player.enemy = null;
