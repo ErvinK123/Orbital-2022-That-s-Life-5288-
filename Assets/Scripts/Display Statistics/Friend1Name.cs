@@ -10,12 +10,12 @@ public class Friend1Name : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        if (Player.friend1 == null)
-        {
-            Friend1.text = FriendEnemy.friend1Arr[FriendEnemy.friend1Pointer];
-        } else
+        if ((Player.friend1 != null) && (Player.friend1 != ""))
         {
             Friend1.text = Player.friend1;
+        } else
+        {
+            Friend1.text = FriendEnemy.friend1Arr[FriendEnemy.friend1Pointer];
         }
     }
 }

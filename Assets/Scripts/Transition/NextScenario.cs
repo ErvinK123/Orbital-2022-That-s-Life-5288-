@@ -7,7 +7,9 @@ public class NextScenario : MonoBehaviour
 {
     public void next()
     {
-        //Debug.Log(FriendEnemy.friend1Pointer);
+        Debug.Log("friend1pointer: " + FriendEnemy.friend1Pointer);
+        Debug.Log("friend2pointer: " + FriendEnemy.friend2Pointer);
+        Debug.Log("enemypointer: " + FriendEnemy.enemyPointer);
         Player.testFE();
 
         if (Player.feTrigger() && Player.age != "Dead")
