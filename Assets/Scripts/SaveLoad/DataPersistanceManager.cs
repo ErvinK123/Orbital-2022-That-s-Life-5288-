@@ -26,6 +26,7 @@ public class DataPersistanceManager : MonoBehaviour
         DontDestroyOnLoad(this.gameObject);
 
         this.dataHandler = new FileDataHandler(Application.persistentDataPath, fileName);
+        this.gameData = dataHandler.Load();
     }
 
     public void NewGame()
@@ -59,7 +60,7 @@ public class DataPersistanceManager : MonoBehaviour
         Player.allocateScenarios(Player.generateArray(adultScenario.adultArr, adult1frScenario.adult1frArr, adult2frScenario.adult2frArr, adult1enScenario.adult1enArr), "Adult");
         Player.allocateScenarios(Player.generateArray(elderScenario.elderArr, elder1frScenario.elder1frArr, elder2frScenario.elder2frArr, elder1enScenario.elder1enArr), "Elder");
         FriendEnemy.initializeFEPool();
-        Debug.Log("I have finished setting up scenarios");
+        //Debug.Log("I have finished setting up scenarios");
         //Debug.Log("Loaded Scenario count: " + gameData.scenarios);
     }
 
@@ -80,10 +81,11 @@ public class DataPersistanceManager : MonoBehaviour
         dataHandler.Save(gameData);
     }
 
-    private void OnApplicationQuit()
-    {
-        SaveGame();
-    }
+    //private void OnApplicationQuit()
+    //{
+    //    SaveGame();
+    //}
+
     private void OnEnable()
     {
         SceneManager.sceneLoaded += OnSceneLoaded;
@@ -99,12 +101,10 @@ public class DataPersistanceManager : MonoBehaviour
     public void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
         this.dataPersistanceObjects = FindAllDataPersistanceObjects();
-        LoadGame();
     }
 
     public void OnSceneUnloaded(Scene scene)
     {
-        SaveGame();
     }
 
     private List<IDataPersistance> FindAllDataPersistanceObjects()

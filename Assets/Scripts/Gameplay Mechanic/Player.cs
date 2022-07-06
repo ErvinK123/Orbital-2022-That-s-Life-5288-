@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Random = UnityEngine.Random;
 using System;
+using UnityEngine.SceneManagement;
 
 
 
@@ -156,11 +157,11 @@ public class Player : MonoBehaviour, IDataPersistance
         currScene = data.currScene; 
 
         choices = data.choices;
+        Debug.Log("I have run Player class Load");
     }
 
     public void SaveData(ref GameData data)
     {
-        Debug.Log("I HAVE RUN THE PLAYER CLASS SAVE DATA");
         data.scenarios = scenarios;
         data.name = name;
         data.age = age;
@@ -205,6 +206,7 @@ public class Player : MonoBehaviour, IDataPersistance
         data.lostFriend2 = lostFriend2;
         data.addedEnemy = addedEnemy;
         data.lostEnemy = lostEnemy;
+        Debug.Log("I HAVE RUN PLAYER CLASS SAVE");
     }
 
 
@@ -1358,9 +1360,13 @@ public class Player : MonoBehaviour, IDataPersistance
         //Debug.Log("Friend2: " + friend2);
         //Debug.Log("Enemy: " + enemy);
 
-        Debug.Log("T: " +teenPointer);
-        Debug.Log("A" + adultPointer);
-        Debug.Log("E" +elderPointer);
+        //Debug.Log("T: " +teenPointer);
+        //Debug.Log("A" + adultPointer);
+        //Debug.Log("E" +elderPointer);
+
+
+        //Debug.Log(transition);
+        return;
     }
 
 }
