@@ -52,17 +52,17 @@ public class InfoCard : MonoBehaviour
         agePicture();
 
         // Displaying the names of friends and enemies
-        if (Player.friend1 != null)
+        if ((Player.friend1 != null) && (Player.friend1 != ""))
         {
             Friend1Name.text = "- " + Player.friend1;
         }
 
-        if (Player.friend2 != null)
+        if ((Player.friend2 != null) && (Player.friend2 != ""))
         {
             Friend2Name.text = "- " + Player.friend2;
         }
 
-        if (Player.enemy != null)
+        if ((Player.enemy != null) && (Player.enemy != ""))
         {
             Enemy1Name.text = "- " + Player.enemy;
         }

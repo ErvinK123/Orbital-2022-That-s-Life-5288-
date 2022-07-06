@@ -39,21 +39,24 @@ public class FriendEnemy : MonoBehaviour
         friend2Arr = randomizeArray(friend2Pool);
         enemyArr = randomizeArray(enemyPool);
 
-        friend1Pointer = 0;
-        friend2Pointer = 0;
-        enemyPointer = 0; 
+        //friend1Pointer = 0;
+        //friend2Pointer = 0;
+        //enemyPointer = 0; 
     } 
 
     public static void increasePointer(int i)
     {
         if (i == 1)
         {
+            Debug.Log("friend1pointer increased");
             friend1Pointer++;
         } else if (i == 2)
         {
+            Debug.Log("friend2pointer increased");
             friend2Pointer++; 
         } else
         {
+            Debug.Log("enemypointer increased");
             enemyPointer++;
         }
     }

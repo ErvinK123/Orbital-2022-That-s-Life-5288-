@@ -178,6 +178,7 @@ public class Player : MonoBehaviour, IDataPersistance
         data.enemy = enemy;
         data.prevSceneName = prevSceneName;
         data.currScene = currScene;
+        data.transition = transition;
 
         data.teenPointer = teenPointer;
         data.adultPointer = adultPointer;
@@ -749,6 +750,9 @@ public class Player : MonoBehaviour, IDataPersistance
         Player.friend1 = null;
         Player.friend2 = null;
         Player.enemy = null;
+        FriendEnemy.friend1Pointer = 0;
+        FriendEnemy.friend2Pointer = 0;
+        FriendEnemy.enemyPointer = 0;
         Player.choices = null;
 
         Player.choiceArr = new Choice[4 * NextPage.numberOfScene];

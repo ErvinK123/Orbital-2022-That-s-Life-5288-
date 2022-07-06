@@ -38,8 +38,7 @@ public class PauseMenu : MonoBehaviour
     // Save the game and bring to Main Menu
     public void MainMenuSave()
     {
-        // insert save functionality here
-
+        DataPersistanceManager.instance.SaveGame();
         SceneManager.LoadScene("StartPage");
     }
 
@@ -51,8 +50,6 @@ public class PauseMenu : MonoBehaviour
     // Pressing the save button
     public void save()
     {
-        // insert save functionality here
-        
         DataPersistanceManager.instance.SaveGame();
         SavedIndicator.SetActive(true);
     }
