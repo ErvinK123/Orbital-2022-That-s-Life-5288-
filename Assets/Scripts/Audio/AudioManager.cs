@@ -33,12 +33,25 @@ public class AudioManager : MonoBehaviour
             s.source.volume = s.volume;
             s.source.pitch = s.pitch;
             s.source.loop = s.loop;
+            //s.source.outputAudioMixerGroup = s.mix;
         }
     }
 
     void Start()
     {
         Play("BGM");
+
+        // Settings the volume of BGM according to PlayerPref if previously adjusted
+        if (!PlayerPrefs.HasKey("musicVolume"))
+        {
+            // Set volume to 100% by default
+            PlayerPrefs.SetFloat("musicVolume", 1);
+            AudioListener.volume = PlayerPrefs.GetFloat("musicVolume");
+        }
+        else
+        {
+            AudioListener.volume = PlayerPrefs.GetFloat("musicVolume");
+        } 
     }
 
     public void Play(string name)

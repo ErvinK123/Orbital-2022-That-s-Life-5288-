@@ -39,8 +39,8 @@ public class MainMenuController : MonoBehaviour
         SceneManager.LoadScene("AchievementPage1");
     }
 
-    public void  settings()
+    public void settings()
     {
-        //TODO: 
+        SceneManager.LoadScene("SettingsPage");
     }
 }
