@@ -91,13 +91,15 @@ public class ChoiceValues : MonoBehaviour
                                                           , {0, 0, 0, 5, 0},
                                                            {0, 0, 0, 0, 0}}};
 
-    public static int[,,] teen1frResult = new int[2, 3, 5] { {{0,5, 0, 0, -5} // Teen 1fr1
-                                                          , {0, -5, 0, 0, 5}
-                                                          , {-5, 0, 0, -5, 0}}
+    
 
-                                                          , {{5, 0, 0, 5, 0} // Teen 1fr2 
-                                                          , {0, 0, 0, -5, 0},
-                                                           {-5, 0, 0, 5, 0}}};
+    public static int[,,] teen1fr1Result = new int[1, 3, 5] { {{0,5, 0, 0, -5} // Teen 1fr1
+                                                          , {0, -5, 0, 0, 5}
+                                                          , {-5, 0, 0, -5, 0}} };
+
+    public static int[,,] teen1fr2Result = new int[1, 3, 5] { {{0,0, 5, 0, 0} // Teen 1fr2
+                                                          , {5, 0, 0, 0, 0}
+                                                          , {0, 0, 0, 0, 5}} };
 
     public static int[,,] teen2frResult = new int[2, 3, 5] { {{0, -5, 0, 0, -5} // Teen 2fr1
                                                           , {0, 5, 0, 0, 0}
@@ -157,11 +159,11 @@ public class ChoiceValues : MonoBehaviour
                                                           , {0, 0, 0, -5, 0},
                                                            {0, 0, 0, 0, 0}}};
 
-    public static int[,,] adult1frResult = new int[2, 3, 5] { {{10, 0, 0, 0, 0} // Adult 1fr1
+    public static int[,,] adult1fr1Result = new int[1, 3, 5] { {{10, 0, 0, 0, 0} // Adult 1fr1
                                                           , {-5, 0, 0, -5, 0}
-                                                          , {0, 0, 0, 0, 0}}
+                                                          , {0, 0, 0, 0, 0}}};
 
-                                                          , {{0, 0, 0, 0, -5} // Adult 1fr2
+    public static int[,,] adult1fr2Result = new int[1, 3, 5] {{{0, 0, 0, 0, -5} // Adult 1fr2
                                                           , {0, 0, 0, 0, 5},
                                                            {0, 0, 0, 0, 0}}};
 
@@ -224,11 +226,11 @@ public class ChoiceValues : MonoBehaviour
                                                            {0, 0, 0, 0, 0}}};
 
 
-    public static int[,,] elder1frResult = new int[2, 3, 5] { {{0, 5, 0, -5, 0} // Elder 1fr1
+    public static int[,,] elder1fr1Result = new int[1, 3, 5] { {{0, 5, 0, -5, 0} // Elder 1fr1
                                                           , {0, -5, 0, -5, 0}
-                                                          , {0, 5, 0, 5, 0}}
+                                                          , {0, 5, 0, 5, 0}}};
 
-                                                          , {{0, 0, -5, 0, 0} // Elder 1fr2 
+    public static int[,,] elder1fr2Result = new int[1, 3, 5] {{{0, 0, -5, 0, 0} // Elder 1fr2 
                                                           , {0, 0, 5, 0, 0 },
                                                            {0, 0, 0, 0, 0}}};
 
