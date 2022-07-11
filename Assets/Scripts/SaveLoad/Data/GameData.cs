@@ -56,6 +56,18 @@ public class GameData
     public string currScene;
 
     public List<Choice> choices;
+    public List<Scenario> childList;
+    public List<Scenario> teenList;
+    public List<Scenario> adultList;
+    public List<Scenario> elderList;
+
+    public List<string> friend1List;
+    public List<string> friend2List;
+    public List<string> enemyList;
+
+    public int friend1Pointer;
+    public int friend2Pointer;
+    public int enemyPointer; 
 
     public GameData()
     {   

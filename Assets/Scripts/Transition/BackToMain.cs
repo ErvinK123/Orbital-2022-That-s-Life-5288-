@@ -7,6 +7,8 @@ public class BackToMain : MonoBehaviour
 {
     public void back()
     {
+        DataPersistanceManager.instance.SaveGame();
         SceneManager.LoadScene("StartPage");
     }
 }
+
