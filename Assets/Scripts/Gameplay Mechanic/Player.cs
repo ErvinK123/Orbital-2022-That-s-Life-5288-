@@ -27,7 +27,7 @@ public struct Scenario
     public int id;
     public string name;
 
-    // type 1:norm 2:onefr 3:twofr 4:oneen 5: dummy 
+    // type 1:norm 2:onefr1 3:twofr 4:oneen 5: dummy 6:onefr2
     public int type;
 
     public Scenario(int id, string name, int type)
@@ -357,23 +357,26 @@ public class Player : MonoBehaviour, IDataPersistance
     public static int childScene = 10;
 
     public static int teenScene = 6;
-    public static int teen1frScene = 2;
+    public static int teen1fr1Scene = 1;
+    public static int teen1fr2Scene = 1; 
     public static int teen2frScene = 2;
     public static int teen1enScene = 2;
 
     public static int adultScene = 10;
-    public static int adult1frScene = 2;
+    public static int adult1fr1Scene = 1;
+    public static int adult1fr2Scene = 1; 
     public static int adult2frScene = 2;
     public static int adult1enScene = 2;
 
     public static int elderlyScene = 10;
-    public static int elderly1frScene = 2;
+    public static int elderly1fr1Scene = 1;
+    public static int elderly1fr2Scene = 1; 
     public static int elderly2frScene = 2;
     public static int elderly1enScene = 2;
 
     // Fills in the Scenarios array in each Scenario class and randomizes them
-    public static void setUpScenarios(int child, int teen, int teen1fr, int teen2fr, int teen1en,
-        int adult, int adult1fr, int adult2fr, int adult1en, int elder, int elder1fr, int elder2fr, int elder1en)
+    public static void setUpScenarios(int child, int teen, int teen1fr1, int teen1fr2, int teen2fr, int teen1en,
+        int adult, int adult1fr1, int adult1fr2, int adult2fr, int adult1en, int elder, int elder1fr1, int elder1fr2, int elder2fr, int elder1en)
     {
         childScenario.generateScenarios(child);
         childScenario.gameArr = childScenario.randomizeArray();
@@ -381,20 +384,23 @@ public class Player : MonoBehaviour, IDataPersistance
 
 
         teenScenario.generateScenarios(teen);
-        teen1frScenario.generateScenarios(teen1fr);
+        teen1fr1Scenario.generateScenarios(teen1fr1);
+        teen1fr2Scenario.generateScenarios(teen1fr2);
         teen2frScenario.generateScenarios(teen2fr);
         teen1enScenario.generateScenarios(teen1en);
 
 
 
         adultScenario.generateScenarios(adult);
-        adult1frScenario.generateScenarios(adult1fr);
+        adult1fr1Scenario.generateScenarios(adult1fr1);
+        adult1fr2Scenario.generateScenarios(adult1fr2);
         adult2frScenario.generateScenarios(adult2fr);
         adult1enScenario.generateScenarios(adult1en);
 
 
         elderScenario.generateScenarios(elder);
-        elder1frScenario.generateScenarios(elder1fr);
+        elder1fr1Scenario.generateScenarios(elder1fr1);
+        elder1fr2Scenario.generateScenarios(elder1fr2);
         elder2frScenario.generateScenarios(elder2fr);
         elder1enScenario.generateScenarios(elder1en);
 
@@ -409,34 +415,11 @@ public class Player : MonoBehaviour, IDataPersistance
 
         choices = new List<Choice>() ;
     }
-
-    public static int nextCombination(int fr, int en)
-    {
-        if (fr == 0 && en == 0)
-        {
-            return 1;
-        } else if (fr == 1 && en == 0)
-        {
-            return 2;
-        } else if (fr == 0 && en == 1)
-        {
-            return 3;
-        } else if (fr == 1 && en == 1)
-        {
-            return 4;
-        } else if (fr == 2 && en == 0)
-        {
-            return 5;
-        } else
-        {
-            return 6;
-        }
-    }
     
 
-    public static Scenario[] generateArray(Scenario[] arr1, Scenario[] arr2, Scenario[] arr3, Scenario[] arr4)
+    public static Scenario[] generateArray(Scenario[] arr1, Scenario[] arr2, Scenario[] arr3, Scenario[] arr4, Scenario[] arr5)
     {
-        int total = arr1.Length + arr2.Length + arr3.Length + arr4.Length;
+        int total = arr1.Length + arr2.Length + arr3.Length + arr4.Length + arr5.Length;
         Scenario[] temp = new Scenario[total];
         for (int j = 0; j < total; j++)
         {
@@ -452,9 +435,12 @@ public class Player : MonoBehaviour, IDataPersistance
             {
                 temp[j] = arr3[j - arr1.Length - arr2.Length];
             }
-            else
+            else if (j < arr1.Length + arr2.Length + arr3.Length + arr4.Length)
             {
                 temp[j] = arr4[j - arr1.Length - arr2.Length - arr3.Length];
+            } else
+            {
+                temp[j] = arr5[j - arr1.Length - arr2.Length - arr3.Length - arr4.Length];
             }
         }
         temp = randomizeArray(temp);
@@ -574,6 +560,50 @@ public class Player : MonoBehaviour, IDataPersistance
         }
     }
 
+    public static int nextCombination(int fr, int en)
+    {
+        // no friend and enemy 
+        if (fr == 0 && en == 0)
+        {
+            return 1;
+            // one friend no enemy first friend 
+        }
+        else if (fr == 1 && friend1 != null && friend1 != "" && en == 0)
+        {
+            return 2;
+            // one enemy no friends 
+        }
+        else if (fr == 0 && en == 1)
+        {
+            return 3;
+            // one friend one enemy , first friend 
+        }
+        else if (fr == 1 &&  friend1 != null && friend1 != "" && en == 1)
+        {
+            return 4;
+            // two friends no enemy 
+        }
+        else if (fr == 2 && en == 0)
+        {
+            return 5;
+            // one friend no enemy second friend 
+        }
+        else if (fr == 1 && friend2 != null && friend2 != "" && en == 0)
+        {
+            return 6;
+            // one friend one enemy, second friend 
+        }
+        else if (fr == 1 && friend2 != null && friend2 != "" && en == 1)
+        {
+            return 7;
+            // two friends one enemy 
+        }
+        else
+        {
+            return 8;
+        }
+    }
+
     public static int scenarioChecker(int i, Scenario[] arr)
     {
         for (int r = i; r < arr.Length; r++)
@@ -609,13 +639,10 @@ public class Player : MonoBehaviour, IDataPersistance
             }
             else if (Player.nextCombination(Player.friends, Player.enemies) == 5)
             {
-<<<<<<< Updated upstream
-                if (arr[r].type == 1 || arr[r].type == 2 || arr[r].type == 3)
-                {
-                    //Debug.Log(Player.nextCombination(Player.friends, Player.enemies) + ": " + "pooled from position" + r);
-=======
+
                 if (arr[r].type == 1 || arr[r].type == 2 || arr[r].type == 3 || arr[r].type == 6)
                 {
+                    //Debug.Log(Player.nextCombination(Player.friends, Player.enemies) + ": " + "pooled from position" + r);
                     return r;
                 }
             }
@@ -623,20 +650,20 @@ public class Player : MonoBehaviour, IDataPersistance
             {
                 if (arr[r].type == 1 || arr[r].type == 6)
                 {
+                    //Debug.Log(Player.nextCombination(Player.friends, Player.enemies) + ": " + "pooled from position" + r);
                     return r;
                 }
             }
             else if (Player.nextCombination(Player.friends, Player.enemies) == 7)
             {
                 if (arr[r].type == 1 || arr[r].type == 4 || arr[r].type == 6)
-                {   
->>>>>>> Stashed changes
+
                     return r;
                 }
             }
             else
             {
-                if (arr[r].type == 1 || arr[r].type == 2 || arr[r].type == 3 || arr[r].type == 4)
+                if (arr[r].type == 1 || arr[r].type == 2 || arr[r].type == 3 || arr[r].type == 4 || arr[r].type == 6 )
                 {
                     return r;
                 }
@@ -871,13 +898,13 @@ public class Player : MonoBehaviour, IDataPersistance
                     Player.calculateHelper(ChoiceValues.childResult, i, j);
                 } else if (i < 2 * NextPage.numberOfScene)
                 {                    
-                    Player.calculateHelper(ChoiceValues.teenResult, ChoiceValues.teen1frResult, ChoiceValues.teen2frResult, ChoiceValues.teen1enResult, i, j);
+                    Player.calculateHelper(ChoiceValues.teenResult, ChoiceValues.teen1fr1Result, ChoiceValues.teen1fr2Result, ChoiceValues.teen2frResult, ChoiceValues.teen1enResult, i, j);
                 } else if (i < 3 * NextPage.numberOfScene)
                 {                   
-                    Player.calculateHelper(ChoiceValues.adultResult, ChoiceValues.adult1frResult, ChoiceValues.adult2frResult, ChoiceValues.adult1enResult, i, j);
+                    Player.calculateHelper(ChoiceValues.adultResult, ChoiceValues.adult1fr1Result, ChoiceValues.adult1fr2Result, ChoiceValues.adult2frResult, ChoiceValues.adult1enResult, i, j);
                 } else
                 {                    
-                    Player.calculateHelper(ChoiceValues.elderResult, ChoiceValues.elder1frResult, ChoiceValues.elder2frResult, ChoiceValues.elder1enResult, i, j);
+                    Player.calculateHelper(ChoiceValues.elderResult, ChoiceValues.elder1fr1Result, ChoiceValues.elder1fr2Result, ChoiceValues.elder2frResult, ChoiceValues.elder1enResult, i, j);
                 }
             }
         }
@@ -1053,7 +1080,7 @@ public class Player : MonoBehaviour, IDataPersistance
 
 
     // Used in calculate : Cross checks the choices made by player and changes player attribute 
-    public static void calculateHelper(int[,,] normArr, int[,,] onefr, int[,,] twofr, int[,,] oneen, int first, int second)
+    public static void calculateHelper(int[,,] normArr, int[,,] onefro, int[,,] onefrt, int[,,] twofr, int[,,] oneen, int first, int second)
     {
         int temp = choices[first].scenario.type;
 
@@ -1092,31 +1119,31 @@ public class Player : MonoBehaviour, IDataPersistance
             if (second == 0)
             {
                 //Player.Career += onefr[choiceArr[first].scenario.id - 1, choiceArr[first].choice - 1, second];
-                Player.Career += onefr[choices[first].scenario.id - 1, choices[first].choice - 1, second];
+                Player.Career += onefro[choices[first].scenario.id - 1, choices[first].choice - 1, second];
                 return;
             }
             else if (second == 1)
             {
                 //Player.Popularity += onefr[choiceArr[first].scenario.id - 1, choiceArr[first].choice - 1, second];
-                Player.Popularity += onefr[choices[first].scenario.id - 1, choices[first].choice - 1, second];
+                Player.Popularity += onefro[choices[first].scenario.id - 1, choices[first].choice - 1, second];
                 return;
             }
             else if (second == 2)
             {
                 //Player.Health += onefr[choiceArr[first].scenario.id - 1, choiceArr[first].choice - 1, second];
-                Player.Health += onefr[choices[first].scenario.id - 1, choices[first].choice - 1, second];
+                Player.Health += onefro[choices[first].scenario.id - 1, choices[first].choice - 1, second];
                 return;
             }
             else if (second == 3)
             {
                 //Player.LifeSkills += onefr[choiceArr[first].scenario.id - 1, choiceArr[first].choice - 1, second];
-                Player.LifeSkills += onefr[choices[first].scenario.id - 1, choices[first].choice - 1, second];
+                Player.LifeSkills += onefro[choices[first].scenario.id - 1, choices[first].choice - 1, second];
                 return;
             }
             else
             {
                 //Player.Morals += onefr[choiceArr[first].scenario.id - 1, choiceArr[first].choice - 1, second];
-                Player.Morals += onefr[choices[first].scenario.id - 1, choices[first].choice - 1, second];
+                Player.Morals += onefro[choices[first].scenario.id - 1, choices[first].choice - 1, second];
                 return;
             }
         }
@@ -1192,6 +1219,40 @@ public class Player : MonoBehaviour, IDataPersistance
         if (temp == 5)
         {
             return;
+        }
+
+        if (temp == 6)
+        {
+            if (second == 0)
+            {
+                //Player.Career += onefr[choiceArr[first].scenario.id - 1, choiceArr[first].choice - 1, second];
+                Player.Career += onefrt[choices[first].scenario.id - 1, choices[first].choice - 1, second];
+                return;
+            }
+            else if (second == 1)
+            {
+                //Player.Popularity += onefr[choiceArr[first].scenario.id - 1, choiceArr[first].choice - 1, second];
+                Player.Popularity += onefrt[choices[first].scenario.id - 1, choices[first].choice - 1, second];
+                return;
+            }
+            else if (second == 2)
+            {
+                //Player.Health += onefr[choiceArr[first].scenario.id - 1, choiceArr[first].choice - 1, second];
+                Player.Health += onefrt[choices[first].scenario.id - 1, choices[first].choice - 1, second];
+                return;
+            }
+            else if (second == 3)
+            {
+                //Player.LifeSkills += onefr[choiceArr[first].scenario.id - 1, choiceArr[first].choice - 1, second];
+                Player.LifeSkills += onefrt[choices[first].scenario.id - 1, choices[first].choice - 1, second];
+                return;
+            }
+            else
+            {
+                //Player.Morals += onefr[choiceArr[first].scenario.id - 1, choiceArr[first].choice - 1, second];
+                Player.Morals += onefrt[choices[first].scenario.id - 1, choices[first].choice - 1, second];
+                return;
+            }
         }
     }
 

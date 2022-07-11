@@ -52,18 +52,6 @@ public class DataPersistanceManager : MonoBehaviour
             dataPersistanceObj.LoadData(gameData);
         }
 
-<<<<<<< Updated upstream
-        Player.setUpScenarios(Player.childScene, Player.teenScene, Player.teen1frScene, Player.teen2frScene, Player.teen1enScene,
-                              Player.adultScene, Player.adult1frScene, Player.adult2frScene, Player.adult1enScene, Player.elderlyScene, Player.elderly1frScene,
-                              Player.elderly2frScene, Player.elderly1enScene);
-        Player.allocateScenarios(Player.randomizeArray(childScenario.childArr), "Child");
-        Player.allocateScenarios(Player.generateArray(teenScenario.teenArr, teen1frScenario.teen1frArr, teen2frScenario.teen2frArr, teen1enScenario.teen1enArr), "Teen");
-        Player.allocateScenarios(Player.generateArray(adultScenario.adultArr, adult1frScenario.adult1frArr, adult2frScenario.adult2frArr, adult1enScenario.adult1enArr), "Adult");
-        Player.allocateScenarios(Player.generateArray(elderScenario.elderArr, elder1frScenario.elder1frArr, elder2frScenario.elder2frArr, elder1enScenario.elder1enArr), "Elder");
-        FriendEnemy.initializeFEPool();
-        //Debug.Log("I have finished setting up scenarios");
-        //Debug.Log("Loaded Scenario count: " + gameData.scenarios);
-=======
         Player.scenarioWrite(Player.childList, "child");
         Player.scenarioWrite(Player.teenList, "teen");
         Player.scenarioWrite(Player.adultList, "adult");
@@ -72,7 +60,6 @@ public class DataPersistanceManager : MonoBehaviour
         FriendEnemy.friendWrite(FriendEnemy.friend1List, "friend1");
         FriendEnemy.friendWrite(FriendEnemy.friend2List, "friend2");
         FriendEnemy.friendWrite(FriendEnemy.enemyList, "enemy");
->>>>>>> Stashed changes
     }
 
     public void SaveGame()
