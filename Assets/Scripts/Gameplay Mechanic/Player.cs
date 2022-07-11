@@ -659,18 +659,20 @@ public class Player : MonoBehaviour, IDataPersistance
                 if (arr[r].type == 1 || arr[r].type == 4 || arr[r].type == 6)
 
                     return r;
-                }
             }
+
             else
             {
-                if (arr[r].type == 1 || arr[r].type == 2 || arr[r].type == 3 || arr[r].type == 4 || arr[r].type == 6 )
+                if (arr[r].type == 1 || arr[r].type == 2 || arr[r].type == 3 || arr[r].type == 4 || arr[r].type == 6)
                 {
                     return r;
                 }
             }
         }
+
         return i;
     }
+    
 
     public static void increasePointer(string s)
     {

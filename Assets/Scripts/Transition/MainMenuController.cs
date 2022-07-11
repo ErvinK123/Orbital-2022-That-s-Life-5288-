@@ -36,7 +36,7 @@ public class MainMenuController : MonoBehaviour
 
     public void achievementsPage()
     {
-        DataPersistanceManager.instance.LoadGame();
+        //DataPersistanceManager.instance.LoadGame();
         SceneManager.LoadScene("AchievementPage1");
     }
 
