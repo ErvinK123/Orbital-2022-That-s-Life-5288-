@@ -754,7 +754,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_text: 'You told your friend that you knew about it but kept it a secret. Your
-    friend thanks you and invites you to his next birthday party. You had a blast,
+    friend thanks you and invites you to her next birthday party. You had a blast,
     and it seems you made a friend for life. '
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 612491e3f7c61114fadbda59f70c5e52, type: 2}
