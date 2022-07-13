@@ -354,23 +354,23 @@ public class Player : MonoBehaviour, IDataPersistance
         return intro;
     }
 
-    public static int childScene = 10;
+    public static int childScene = 12;
 
-    public static int teenScene = 6;
-    public static int teen1fr1Scene = 1;
-    public static int teen1fr2Scene = 1; 
+    public static int teenScene = 12;
+    public static int teen1fr1Scene = 2;
+    public static int teen1fr2Scene = 2; 
     public static int teen2frScene = 2;
     public static int teen1enScene = 2;
 
-    public static int adultScene = 10;
-    public static int adult1fr1Scene = 1;
-    public static int adult1fr2Scene = 1; 
+    public static int adultScene = 12;
+    public static int adult1fr1Scene = 2;
+    public static int adult1fr2Scene = 2; 
     public static int adult2frScene = 2;
     public static int adult1enScene = 2;
 
-    public static int elderlyScene = 10;
-    public static int elderly1fr1Scene = 1;
-    public static int elderly1fr2Scene = 1; 
+    public static int elderlyScene = 12;
+    public static int elderly1fr1Scene = 2;
+    public static int elderly1fr2Scene = 2; 
     public static int elderly2frScene = 2;
     public static int elderly1enScene = 2;
 

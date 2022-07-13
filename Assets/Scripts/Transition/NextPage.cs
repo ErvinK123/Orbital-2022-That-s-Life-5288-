@@ -63,23 +63,23 @@ public class NextPage : MonoBehaviour
     void Start()
     {
         //sizes of each pool
-        int childScene = 10;
+        int childScene = 12;
 
-        int teenScene = 6;
-        int teen1fr1Scene = 1;
-        int teen1fr2Scene = 1;
+        int teenScene = 12;
+        int teen1fr1Scene = 2;
+        int teen1fr2Scene = 2;
         int teen2frScene = 2;
         int teen1enScene = 2;
 
-        int adultScene = 10;
-        int adult1fr1Scene = 1;
-        int adult1fr2Scene = 1; 
+        int adultScene = 12;
+        int adult1fr1Scene = 2;
+        int adult1fr2Scene = 2; 
         int adult2frScene = 2;
         int adult1enScene = 2;
 
-        int elderlyScene = 10;
-        int elderly1fr1Scene = 1;
-        int elderly1fr2Scene = 1; 
+        int elderlyScene = 12;
+        int elderly1fr1Scene = 2;
+        int elderly1fr2Scene = 2; 
         int elderly2frScene = 2;
         int elderly1enScene = 2;
 

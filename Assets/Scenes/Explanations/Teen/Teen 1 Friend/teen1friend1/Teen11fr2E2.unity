@@ -289,10 +289,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 495839955}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9257d1068e9b2dc4ca64aca9c91134c1, type: 3}
+  m_Script: {fileID: 11500000, guid: c475ad60ed7a4504f8de4781f3e935bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Enemy1: {fileID: 783978145}
+  Friend1: {fileID: 783978145}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
