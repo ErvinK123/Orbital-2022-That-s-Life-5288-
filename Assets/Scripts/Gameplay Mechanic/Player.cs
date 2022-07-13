@@ -895,18 +895,21 @@ public class Player : MonoBehaviour, IDataPersistance
         {
             for (int j = 0; j < 5; j++)
             {   
-                if (i < NextPage.numberOfScene)
+                if (i < NextPage.numberOfScene && i < choices.Count)
                 { 
                     Player.calculateHelper(ChoiceValues.childResult, i, j);
-                } else if (i < 2 * NextPage.numberOfScene)
+                } else if (i < 2 * NextPage.numberOfScene && i < choices.Count)
                 {                    
                     Player.calculateHelper(ChoiceValues.teenResult, ChoiceValues.teen1fr1Result, ChoiceValues.teen1fr2Result, ChoiceValues.teen2frResult, ChoiceValues.teen1enResult, i, j);
-                } else if (i < 3 * NextPage.numberOfScene)
+                } else if (i < 3 * NextPage.numberOfScene && i < choices.Count)
                 {                   
                     Player.calculateHelper(ChoiceValues.adultResult, ChoiceValues.adult1fr1Result, ChoiceValues.adult1fr2Result, ChoiceValues.adult2frResult, ChoiceValues.adult1enResult, i, j);
-                } else
+                } else if (i < 3 * NextPage.numberOfScene && i < choices.Count)
                 {                    
                     Player.calculateHelper(ChoiceValues.elderResult, ChoiceValues.elder1fr1Result, ChoiceValues.elder1fr2Result, ChoiceValues.elder2frResult, ChoiceValues.elder1enResult, i, j);
+                } else
+                {
+                    
                 }
             }
         }
