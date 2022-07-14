@@ -141,7 +141,7 @@ public class Player : MonoBehaviour, IDataPersistance
 
         WorkJunkieGet = data.WorkJunkieGet;
         SmoothBrainGet = data.SmoothBrainGet;
-        SocialButterflyGet = data.SmoothBrainGet;
+        SocialButterflyGet = data.SocialButterflyGet;
         ShutInGet = data.ShutInGet;
         PeakHumanGet = data.PeakHumanGet;
         ZombieGet = data.ZombieGet;
@@ -197,7 +197,7 @@ public class Player : MonoBehaviour, IDataPersistance
 
         data.WorkJunkieGet = WorkJunkieGet;
         data.SmoothBrainGet = SmoothBrainGet;
-        data.SocialButterflyGet = SmoothBrainGet;
+        data.SocialButterflyGet = SocialButterflyGet;
         data.ShutInGet = ShutInGet;
         data.PeakHumanGet = PeakHumanGet;
         data.ZombieGet = ZombieGet;
