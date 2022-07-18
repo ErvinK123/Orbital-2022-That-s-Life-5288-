@@ -17,6 +17,26 @@ public class NextPage : MonoBehaviour
     // Initialising an array for storing the fair introductions
     public string[] fairIntros = { "StandardIntro1", "StandardIntro2", "StandardIntro3" };
 
+    public Animator SceneTransition;
+
+    IEnumerator LoadLevel()
+    {
+        SceneTransition.SetTrigger("Start");
+
+        yield return new WaitForSeconds(1);
+
+        SceneManager.LoadScene(randomize(fairIntros)[0]);
+    }
+
+    IEnumerator LoadLevelRandom()
+    {
+        SceneTransition.SetTrigger("Start");
+
+        yield return new WaitForSeconds(1);
+
+        SceneManager.LoadScene(Player.useIntro());
+    }
+
     // Function to randomize an array of string
     public string[] randomize(string[] fairIntros)
     {
@@ -46,11 +66,12 @@ public class NextPage : MonoBehaviour
         {
             if (!FairButton.activeSelf) // Fair option is selected
             {
-                string[] randomFairIntros = randomize(fairIntros);
-                SceneManager.LoadScene(randomFairIntros[0]);
+                //string[] randomFairIntros = randomize(fairIntros);
+                //SceneManager.LoadScene(randomFairIntros[0]);
+                StartCoroutine("LoadLevel");
             } else // Random option is selected
             {
-                SceneManager.LoadScene(Player.useIntro());
+                StartCoroutine("LoadLevelRandom");
             }
         }
     } 
@@ -105,5 +126,6 @@ public class NextPage : MonoBehaviour
         FriendEnemy.feSaveSetUp(FriendEnemy.friend2Arr, "friend2");
         FriendEnemy.feSaveSetUp(FriendEnemy.enemyArr, "enemy");
     }
+
 }
 

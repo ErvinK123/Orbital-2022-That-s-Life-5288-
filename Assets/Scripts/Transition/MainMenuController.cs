@@ -11,6 +11,7 @@ public class MainMenuController : MonoBehaviour
     [SerializeField] private Button achievements;
     [SerializeField] private Button settingsButton;
 
+    public Animator SceneTransition; 
 
     private void Start()
     {
@@ -24,7 +25,9 @@ public class MainMenuController : MonoBehaviour
     {
         Player.reset();
         DataPersistanceManager.instance.NewGame();
-        SceneManager.LoadScene("NamePage"); 
+        //SceneManager.LoadScene("NamePage");
+        
+        StartCoroutine("LoadLevel");
     }
 
     public void loadGame()
@@ -43,5 +46,14 @@ public class MainMenuController : MonoBehaviour
     public void settings()
     {
         SceneManager.LoadScene("SettingsPage");
+    }
+
+    IEnumerator LoadLevel()
+    {
+        SceneTransition.SetTrigger("Start");
+        
+        yield return new WaitForSeconds(1);
+
+        SceneManager.LoadScene("NamePage");
     }
 }
