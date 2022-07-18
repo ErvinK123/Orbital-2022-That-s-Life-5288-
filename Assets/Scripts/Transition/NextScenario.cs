@@ -5,27 +5,67 @@ using UnityEngine.SceneManagement;
 
 public class NextScenario : MonoBehaviour
 {
+    public Animator SceneTransition;
+
+    IEnumerator LoadFE()
+    {
+        string next = Player.generateFEscreen();
+        Player.offFEtriggers();
+        Player.currScene = next;
+        SceneTransition.SetTrigger("Start");
+
+        yield return new WaitForSeconds(1);
+
+        SceneManager.LoadScene(next);
+    }
+
+    IEnumerator LoadNextTransition()
+    {
+        string next = Player.generateTransition();
+        Player.currScene = next;
+        SceneTransition.SetTrigger("Start");
+
+        yield return new WaitForSeconds(1);
+
+        SceneManager.LoadScene(next);
+    }
+
+    IEnumerator LoadNextScene()
+    {
+        string scene = Player.getNextScenarioName(Player.age);
+        Player.prevSceneName = scene;
+        Player.increasePointer(Player.age);
+        Player.currScene = scene;
+        SceneTransition.SetTrigger("Start");
+
+        yield return new WaitForSeconds(1);
+
+        SceneManager.LoadScene(scene);
+    }
+
+    IEnumerator LoadEnd()
+    {
+        SceneTransition.SetTrigger("Start");
+
+        yield return new WaitForSeconds(1);
+
+        SceneManager.LoadScene("End");
+    }
+
+
+
     public void next()
     {
-        Debug.Log("friend1pointer: " + FriendEnemy.friend1Pointer);
-        Debug.Log("friend2pointer: " + FriendEnemy.friend2Pointer);
-        Debug.Log("enemypointer: " + FriendEnemy.enemyPointer);
-        Player.testFE();
 
         if (Player.feTrigger() && Player.age != "Dead")
         {
-            string next = Player.generateFEscreen();
-            Player.offFEtriggers();
-            Player.currScene = next;
-            SceneManager.LoadScene(next);
+            StartCoroutine("LoadFE");
             return;
         }
 
         if (Player.transitionTrigger() && Player.age != "Dead")
         {
-            string next = Player.generateTransition();
-            Player.currScene = next;
-            SceneManager.LoadScene(next);
+            StartCoroutine("LoadNextTransition");
             return;
         }
 
@@ -33,13 +73,8 @@ public class NextScenario : MonoBehaviour
         Player.setTransition();
 
         if (Player.age != "Dead")
-        {   
-            string scene = Player.getNextScenarioName(Player.age);
-            //Debug.Log(scene);
-            Player.prevSceneName = scene;
-            Player.increasePointer(Player.age);
-            Player.currScene = scene;
-            SceneManager.LoadScene(scene);
+        {
+            StartCoroutine("LoadNextScene");
         }
         else
         {

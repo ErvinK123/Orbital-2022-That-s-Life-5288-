@@ -5,6 +5,36 @@ using UnityEngine.SceneManagement;
 
 public class NextExplanation : MonoBehaviour
 {
+    public Animator SceneTransition;
+
+    IEnumerator LoadEx1()
+    {
+        SceneTransition.SetTrigger("Start");
+
+        yield return new WaitForSeconds(1);
+
+        SceneManager.LoadScene(Player.getNextSceneName(1));
+    }
+
+    IEnumerator LoadEx2()
+    {
+        SceneTransition.SetTrigger("Start");
+
+        yield return new WaitForSeconds(1);
+
+        SceneManager.LoadScene(Player.getNextSceneName(2));
+    }
+
+    IEnumerator LoadEx3()
+    {
+        SceneTransition.SetTrigger("Start");
+
+        yield return new WaitForSeconds(1);
+
+        SceneManager.LoadScene(Player.getNextSceneName(3));
+    }
+
+
     public void choice1()
     {
         //store choice 
@@ -14,7 +44,7 @@ public class NextExplanation : MonoBehaviour
         Player.testFE();
         string next = Player.getNextSceneName(1);
         Player.currScene = next;
-        SceneManager.LoadScene(next);
+        StartCoroutine("LoadEx1");
 
     }
 
@@ -26,7 +56,6 @@ public class NextExplanation : MonoBehaviour
         }
         else
         {
-            Debug.Log("Imadeafriendchoice");
             Player.addFriend1();
             choice1();
         }
@@ -88,7 +117,7 @@ public class NextExplanation : MonoBehaviour
         //load new scene 
         string next = Player.getNextSceneName(2);
         Player.currScene = next;
-        SceneManager.LoadScene(next);
+        StartCoroutine("LoadEx2");
     }
 
     public void choice2f1()
@@ -157,7 +186,7 @@ public class NextExplanation : MonoBehaviour
         //load new scene 
         string next = Player.getNextSceneName(3);
         Player.currScene = next;
-        SceneManager.LoadScene(next);
+        StartCoroutine("LoadEx3");
     }
 
     public void choice3f1()
