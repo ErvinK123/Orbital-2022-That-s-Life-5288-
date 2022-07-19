@@ -11,7 +11,46 @@ public class MainMenuController : MonoBehaviour
     [SerializeField] private Button achievements;
     [SerializeField] private Button settingsButton;
 
-    public Animator SceneTransition; 
+    public Animator SceneTransition;
+
+    IEnumerator LoadStart()
+    {
+        SceneTransition.SetTrigger("Start");
+
+        yield return new WaitForSeconds(0.5f);
+
+        SceneManager.LoadScene("NamePage");
+    }
+
+    IEnumerator LoadGame()
+    {
+        SceneTransition.SetTrigger("Start");
+        DataPersistanceManager.instance.LoadGame();
+
+        yield return new WaitForSeconds(0.5f);
+
+        SceneManager.LoadScene(Player.currScene);
+    }
+
+    IEnumerator LoadAchievement()
+    {
+        SceneTransition.SetTrigger("Start");
+
+        yield return new WaitForSeconds(0.5f);
+
+        SceneManager.LoadScene("AchievementPage1");
+    }
+
+    IEnumerator LoadSettings()
+    {
+        SceneTransition.SetTrigger("Start");
+
+        yield return new WaitForSeconds(0.5f);
+
+        SceneManager.LoadScene("SettingsPage");
+    }
+
+
 
     private void Start()
     {
@@ -25,35 +64,25 @@ public class MainMenuController : MonoBehaviour
     {
         Player.reset();
         DataPersistanceManager.instance.NewGame();
-        //SceneManager.LoadScene("NamePage");
         
-        StartCoroutine("LoadLevel");
+        StartCoroutine("LoadStart");
     }
 
     public void loadGame()
     {
-        //TODO: 
-        DataPersistanceManager.instance.LoadGame();
-        SceneManager.LoadScene(Player.currScene);
+
+        StartCoroutine("LoadGame");
     }
 
     public void achievementsPage()
     {
-        //DataPersistanceManager.instance.LoadGame();
-        SceneManager.LoadScene("AchievementPage1");
+
+        StartCoroutine("LoadAchievement");
     }
 
     public void settings()
     {
-        SceneManager.LoadScene("SettingsPage");
+        StartCoroutine("LoadSettings");
     }
 
-    IEnumerator LoadLevel()
-    {
-        SceneTransition.SetTrigger("Start");
-        
-        yield return new WaitForSeconds(1);
-
-        SceneManager.LoadScene("NamePage");
-    }
 }

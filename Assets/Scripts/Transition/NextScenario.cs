@@ -14,7 +14,7 @@ public class NextScenario : MonoBehaviour
         Player.currScene = next;
         SceneTransition.SetTrigger("Start");
 
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(0.15f);
 
         SceneManager.LoadScene(next);
     }
@@ -25,7 +25,7 @@ public class NextScenario : MonoBehaviour
         Player.currScene = next;
         SceneTransition.SetTrigger("Start");
 
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(0.15f);
 
         SceneManager.LoadScene(next);
     }
@@ -38,7 +38,7 @@ public class NextScenario : MonoBehaviour
         Player.currScene = scene;
         SceneTransition.SetTrigger("Start");
 
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(0.15f);
 
         SceneManager.LoadScene(scene);
     }
@@ -47,7 +47,7 @@ public class NextScenario : MonoBehaviour
     {
         SceneTransition.SetTrigger("Start");
 
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(0.15f);
 
         SceneManager.LoadScene("End");
     }

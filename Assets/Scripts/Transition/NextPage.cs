@@ -23,7 +23,7 @@ public class NextPage : MonoBehaviour
     {
         SceneTransition.SetTrigger("Start");
 
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(0.5f);
 
         SceneManager.LoadScene(randomize(fairIntros)[0]);
     }
@@ -32,7 +32,7 @@ public class NextPage : MonoBehaviour
     {
         SceneTransition.SetTrigger("Start");
 
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(0.5f);
 
         SceneManager.LoadScene(Player.useIntro());
     }
