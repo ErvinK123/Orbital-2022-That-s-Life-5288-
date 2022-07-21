@@ -1659,6 +1659,22 @@ public class Player : MonoBehaviour, IDataPersistance
         JackOfAllTradesGet = false;
         MasterOfNoneGet = false;
         CollectorGet = false;
+
+
+        WorkJunkieFirstTime = true;
+        SmoothBrainFirstTime = true;
+        SocialButterflyFirstTime = true;
+        ShutInFirstTime = true;
+        PeakHumanFirstTime = true;
+        ZombieFirstTime = true;
+        HandymanFirstTime = true;
+        HopelesslyIneptFirstTime = true;
+        SaintFirstTime = true;
+        VillainFirstTime = true;
+        JackOfAllTradesFirstTime = true;
+        MasterOfNoneFirstTime = true;
+        CollectorFirstTime = true; 
+
         DataPersistanceManager.instance.SaveGame();
         return;
     }

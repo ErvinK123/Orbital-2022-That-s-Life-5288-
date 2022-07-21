@@ -5,8 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class EndtoSummary : MonoBehaviour
 {
-    public Animator SceneTransition;
-
+    //public Animator SceneTransition;
+    /*
     IEnumerator LoadLevel()
     {
         SceneTransition.SetTrigger("Start");
@@ -15,10 +15,12 @@ public class EndtoSummary : MonoBehaviour
 
         SceneManager.LoadScene("Summary");
     }
-
+    */
     public void next()
     {
-        StartCoroutine("LoadLevel");
-        
+        //StartCoroutine("LoadLevel");
+
+        SceneManager.LoadScene("Summary");
+
     }
 }
