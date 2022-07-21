@@ -48,7 +48,7 @@ public class Player : MonoBehaviour, IDataPersistance
     public static int friends = 0;
     public static int enemies = 0;
 
-    // Initialising the achievement badge trackers;
+    // Initialising the achievement badge trackers
     public static bool WorkJunkieGet = false;
     public static bool SmoothBrainGet = false;
     public static bool SocialButterflyGet = false;
@@ -62,6 +62,21 @@ public class Player : MonoBehaviour, IDataPersistance
     public static bool JackOfAllTradesGet = false;
     public static bool MasterOfNoneGet = false;
     public static bool CollectorGet = false;
+
+    // Trackers to check if the badges are obtained for the first time
+    public static bool WorkJunkieFirstTime = true;
+    public static bool SmoothBrainFirstTime = true;
+    public static bool SocialButterflyFirstTime = true;
+    public static bool ShutInFirstTime = true;
+    public static bool PeakHumanFirstTime = true;
+    public static bool ZombieFirstTime = true;
+    public static bool HandymanFirstTime = true;
+    public static bool HopelesslyIneptFirstTime = true;
+    public static bool SaintFirstTime = true;
+    public static bool VillainFirstTime = true;
+    public static bool JackOfAllTradesFirstTime = true;
+    public static bool MasterOfNoneFirstTime = true;
+    public static bool CollectorFirstTime = true;
 
     public static int scenarios = 1;
 
@@ -888,7 +903,7 @@ public class Player : MonoBehaviour, IDataPersistance
     }
 
 
-    //Happens at the  end of a run, determines the title and the attributes of the player
+    //Happens at the end of a run, determines the title and the attributes of the player
     public static void calculate()
     {
         for (int i = 0; i < 4 * NextPage.numberOfScene; i++)
@@ -1307,6 +1322,96 @@ public class Player : MonoBehaviour, IDataPersistance
         }
         return false;
     }
+
+
+    // Updates whether a badge has already been obtained before, called in BadgeAnimationController
+    public static void firstTimeBadgeGet(string title)
+    {
+        if (title == "Work Junkie")
+        {
+            WorkJunkieFirstTime = false;
+        }
+
+        if (title == "Smooth Brain")
+        {
+            SmoothBrainFirstTime = false;
+        }
+
+        if (title == "Social Butterfly")
+        {
+            SocialButterflyFirstTime = false;
+        }
+
+        if (title == "Shut-In")
+        {
+            ShutInFirstTime = false;
+        }
+
+        if (title == "Peak Human")
+        {
+            PeakHumanFirstTime = false;
+        }
+
+        if (title == "Zombie")
+        {
+            ZombieFirstTime = false;
+        }
+
+        if (title == "Handyman")
+        {
+            HandymanFirstTime = false;
+        }
+
+        if (title == "Hopelessly Inept")
+        {
+            HopelesslyIneptFirstTime = false;
+        }
+
+        if (title == "Saint")
+        {
+            SaintFirstTime = false;
+        }
+
+        if (title == "Villain")
+        {
+            VillainFirstTime = false;
+        }
+
+        if (title == "Jack of All Trades")
+        {
+            JackOfAllTradesFirstTime = false;
+        }
+
+        if (title == "Master of None")
+        {
+            MasterOfNoneFirstTime = false;
+        }
+
+        if (title == "Collector")
+        {
+            CollectorFirstTime = false;
+        }
+    }
+
+
+    // Debug function to display whether badges have been obtained before
+    public static void showBadgeFirstTime()
+    {
+        Debug.Log(WorkJunkieFirstTime);
+        Debug.Log(SmoothBrainFirstTime);
+        Debug.Log(SocialButterflyFirstTime);
+        Debug.Log(ShutInFirstTime);
+        Debug.Log(PeakHumanFirstTime);
+        Debug.Log(ZombieFirstTime);
+        Debug.Log(HandymanFirstTime);
+        Debug.Log(HopelesslyIneptFirstTime);
+        Debug.Log(SaintFirstTime);
+        Debug.Log(VillainFirstTime);
+        Debug.Log(JackOfAllTradesFirstTime);
+        Debug.Log(MasterOfNoneFirstTime);
+        Debug.Log(CollectorFirstTime);
+    }
+
 
     // Debug function to display Player Statistics
     public static void showStatistics()

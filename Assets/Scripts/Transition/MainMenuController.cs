@@ -19,6 +19,8 @@ public class MainMenuController : MonoBehaviour
         {
             loadGameButton.interactable = false;
         }
+
+        //Player.showBadgeFirstTime();
     }
 
     public void playGame()
