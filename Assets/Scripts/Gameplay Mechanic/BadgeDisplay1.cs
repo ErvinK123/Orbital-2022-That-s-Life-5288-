@@ -26,6 +26,8 @@ public class BadgeDisplay1 : MonoBehaviour
     public GameObject HopelesslyIneptDescription;
     public GameObject SaintDescription;
 
+    // Initialising the animation for the collector badge
+    public GameObject CollectorAnimation;
 
 
     void Start()
@@ -43,6 +45,15 @@ public class BadgeDisplay1 : MonoBehaviour
         HandymanDescription.SetActive(false);
         HopelesslyIneptDescription.SetActive(false);
         SaintDescription.SetActive(false);
+
+        // Setting the collector animation to be disabled on start
+        CollectorAnimation.SetActive(false);
+
+        if ((Player.CollectorGet) && (Player.CollectorFirstTime))
+        {
+            CollectorAnimation.SetActive(true);
+            Player.firstTimeBadgeGet("Collector");
+        }
     }
 
     public void displayBadge()
@@ -185,6 +196,11 @@ public class BadgeDisplay1 : MonoBehaviour
     public void saintClose()
     {
         SaintDescription.SetActive(false);
+    }
+
+    public void collectorAnimationClose()
+    {
+        CollectorAnimation.SetActive(false);
     }
     
 }
