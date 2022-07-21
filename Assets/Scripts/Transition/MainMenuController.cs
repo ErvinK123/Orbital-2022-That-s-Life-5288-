@@ -52,9 +52,9 @@ public class MainMenuController : MonoBehaviour
 
 
 
-    private void Start()
+    private void Update()
     {
-        if (!DataPersistanceManager.instance.HasGameData())
+        if (!DataPersistanceManager.instance.HasGameData() || Player.currScene == null || Player.currScene == "")
         {
             loadGameButton.interactable = false;
         }
