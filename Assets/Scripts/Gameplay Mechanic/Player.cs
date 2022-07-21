@@ -1616,4 +1616,23 @@ public class Player : MonoBehaviour, IDataPersistance
         return;
     }
 
+
+    public static void resetProgress()
+    {
+        WorkJunkieGet = false;
+        SmoothBrainGet = false;
+        SocialButterflyGet = false;
+        ShutInGet = false;
+        PeakHumanGet = false;
+        ZombieGet = false;
+        HandymanGet = false;
+        HopelesslyIneptGet = false;
+        SaintGet = false;
+        VillainGet = false;
+        JackOfAllTradesGet = false;
+        MasterOfNoneGet = false;
+        CollectorGet = false;
+        DataPersistanceManager.instance.SaveGame();
+        return;
+    }
 }

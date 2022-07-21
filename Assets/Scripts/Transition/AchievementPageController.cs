@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class AchievementPageController : MonoBehaviour
 {
+
     public void startPage()
     {
         SceneManager.LoadScene("StartPage");
