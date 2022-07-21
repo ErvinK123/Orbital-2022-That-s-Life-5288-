@@ -67,7 +67,22 @@ public class GameData
 
     public int friend1Pointer;
     public int friend2Pointer;
-    public int enemyPointer; 
+    public int enemyPointer;
+
+
+    public bool WorkJunkieFirstTime;
+    public bool SmoothBrainFirstTime;
+    public bool SocialButterflyFirstTime;
+    public bool ShutInFirstTime;
+    public bool PeakHumanFirstTime;
+    public bool ZombieFirstTime;
+    public bool HandymanFirstTime;
+    public bool HopelesslyIneptFirstTime;
+    public bool SaintFirstTime;
+    public bool VillainFirstTime;
+    public bool JackOfAllTradesFirstTime;
+    public bool MasterOfNoneFirstTime;
+    public bool CollectorFirstTime;
 
     public GameData()
     {   

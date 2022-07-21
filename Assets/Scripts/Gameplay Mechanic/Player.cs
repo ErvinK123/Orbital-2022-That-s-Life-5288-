@@ -182,7 +182,20 @@ public class Player : MonoBehaviour, IDataPersistance
         elderList = data.elderList; 
 
         choices = data.choices;
-        Debug.Log("I have run Player class Load");
+
+        WorkJunkieFirstTime = data.WorkJunkieFirstTime;
+        SmoothBrainFirstTime = data.SmoothBrainFirstTime;
+        SocialButterflyFirstTime = data.SocialButterflyFirstTime;
+        ShutInFirstTime = data.ShutInFirstTime;
+        PeakHumanFirstTime = data.PeakHumanFirstTime;
+        ZombieFirstTime = data.ZombieFirstTime;
+        HandymanFirstTime = data.HandymanFirstTime;
+        HopelesslyIneptFirstTime = data.HopelesslyIneptFirstTime;
+        SaintFirstTime = data.SaintFirstTime;
+        VillainFirstTime = data.VillainFirstTime;
+        JackOfAllTradesFirstTime = data.JackOfAllTradesFirstTime;
+        MasterOfNoneFirstTime = data.MasterOfNoneFirstTime;
+        CollectorFirstTime = data.CollectorFirstTime; 
     }
 
     public void SaveData(ref GameData data)
@@ -236,7 +249,21 @@ public class Player : MonoBehaviour, IDataPersistance
         data.childList = childList;
         data.teenList = teenList;
         data.adultList = adultList;
-        data.elderList = elderList; 
+        data.elderList = elderList;
+
+        data.WorkJunkieFirstTime = WorkJunkieFirstTime;
+        data.SmoothBrainFirstTime = SmoothBrainFirstTime;
+        data.SocialButterflyFirstTime = SocialButterflyFirstTime;
+        data.ShutInFirstTime = ShutInFirstTime;
+        data.PeakHumanFirstTime = PeakHumanFirstTime;
+        data.ZombieFirstTime = ZombieFirstTime;
+        data.HandymanFirstTime = HandymanFirstTime;
+        data.HopelesslyIneptFirstTime = HopelesslyIneptFirstTime;
+        data.SaintFirstTime = SaintFirstTime;
+        data.VillainFirstTime = VillainFirstTime;
+        data.JackOfAllTradesFirstTime = JackOfAllTradesFirstTime;
+        data.MasterOfNoneFirstTime = MasterOfNoneFirstTime;
+        data.CollectorFirstTime = CollectorFirstTime;
 
     }
 
