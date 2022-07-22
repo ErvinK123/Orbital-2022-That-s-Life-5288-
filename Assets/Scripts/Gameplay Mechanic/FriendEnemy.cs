@@ -19,9 +19,9 @@ public class FriendEnemy : MonoBehaviour , IDataPersistance
     public static int friend2Pointer;
     public static int enemyPointer;
 
-    public static string[] friend1Pool = new string[5] {"Levi", "Evan", "Axel", "Mark", "Owen"};
-    public static string[] friend2Pool = new string[5] {"Riley", "Hazel", "Sally", "Grace", "Avery"};
-    public static string[] enemyPool = new string[5] { "Jax", "Ace", "Tom", "Bob", "Ian" };
+    public static string[] friend1Pool = new string[10] {"Levi", "Evan", "Axel", "Mark", "Owen", "Arlo", "Milo", "Rory", "Remy", "Enzo"};
+    public static string[] friend2Pool = new string[10] {"Riley", "Hazel", "Sally", "Grace", "Avery", "Layla", "Alice", "Maria", "Quinn", "Piper"};
+    public static string[] enemyPool = new string[10] { "Jax", "Ace", "Tom", "Bob", "Ian", "Jed", "Kai", "Leo", "Ari", "Sky"};
 
     public static void feSaveSetUp(string[] arr, string status)
     {
