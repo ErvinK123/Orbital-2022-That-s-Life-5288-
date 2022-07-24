@@ -1676,6 +1676,7 @@ public class Player : MonoBehaviour, IDataPersistance
         CollectorFirstTime = true; 
 
         DataPersistanceManager.instance.SaveGame();
+        DataPersistanceManager.instance.LoadGame();
         return;
     }
 }

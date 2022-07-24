@@ -19,13 +19,18 @@ public class BadgeDisplay2 : MonoBehaviour
 
     void Start()
     {
-        displayBadge2();
+        //displayBadge2();
 
         //Setting all the badge popups to be disabled on start
         VillainDescription.SetActive(false);
         JackOfAllTradesDescription.SetActive(false);
         MasterOfNoneDescription.SetActive(false);
         CollectorDescription.SetActive(false);
+    }
+
+    void Update()
+    {
+        displayBadge2();
     }
 
     public void displayBadge2()
