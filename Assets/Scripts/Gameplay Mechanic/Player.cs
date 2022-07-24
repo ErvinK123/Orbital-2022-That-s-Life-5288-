@@ -1424,19 +1424,19 @@ public class Player : MonoBehaviour, IDataPersistance
     // Debug function to display whether badges have been obtained before
     public static void showBadgeFirstTime()
     {
-        Debug.Log(WorkJunkieFirstTime);
-        Debug.Log(SmoothBrainFirstTime);
-        Debug.Log(SocialButterflyFirstTime);
-        Debug.Log(ShutInFirstTime);
-        Debug.Log(PeakHumanFirstTime);
-        Debug.Log(ZombieFirstTime);
-        Debug.Log(HandymanFirstTime);
-        Debug.Log(HopelesslyIneptFirstTime);
-        Debug.Log(SaintFirstTime);
-        Debug.Log(VillainFirstTime);
-        Debug.Log(JackOfAllTradesFirstTime);
-        Debug.Log(MasterOfNoneFirstTime);
-        Debug.Log(CollectorFirstTime);
+        Debug.Log("WorkJunkieFirstTime: " + WorkJunkieFirstTime);
+        Debug.Log("SmoothBrainFirstTime: " + SmoothBrainFirstTime);
+        Debug.Log("SocialButterflyFirstTime: " + SocialButterflyFirstTime);
+        Debug.Log("ShutInFirstTime: " + ShutInFirstTime);
+        Debug.Log("PeakHumanFirstTime: " + PeakHumanFirstTime);
+        Debug.Log("ZombieFirstTime: " + ZombieFirstTime);
+        Debug.Log("HandymanFirstTime: " + HandymanFirstTime);
+        Debug.Log("HopelesslyIneptFirstTime: " + HopelesslyIneptFirstTime);
+        Debug.Log("SaintFirstTime: " + SaintFirstTime);
+        Debug.Log("VillainFirstTime: " + VillainFirstTime);
+        Debug.Log("JackOfAllTrades: " + JackOfAllTradesFirstTime);
+        Debug.Log("MasterOfNoneFirstTime: " + MasterOfNoneFirstTime);
+        Debug.Log("CollectorFirstTime: " + CollectorFirstTime);
     }
 
 

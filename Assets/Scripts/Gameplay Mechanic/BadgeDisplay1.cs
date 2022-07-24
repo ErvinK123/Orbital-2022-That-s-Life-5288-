@@ -53,6 +53,8 @@ public class BadgeDisplay1 : MonoBehaviour
         {
             CollectorAnimation.SetActive(true);
             Player.firstTimeBadgeGet("Collector");
+            DataPersistanceManager.instance.SaveGame();
+            //Player.showBadgeFirstTime();
         }
     }
 

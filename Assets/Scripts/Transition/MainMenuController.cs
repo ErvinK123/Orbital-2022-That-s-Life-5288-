@@ -51,6 +51,10 @@ public class MainMenuController : MonoBehaviour
     }
 
 
+    void Start()
+    {
+        //Player.showBadgeFirstTime();
+    }
 
     private void Update()
     {
@@ -59,7 +63,6 @@ public class MainMenuController : MonoBehaviour
             loadGameButton.interactable = false;
         }
 
-        //Player.showBadgeFirstTime();
     }
 
     public void playGame()
